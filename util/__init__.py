@@ -1,10 +1,13 @@
 import functools
+import json
 import time
 from typing import Callable, Any, Optional
 import asyncio
 import aiohttp
 from aiohttp import ClientSession
 from colorama import Fore, Style
+import httpx
+import pandas as pd
 
 
 def async_timed():
@@ -37,8 +40,24 @@ async def get(session: ClientSession, url: str, params: Optional = None, headers
     caseid = url.split('/')[-1]
     print(Fore.YELLOW + f'Getting docket entries for case {caseid}...', flush=True)
     if headers:
-        async with session.get(url, timeout=to, params=params, headers=headers) as result:
-            return result.status
+        async with session.get(url, timeout=to, params=params, headers=headers, ssl=False) as result:
+            res = await result.read()
+            df = pd.DataFrame(json.loads(res)['data'])
+            df.sort_values(by=['de_seqno'], ascending=True, inplace=True)
+            df.head()
+            return df
     else:
-        async with session.get(url, timeout=to, params=params) as result:
+        async with session.get(url, timeout=to, params=params, ssl=False) as result:
             return result.status
+
+
+async def get_httpx(url: str, params: Optional = None, headers: Optional = None) -> int:
+    caseid = url.split('/')[-1]
+    print(Fore.YELLOW + f'Getting docket entries for case {caseid}...', flush=True)
+    if headers:
+        async with httpx.AsyncClient() as client:
+            r = await client.get(url, params=params, headers=headers, timeout=None)
+    else:
+        async with httpx.AsyncClient() as client:
+            r = await client.get(url, params=params, timeout=None)
+    return r.status_code
