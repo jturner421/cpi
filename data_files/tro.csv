@@ -1,0 +1,79 @@
+de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_filed,de_date_enter,de_who_entered,initials,name,pr_type,pr_crttype
+42122,236,motion                   ,65,motion                   ,setagr  ,237,2021-01-05,2021-01-05T10:08:19,1446149,aom ,Amos Malone,crt,clk
+44283,193,motion                   ,55,motion                   ,setagr  ,194,2021-05-17,2021-05-17T19:18:51,1267873,,John Fay,aty,
+46221,88,motion                   ,24,motion                   ,setagr  ,89,2021-07-20,2021-07-20T12:51:47,1489502,lam ,Laura Miller,crt,clk
+47996,11,motion                   ,1,motion                   ,setagr  ,12,2021-08-05,2021-08-05T11:30:49,1446149,aom ,Amos Malone,crt,clk
+46115,98,motion                   ,29,motion                   ,setagr  ,99,2021-08-10,2021-08-10T17:18:33,10300,,Briane Pagel,aty,
+45138,342,motion                   ,91,motion                   ,setagr  ,343,2021-08-13,2021-08-13T16:19:01,24419,jef ,Joanne Friedl,crt,clk
+47266,110,motion                   ,23,motion                   ,setagr  ,111,2021-09-10,2021-09-10T09:01:13,24419,jef ,Joanne Friedl,crt,clk
+45414,264,motion                   ,75,motion                   ,setagr  ,265,2021-09-10,2021-09-10T13:13:56,864108,,Kevin Grzebielski,aty,
+44568,143,motion                   ,37,motion                   ,setagr  ,144,2021-09-10,2021-09-10T13:27:36,771397,,Emily McNee,aty,
+45722,249,motion                   ,50,motion                   ,setagr  ,250,2021-10-08,2021-10-08T15:25:45,1442232,,Samir Jaber,aty,
+48006,51,motion                   ,12,motion                   ,setagr  ,52,2021-10-18,2021-10-18T13:35:43,1446149,aom ,Amos Malone,crt,clk
+48084,111,motion                   ,30,motion                   ,setagr  ,112,2021-11-01,2021-11-01T13:09:43,1446149,aom ,Amos Malone,crt,clk
+45608,157,motion                   ,42,motion                   ,setagr  ,158,2021-11-03,2021-11-03T12:38:42,1446149,aom ,Amos Malone,crt,clk
+45426,186,motion                   ,44,motion                   ,setagr  ,187,2021-11-03,2021-11-03T13:20:27,1446149,aom ,Amos Malone,crt,clk
+47633,182,motion                   ,49,motion                   ,setagr  ,183,2021-11-05,2021-11-05T16:00:20,124843,,Timothy Johnson,aty,
+48163,46,motion                   ,13,motion                   ,setagr  ,47,2021-11-19,2021-11-19T12:48:01,1446149,aom ,Amos Malone,crt,clk
+46599,57,motion                   ,14,motion                   ,setagr  ,58,2021-11-22,2021-11-22T12:30:43,1518391,kmd ,Kim Davis,crt,clk
+46164,134,motion                   ,35,motion                   ,setagr  ,135,2021-11-23,2021-11-23T08:31:21,1446149,aom ,Amos Malone,crt,clk
+46599,63,motion                   ,15,motion                   ,setagr  ,64,2021-11-24,2021-11-24T11:21:46,1489502,lam ,Laura Miller,crt,clk
+43408,969,motion                   ,256,motion                   ,setagr  ,970,2021-12-01,2021-12-01T16:34:04,24419,jef ,Joanne Friedl,crt,clk
+47537,35,motion                   ,8,motion                   ,setagr  ,36,2021-12-10,2021-12-10T11:59:14,1518391,kmd ,Kim Davis,crt,clk
+48291,62,motion                   ,8,motion                   ,setagr  ,63,2021-12-13,2021-12-13T14:07:52,1518391,kmd ,Kim Davis,crt,clk
+44574,724,motion                   ,191,motion                   ,setagr  ,725,2021-12-13,2021-12-13T15:10:09,1446149,aom ,Amos Malone,crt,clk
+47460,111,motion                   ,30,motion                   ,setagr  ,112,2021-12-17,2021-12-17T12:13:02,1446149,aom ,Amos Malone,crt,clk
+45034,64,motion                   ,15,motion                   ,setagr  ,65,2021-12-20,2021-12-20T11:28:03,1446149,aom ,Amos Malone,crt,clk
+48590,22,motion                   ,1,motion                   ,setagr  ,23,2021-12-20,2021-12-20T12:42:02,1446149,aom ,Amos Malone,crt,clk
+44216,68,motion                   ,15,motion                   ,setagr  ,69,2021-12-22,2021-12-22T13:06:24,24419,jef ,Joanne Friedl,crt,clk
+43229,65,motion                   ,15,motion                   ,setagr  ,66,2021-12-22,2021-12-22T13:13:22,24419,jef ,Joanne Friedl,crt,clk
+43408,988,motion                   ,260,motion                   ,setagr  ,989,2022-01-03,2022-01-03T09:11:53,1446149,aom ,Amos Malone,crt,clk
+43408,993,motion                   ,261,motion                   ,setagr  ,994,2022-01-04,2022-01-04T12:05:55,1446149,aom ,Amos Malone,crt,clk
+46164,157,motion                   ,40,motion                   ,setagr  ,158,2022-01-05,2022-01-05T08:56:48,1446149,aom ,Amos Malone,crt,clk
+43959,86,motion                   ,27,motion                   ,setagr  ,87,2022-01-10,2022-01-10T16:10:34,1446149,aom ,Amos Malone,crt,clk
+45507,84,motion                   ,21,motion                   ,setagr  ,85,2022-01-10,2022-01-11T08:02:40,1446149,aom ,Amos Malone,crt,clk
+46360,51,motion                   ,10,motion                   ,setagr  ,52,2022-01-11,2022-01-11T08:06:07,1446149,aom ,Amos Malone,crt,clk
+46831,96,motion                   ,15,motion                   ,setagr  ,97,2022-01-13,2022-01-13T14:20:06,1446149,aom ,Amos Malone,crt,clk
+44918,468,motion                   ,120,motion                   ,setagr  ,469,2022-01-25,2022-01-25T11:19:47,1442232,,Samir Jaber,aty,
+46593,449,motion                   ,120,motion                   ,setagr  ,450,2022-01-28,2022-01-28T16:10:11,1446149,aom ,Amos Malone,crt,clk
+46724,35,motion                   ,10,motion                   ,setagr  ,36,2022-01-28,2022-01-28T16:23:02,1446149,aom ,Amos Malone,crt,clk
+43987,100,motion                   ,35,motion                   ,setagr  ,101,2022-02-07,2022-02-07T16:32:21,1446149,aom ,Amos Malone,crt,clk
+48037,82,motion                   ,20,motion                   ,setagr  ,83,2022-02-08,2022-02-08T08:12:57,1446149,aom ,Amos Malone,crt,clk
+47341,319,motion                   ,82,motion                   ,setagr  ,320,2022-02-08,2022-02-08T11:38:23,1446149,aom ,Amos Malone,crt,clk
+44574,786,motion                   ,204,motion                   ,setagr  ,787,2022-02-08,2022-02-08T11:42:25,1446149,aom ,Amos Malone,crt,clk
+48180,38,motion                   ,11,motion                   ,setagr  ,39,2022-02-09,2022-02-10T09:35:02,1446149,aom ,Amos Malone,crt,clk
+48578,37,motion                   ,9,motion                   ,setagr  ,38,2022-02-10,2022-02-10T12:07:13,1446149,aom ,Amos Malone,crt,clk
+48572,54,motion                   ,9,motion                   ,setagr  ,55,2022-02-10,2022-02-10T12:11:49,1446149,aom ,Amos Malone,crt,clk
+47993,127,motion                   ,37,motion                   ,setagr  ,128,2022-02-23,2022-02-23T10:12:24,24419,jef ,Joanne Friedl,crt,clk
+47633,291,motion                   ,78,motion                   ,setagr  ,292,2022-03-02,2022-03-02T11:14:30,1446149,aom ,Amos Malone,crt,clk
+48073,112,motion                   ,25,motion                   ,setagr  ,113,2022-03-04,2022-03-04T15:11:14,1518391,kmd ,Kim Davis,crt,clk
+46368,50,motion                   ,12,motion                   ,setagr  ,51,2022-03-08,2022-03-08T12:12:31,1446149,aom ,Amos Malone,crt,clk
+46369,62,motion                   ,10,motion                   ,setagr  ,63,2022-03-08,2022-03-08T12:15:30,1446149,aom ,Amos Malone,crt,clk
+46370,61,motion                   ,10,motion                   ,setagr  ,62,2022-03-08,2022-03-08T12:16:44,1446149,aom ,Amos Malone,crt,clk
+41238,729,motion                   ,186,motion                   ,setagr  ,730,2022-03-17,2022-03-17T15:35:29,1489502,lam ,Laura Miller,crt,clk
+48808,20,motion                   ,4,motion                   ,setagr  ,21,2022-03-21,2022-03-21T13:57:53,1489502,lam ,Laura Miller,crt,clk
+47074,201,motion                   ,46,motion                   ,setagr  ,202,2022-03-22,2022-03-22T12:34:01,1446149,aom ,Amos Malone,crt,clk
+45711,615,motion                   ,184,motion                   ,setagr  ,616,2022-03-23,2022-03-23T09:23:23,1446149,aom ,Amos Malone,crt,clk
+44122,123,motion                   ,34,motion                   ,setagr  ,124,2022-03-23,2022-03-23T09:29:44,1446149,aom ,Amos Malone,crt,clk
+43727,148,motion                   ,37,motion                   ,setagr  ,149,2022-04-07,2022-04-07T14:53:58,24419,jef ,Joanne Friedl,crt,clk
+44563,142,motion                   ,39,motion                   ,setagr  ,143,2022-04-07,2022-04-07T15:29:58,24419,jef ,Joanne Friedl,crt,clk
+47792,229,motion                   ,57,motion                   ,setagr  ,230,2022-04-11,2022-04-11T12:13:22,1489502,lam ,Laura Miller,crt,clk
+49060,41,motion                   ,6,motion                   ,setagr  ,42,2022-04-11,2022-04-11T13:03:13,1446149,aom ,Amos Malone,crt,clk
+43016,181,motion                   ,51,motion                   ,setagr  ,182,2022-04-11,2022-04-11T14:45:36,24419,jef ,Joanne Friedl,crt,clk
+48874,35,motion                   ,5,motion                   ,setagr  ,36,2022-04-13,2022-04-13T13:35:14,24419,jef ,Joanne Friedl,crt,clk
+42096,1021,motion                   ,276,motion                   ,setagr  ,1022,2022-04-15,2022-04-15T08:40:47,1446149,aom ,Amos Malone,crt,clk
+48037,161,motion                   ,38,motion                   ,setagr  ,162,2022-04-26,2022-04-26T16:00:08,1567746,,Jenifer Bizzotto,aty,
+48996,27,motion                   ,3,motion                   ,setagr  ,28,2022-04-29,2022-04-29T14:17:22,24419,jef ,Joanne Friedl,crt,clk
+44063,151,motion                   ,36,motion                   ,setagr  ,152,2022-05-02,2022-05-02T14:22:17,1489502,lam ,Laura Miller,crt,clk
+44122,135,motion                   ,36,motion                   ,setagr  ,136,2022-05-03,2022-05-03T12:39:09,1489502,lam ,Laura Miller,crt,clk
+47076,88,motion                   ,16,motion                   ,setagr  ,89,2022-05-03,2022-05-03T15:24:50,1489502,lam ,Laura Miller,crt,clk
+49199,10,motion                   ,1,motion                   ,setagr  ,11,2022-05-09,2022-05-10T14:49:03,1489502,lam ,Laura Miller,crt,clk
+44403,80,motion                   ,17,motion                   ,setagr  ,81,2022-05-12,2022-05-12T10:36:45,24419,jef ,Joanne Friedl,crt,clk
+47050,110,motion                   ,21,motion                   ,setagr  ,111,2022-05-20,2022-05-20T13:31:28,1446149,aom ,Amos Malone,crt,clk
+46895,65,motion                   ,13,motion                   ,setagr  ,66,2022-05-23,2022-05-23T16:24:17,1446149,aom ,Amos Malone,crt,clk
+48707,89,motion                   ,25,motion                   ,setagr  ,90,2022-06-01,2022-06-01T11:54:41,1489502,lam ,Laura Miller,crt,clk
+48572,83,motion                   ,16,motion                   ,setagr  ,84,2022-06-28,2022-06-28T11:19:29,1489502,lam ,Laura Miller,crt,clk
+45430,125,motion                   ,21,motion                   ,setagr  ,126,2022-09-23,2022-09-23T10:16:25,1353789,rks ,Rachel Swanson,crt,clk
+47684,92,motion                   ,17,motion                   ,setagr  ,93,2022-11-02,2022-11-02T14:07:58,1542546,,Bradley Soldon,aty,
+47387,140,motion                   ,31,motion                   ,setagr  ,141,2023-02-14,2023-02-14T17:48:45,1519137,,Angela McCarthy,pty,
+49093,99,motion                   ,27,motion                   ,setagr  ,100,2023-02-15,2023-02-15T12:18:56,1353789,rks ,Rachel Swanson,crt,clk

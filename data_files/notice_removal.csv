@@ -1,0 +1,54 @@
+de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_filed,de_date_enter,de_who_entered,initials,name,pr_type,pr_crttype
+46512,4,cmp                      ,1,notice                   ,ntcrem  ,6,2020-09-04,2020-09-04T17:13:55,553681,,Megan Stelljes,aty,
+46654,4,cmp                      ,1,notice                   ,ntcrem  ,7,2020-09-30,2020-09-30T15:17:39,1335303,,Devra Ayala,aty,
+46742,5,cmp                      ,1,notice                   ,ntcrem  ,8,2020-10-20,2020-10-20T14:29:33,1401087,,Christopher McElgunn,aty,
+47281,9,cmp                      ,1,notice                   ,ntcrem  ,17,2021-02-16,2021-02-16T14:11:51,1380270,,Eliot Held,aty,
+47417,9,cmp                      ,1,notice                   ,ntcrem  ,10,2021-03-31,2021-03-31T09:39:37,1518391,kmd ,Kim Davis,crt,clk
+47905,7,cmp                      ,1,notice                   ,ntcrem  ,12,2021-07-14,2021-07-14T12:15:50,1380270,,Eliot Held,aty,
+41206,19,cmp                      ,1,notice                   ,ntcrem  ,20,2018-01-31,2018-01-31T11:11:57,6940,,Ann Peacock,aty,
+41511,19,cmp                      ,1,notice                   ,ntcrem  ,20,2018-03-30,2018-03-30T12:44:03,126907,,Brandon Flugaur,aty,
+42059,16,cmp                      ,1,notice                   ,ntcrem  ,17,2018-06-21,2018-06-21T12:36:02,1265533,,Michael Morris,aty,
+42107,30,cmp                      ,1,notice                   ,ntcrem  ,31,2018-07-05,2018-07-05T11:32:45,357909,,Laure Rakvic-Farr,aty,
+42206,132,cmp                      ,1,notice                   ,ntcrem  ,133,2018-07-25,2018-07-25T15:34:35,1065283,,Danielle Tierney,aty,
+42224,16,cmp                      ,1,notice                   ,ntcrem  ,17,2018-08-02,2018-08-02T12:49:05,6940,,Ann Peacock,aty,
+42327,7,cmp                      ,1,notice                   ,ntcrem  ,8,2018-08-09,2018-08-09T11:27:05,1449,,Jeffrey Simmons,aty,
+42586,4,cmp                      ,1,notice                   ,ntcrem  ,5,2018-09-21,2018-09-21T10:36:56,734,,Thomas Crone,aty,
+42652,13,cmp                      ,1,notice                   ,ntcrem  ,14,2018-10-11,2018-10-11T09:40:06,445619,,Shannon Conlin,aty,
+42742,8,cmp                      ,1,notice                   ,ntcrem  ,9,2018-10-23,2018-10-23T14:47:42,478694,,Alyssa Johnson,aty,
+43045,17,cmp                      ,1,notice                   ,ntcrem  ,18,2018-12-13,2018-12-14T11:29:14,24419,jef ,Joanne Friedl,crt,clk
+43123,33,cmp                      ,1,notice                   ,ntcrem  ,34,2019-01-02,2019-01-02T12:29:23,1016,,Terry Johnson,aty,
+43123,35,cmp                      ,2,notice                   ,ntcrem  ,36,2019-01-02,2019-01-02T12:37:01,1016,,Terry Johnson,aty,
+43125,14,cmp                      ,1,notice                   ,ntcrem  ,15,2019-01-02,2019-01-02T13:17:50,478694,,Alyssa Johnson,aty,
+43234,33,cmp                      ,1,notice                   ,ntcrem  ,34,2019-01-02,2019-01-02T12:29:23,1016,,Terry Johnson,aty,
+43234,35,cmp                      ,2,notice                   ,ntcrem  ,36,2019-01-02,2019-01-02T12:37:01,1016,,Terry Johnson,aty,
+43271,16,cmp                      ,2,notice                   ,ntcrem  ,17,2019-02-04,2019-02-04T16:56:39,1314313,,Brandie Morgenroth,aty,
+43409,18,cmp                      ,1,notice                   ,ntcrem  ,19,2019-02-27,2019-02-27T16:25:18,164646,,Rebecca Paulson,aty,
+43559,4,cmp                      ,1,notice                   ,ntcrem  ,5,2019-04-02,2019-04-02T14:54:16,161315,,David Conway,aty,
+43595,16,cmp                      ,1,notice                   ,ntcrem  ,29,2019-04-11,2019-04-11T11:31:45,164646,,Rebecca Paulson,aty,
+43737,18,cmp                      ,1,notice                   ,ntcrem  ,19,2019-05-07,2019-05-07T13:50:22,124840,,Katherine Spitz,aty,
+43838,3,cmp                      ,1,notice                   ,ntcrem  ,5,2019-05-23,2019-05-23T15:42:06,1360485,,Hector Al-Homsi,aty,
+44210,3,cmp                      ,1,notice                   ,ntcrem  ,5,2019-07-31,2019-07-31T16:52:37,1134,,Lori Lubinsky,aty,
+44215,4,cmp                      ,1,notice                   ,ntcrem  ,6,2019-08-01,2019-08-01T14:27:01,1271157,,Morgan Marcus,aty,
+44242,4,cmp                      ,1,notice                   ,ntcrem  ,7,2019-08-06,2019-08-06T16:59:00,164646,,Rebecca Paulson,aty,
+44401,14,cmp                      ,1,notice                   ,ntcrem  ,27,2019-09-05,2019-09-05T15:43:37,864108,,Kevin Grzebielski,aty,
+45046,14,cmp                      ,1,notice                   ,ntcrem  ,15,2019-12-19,2019-12-19T16:08:49,661013,nln ,Nicole Nelson,crt,clk
+45568,8,cmp                      ,1,notice                   ,ntcrem  ,9,2020-03-27,2020-03-27T08:49:22,1304847,,Sydney VanBerg,aty,
+45607,3,cmp                      ,1,notice                   ,ntcrem  ,5,2020-03-31,2020-03-31T12:43:19,1278916,,Dale Golden,aty,
+45644,16,cmp                      ,1,notice                   ,ntcrem  ,17,2020-04-06,2020-04-06T18:49:51,661013,nln ,Nicole Nelson,crt,clk
+46059,10,cmp                      ,1,notice                   ,ntcrem  ,11,2020-06-18,2020-06-18T17:28:07,1429434,,Catarina Colon,aty,
+46218,10,cmp                      ,1,notice                   ,ntcrem  ,11,2020-07-16,2020-07-16T14:47:17,661013,nln ,Nicole Nelson,crt,clk
+47975,5,cmp                      ,1,notice                   ,ntcrem  ,6,2021-07-30,2021-07-30T10:13:07,428513,,William Hittler,aty,
+47993,4,cmp                      ,1,notice                   ,ntcrem  ,6,2021-08-03,2021-08-03T21:41:43,793965,,Ryan Wiesner,aty,
+48053,5,cmp                      ,1,notice                   ,ntcrem  ,6,2021-08-18,2021-08-18T15:26:22,24419,jef ,Joanne Friedl,crt,clk
+48061,8,cmp                      ,1,notice                   ,ntcrem  ,9,2021-08-18,2021-08-18T16:48:31,24419,jef ,Joanne Friedl,crt,clk
+48308,4,cmp                      ,1,notice                   ,ntcrem  ,7,2021-10-15,2021-10-15T13:56:03,357909,,Laure Rakvic-Farr,aty,
+48353,4,cmp                      ,1,notice                   ,ntcrem  ,7,2021-10-27,2021-10-27T14:18:33,864108,,Kevin Grzebielski,aty,
+48583,7,cmp                      ,1,notice                   ,ntcrem  ,13,2021-12-16,2021-12-16T14:11:38,419178,,Pauline Toulouse,aty,
+48579,4,cmp                      ,1,notice                   ,ntcrem  ,7,2021-12-16,2021-12-16T14:30:46,1557367,,Dylan Grady,aty,
+48605,9,cmp                      ,1,notice                   ,ntcrem  ,10,2021-12-23,2021-12-23T15:54:15,1446149,aom ,Amos Malone,crt,clk
+48631,12,cmp                      ,1,notice                   ,ntcrem  ,13,2022-01-06,2022-01-06T11:24:42,748962,,Ryan Bechard,pty,
+48864,7,cmp                      ,1,notice                   ,ntcrem  ,8,2022-02-28,2022-02-28T17:04:43,24419,jef ,Joanne Friedl,crt,clk
+48884,12,cmp                      ,1,notice                   ,ntcrem  ,21,2022-03-03,2022-03-03T15:01:31,1442232,,Samir Jaber,aty,
+49060,6,cmp                      ,1,notice                   ,ntcrem  ,11,2022-04-04,2022-04-04T10:14:18,419178,,Pauline Toulouse,aty,
+49319,3,cmp                      ,1,notice                   ,ntcrem  ,5,2022-05-27,2022-05-27T14:16:21,1294000,,Daniel Waltz,aty,
+49320,3,cmp                      ,1,notice                   ,ntcrem  ,5,2022-05-27,2022-05-27T14:53:08,1163580,,Joseph Poehlmann,aty,

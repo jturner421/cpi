@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "cpi-program"
+version = "0.1.0"
+description = ""
+authors = ["Joel Turner <joel_turner@wiwd.uscourts.gov>"]
+readme = "README.md"
+packages = [{include = "cpi_program"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = "^1.0.0"
+pandas = "^1.5.3"
+pydantic = "^1.10.6"
+httpx = "^0.23.3"
+sqlalchemy = "1.4.35"
+psycopg2-binary = "^2.9.5"
+alembic = "^1.10.2"
+colorama = "^0.4.6"
+aiohttp = "^3.8.4"
+aiodns = "^3.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
