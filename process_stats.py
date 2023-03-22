@@ -9,9 +9,13 @@ import pandas as pd
 import numpy as np
 import datetime
 import json
+import aiohttp
+from aiohttp import ClientSession
+
 from configuration.config import Config
 from services.api_services import ApiSession
-import httpx
+from util import async_timed
+
 
 from colorama import Fore, Style
 
@@ -250,23 +254,12 @@ def create_merged_df(original_df, candidate_df) -> pd.DataFrame:
     return df
 
 
-async def get_docket_entries_for_case(caseid, q: asyncio.Queue):
-    while True:
-        caseid = await q.get()
-        print(Fore.YELLOW + f'Getting docket entries for case {caseid}...', flush=True)
-        url = f'{api_base_url}/cases/entries/{caseid}'
-        headers = {'Authorization': f'Bearer {api.access_token}', 'Content-Type': 'application/json'}
-        params = {'documents': False, 'docket_text': True}
-        async with httpx.AsyncClient() as client:
-            r = await client.get(url, params=params, headers=headers, timeout=None)
-        df = pd.DataFrame(r.json()['data'])
-        df.sort_values(by=['de_seqno'], ascending=True, inplace=True)
-        await q.put((caseid, df))
-    # return df
 
 
+
+@async_timed()
 async def main(*caseids):
-    q = asyncio.Queue()
+    # q = asyncio.Queue()
     # await asyncio.gather(*(chain(caseid) for caseid in caseids))
     # put the case ids in the queue
     # for caseid in caseids:
