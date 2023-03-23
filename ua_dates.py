@@ -7,19 +7,20 @@ from colorama import Fore, Style
 
 
 def find_ua_date(docnum, ua):
-    matches = [docnum, "Screening", 'Complaint', 'forma pauperis', 'Habeas']
+    ua_dates = []
+    matches = [docnum, "Screening", 'Complaint', 'forma pauperis', 'Habeas', "Reopen"]
     for index, row in ua.iterrows():
         a_string = row['dt_text']
         if any(x in a_string for x in matches):
-            ua_date = row['de_date_filed']
-            break
+            ua_dates.append((row['de_date_filed'], row['dt_text']))
         else:
             ua_date = np.nan
-    return ua_date
+    return ua_dates
 
 
 def _find_complaint(case_dates, target):
-    cmp = target.loc[target['de_type'] == 'cmp']
+    #cmp = target.loc[target['de_type'] == 'cmp']
+    cmp = target.query('dp_type == "motion" and dp_sub_type == "2255" or dp_type=="cmp" or dp_sub_type=="pwrithc"')
     if not cmp.empty:
         cmp_docnum = cmp['de_document_num'].iloc[0].astype(int)
         cmp_docnum = f'[{int(cmp_docnum)}]'
@@ -27,7 +28,7 @@ def _find_complaint(case_dates, target):
         case_dates.append({'cmp_date': cmp_date})
         case_dates.append({'cmp_docnum': cmp_docnum})
 
-        # was an amended complaint or 2255 motion filed?
+        # was an amended complaint, 2255 motion filed?
         events = ['amdcmp', 'pamdcmp', '2255']
         mask = target['dp_sub_type'].isin(events)
         amdcmp = target[mask]
@@ -44,8 +45,8 @@ def _find_complaint(case_dates, target):
     else:
         cmp_docnum = np.nan
         cmp_date = np.nan
-        case_dates.append({'amdcmp_date': cmp_date})
-        case_dates.append({'amdcmp_docnum': cmp_docnum})
+        case_dates.append({'cmp_date': cmp_date})
+        case_dates.append({'cmp_docnum': cmp_docnum})
 
     return case_dates
 
@@ -86,7 +87,13 @@ def _get_ifp_date(case_dates, target):
 def _get_ua_date(case_dates, ua):
     if not ua.empty:
         # find a matching key in a list of dicts
-        ua_date = find_ua_date(next(a['cmp_docnum'] for a in case_dates if a.get('cmp_docnum')), ua)
+        ua_dates = find_ua_date(next(a['cmp_docnum'] for a in case_dates if a.get('cmp_docnum')), ua)
+        if ua_dates:
+            for ua_date in ua_dates:
+                case_dates.append({'ua_date': ua_date[0], 'ua_text': ua_date[1]})
+        else:
+            ua_date = np.nan
+            case_dates.append({'ua_date': ua_date})
 
     # check for alternative ua dates if not found
     ifp_date = next(a['ifp_date'] for a in case_dates if a.get('ifp_date'))
@@ -131,6 +138,7 @@ def _early_dismissal(case_dates, target):
         case_dates.append({'dis_date': dis_date})
     else:
         case_dates.append({'dis_date': np.nan})
+    return case_dates
 
 
 def get_ua_date(case_id: int, target: pd.DataFrame) -> pd.DataFrame:
@@ -148,7 +156,6 @@ def get_ua_date(case_id: int, target: pd.DataFrame) -> pd.DataFrame:
         case_dates = _get_screening_date(case_dates, target)
         # Get all under advisement entries
         ua = target.loc[target['dp_sub_type'] == 'madv']
-
 
     if not ua.empty:
         # Find the under advisement date for the complaint
@@ -183,7 +190,7 @@ def main():
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
     cases['Case ID'] = cases['Case ID'].astype(int)
-    cases = cases.loc[cases['Group'] == 'Other Statutes']
+    # cases = cases.loc[cases['Group'] == 'Other Statutes']
     df1 = cases.loc[cases['Date Filed'] <= datetime.datetime(2018, 5, 31)]
     caseids = df1['Case ID'].tolist()
     # caseids = cases['Case ID'].tolist()
