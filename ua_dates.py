@@ -19,39 +19,40 @@ def find_ua_date(docnum, ua):
 
 
 def _find_complaint(case_dates, target):
-    mask = target['de_type'] == 'cmp'
-    cmp = target[mask]
+    cmp = target.loc[target['de_type'] == 'cmp']
     if not cmp.empty:
         cmp_docnum = cmp['de_document_num'].iloc[0].astype(int)
         cmp_docnum = f'[{int(cmp_docnum)}]'
         cmp_date = cmp['de_date_filed'].iloc[0]
-        case_dates.append({'cmp_date': cmp_date, 'cmp_docnum': cmp_docnum})
+        case_dates.append({'cmp_date': cmp_date})
+        case_dates.append({'cmp_docnum': cmp_docnum})
 
         # was an amended complaint or 2255 motion filed?
         events = ['amdcmp', 'pamdcmp', '2255']
         mask = target['dp_sub_type'].isin(events)
         amdcmp = target[mask]
         if not amdcmp.empty:
-            cmp_docnum = amdcmp['de_document_num'].iloc[0].astype(int)
-            cmp_docnum = f'[{int(cmp_docnum)}]'
+            amdcmp_docnum = amdcmp['de_document_num'].iloc[0].astype(int)
+            amdcmp_docnum = f'[{int(amdcmp_docnum)}]'
             amdcmp_date = amdcmp['de_date_filed'].iloc[0]
-            case_dates.append({'amdcmp_date': amdcmp_date, 'amdcmp_docnum': cmp_docnum})
+
         else:
             amdcmp_date = np.nan
             amdcmp_docnum = np.nan
-            case_dates.append({'amdcmp_date': amdcmp_date, 'amdcmp_docnum': amdcmp_docnum})
+            case_dates.append({'amdcmp_date': amdcmp_date})
+            case_dates.append({'amdcmp_docnum': amdcmp_docnum})
     else:
         cmp_docnum = np.nan
         cmp_date = np.nan
-        case_dates.append({'cmp_date': cmp_date, 'cmp_docnum': cmp_docnum})
+        case_dates.append({'amdcmp_date': cmp_date})
+        case_dates.append({'amdcmp_docnum': cmp_docnum})
 
     return case_dates
 
 
 def _get_screening_date(case_dates, target):
     # Check for dummy screening motion
-    mask = target['dp_sub_type'] == 'dummyscr'
-    screening = target[mask]
+    screening = target.loc[target['dp_sub_type'] == 'dummyscr']
     if not screening.empty:
         screening_docnum = screening['de_document_num'].iloc[0].astype(int)
         screening_docnum = f'[{int(screening_docnum)}]'
@@ -61,33 +62,40 @@ def _get_screening_date(case_dates, target):
     else:
         screening_docnum = '0'
         screening_date = np.nan
-    case_dates.append({'screening_date': screening_date, 'screening_docnum': screening_docnum})
+    case_dates.append({'screening_date': screening_date})
+    case_dates.append({'screening_docnum': screening_docnum})
     return case_dates
 
 
 def _get_ifp_date(case_dates, target):
-    mask = target['dp_sub_type'] == 'ifp'
-    ifp = target[mask]
+    ifp = target.loc[target['dp_sub_type'] == 'ifp']
     if not ifp.empty:
         ifp_docnum = ifp['de_document_num'].iloc[0].astype(int)
         ifp_docnum = f'[{int(ifp_docnum)}]'
         ifp_date = ifp['de_date_filed'].iloc[0]
-        case_dates.append({'ifp_date': ifp_date, 'ifp_docnum': ifp_docnum})
+        case_dates.append({'ifp_date': ifp_date})
+        case_dates.append({'ifp_docnum': ifp_docnum})
     else:
         ifp_docnum = '0'
         ifp_date = np.nan
-        case_dates.append({'ifp_date': ifp_date, 'ifp_docnum': ifp_docnum})
+        case_dates.append({'ifp_date': ifp_date})
+        case_dates.append({'ifp_docnum': ifp_docnum})
     return case_dates
 
 
 def _get_ua_date(case_dates, ua):
     if not ua.empty:
-        ua_date = find_ua_date(case_dates[1]['cmp_docnum'], ua)
-    # check for alternative ua dates
-    if ua_date is np.nan and case_dates[3]['ifp_date'] is not np.nan:
+        # find a matching key in a list of dicts
+        ua_date = find_ua_date(next(a['cmp_docnum'] for a in case_dates if a.get('cmp_docnum')), ua)
+
+    # check for alternative ua dates if not found
+    ifp_date = next(a['ifp_date'] for a in case_dates if a.get('ifp_date'))
+    screening_date = next(a['screening_date'] for a in case_dates if a.get('screening_date'))
+
+    if ua_date is np.nan and ifp_date is not np.nan:
         # use IFP motion date
-        ua_date = find_ua_date(case_dates[3]['ifp_docnum'], ua)
-    elif ua_date is np.nan and case_dates[4]['screening_date'] is not np.nan:
+        ua_date = find_ua_date(next(a['ifp_docnum'] for a in case_dates if a.get('ifp_docnum')), ua)
+    elif ua_date is np.nan and screening_date is not np.nan:
         # use screening motion date
         target_text = 'Screening'
         for index, row in ua.iterrows():
@@ -139,8 +147,8 @@ def get_ua_date(case_id: int, target: pd.DataFrame) -> pd.DataFrame:
         case_dates = _get_ifp_date(case_dates, target)
         case_dates = _get_screening_date(case_dates, target)
         # Get all under advisement entries
-        mask = target['dp_sub_type'] == 'madv'
-        ua = target[mask]
+        ua = target.loc[target['dp_sub_type'] == 'madv']
+
 
     if not ua.empty:
         # Find the under advisement date for the complaint
@@ -175,8 +183,8 @@ def main():
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
     cases['Case ID'] = cases['Case ID'].astype(int)
-    mask = cases['Date Filed'] <= datetime.datetime(2018, 5, 31)
-    df1 = cases[mask]
+    cases = cases.loc[cases['Group'] == 'Other Statutes']
+    df1 = cases.loc[cases['Date Filed'] <= datetime.datetime(2018, 5, 31)]
     caseids = df1['Case ID'].tolist()
     # caseids = cases['Case ID'].tolist()
     # caseids = [41091, 41099, 41106]
