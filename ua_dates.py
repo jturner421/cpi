@@ -10,21 +10,21 @@ from colorama import Fore, Style
 @dataclass
 class CaseDates:
     caseid: int
-    complaint_docnum: int = None
+    complaint_docnum: str = "0"
     complaint_date: datetime.datetime = None
     amended_complaints: list = field(default_factory=list)
     ifp_docnum: int = None
     ifp_date: datetime.datetime = None
-    screening_docnum: int = None
+    screening_docnum: str = "0"
     screening_date: datetime.datetime = None
     ua_dates: list = field(default_factory=list)
     trust_fund_dates: list = field(default_factory=list)
     dismissal_dates: list = field(default_factory=list)
 
 
-def find_ua_date(docnum, ua):
+def find_ua_date(cmp_docnum, screening_docnum, ua):
     ua_dates = []
-    matches = [docnum, "Screening", 'Complaint', 'forma pauperis', 'Habeas', "Reopen"]
+    matches = [cmp_docnum, str(screening_docnum), "Screening", 'Complaint', 'forma pauperis', 'Habeas', "Reopen"]
     for index, row in ua.iterrows():
         a_string = row['dt_text']
         if any(x in a_string for x in matches):
@@ -45,6 +45,8 @@ def _find_complaint(case_dates, target):
         case.complaint_date = cmp['de_date_filed'].iloc[0]
 
     elif cmp.empty:
+        # check for screening motion
+        case_dates = _get_screening_date(case, target)
         # was an amended complaint, 2255 motion filed?
         events = ['amdcmp', 'pamdcmp', '2255']
         mask = target['dp_sub_type'].isin(events)
@@ -71,21 +73,18 @@ def _find_complaint(case_dates, target):
     return case
 
 
-def _get_screening_date(case_dates, target):
+def _get_screening_date(case, target):
     # Check for dummy screening motion
     screening = target.loc[target['dp_sub_type'] == 'dummyscr']
     if not screening.empty:
-        screening_docnum = screening['de_document_num'].iloc[0].astype(int)
-        screening_docnum = f'[{int(screening_docnum)}]'
-        screening_date = screening['de_date_filed'].iloc[0]
-        case_dates.screening_docnum = screening_docnum
-        case_dates.screening_date = screening_date
+        case.screening_docnum = screening['de_document_num'].iloc[0].astype(int)
+        case.screening_docnum = f'[{int(case.screening_docnum)}]'
+        case.screening_date = screening['de_date_filed'].iloc[0]
+
     else:
-        screening_docnum = '0'
-        screening_date = np.nan
-        case_dates.screening_docnum = screening_docnum
-        case_dates.screening_date = screening_date
-    return case_dates
+        case.screening_docnum = '0'
+        case.screening_date = np.nan
+    return case
 
 
 def _get_ifp_date(case_dates, target):
@@ -106,7 +105,7 @@ def _get_ifp_date(case_dates, target):
 
 def _get_ua_date(case_dates, ua):
     if not ua.empty:
-        ua_dates = find_ua_date(case_dates.complaint_docnum, ua)
+        ua_dates = find_ua_date(case_dates.complaint_docnum, case_dates.screening_docnum, ua)
         case_dates.ua_dates.append({'ua_date': ua_dates})
     else:
         ua_date = np.nan
@@ -169,10 +168,10 @@ def get_ua_date(case_id: int, target: pd.DataFrame) -> pd.DataFrame:
     st = 'forma pauperis'
     # locate complaints
     case_dates = _find_complaint(case_dates, target)
-    if case_dates.complaint_date:
+    if case_dates.complaint_date or case_dates.screening_date:
         # check for ifp motion
         case_dates = _get_ifp_date(case_dates, target)
-        case_dates = _get_screening_date(case_dates, target)
+        # case_dates = _get_screening_date(case_dates, target)
         # Get all under advisement entries
         ua = target.loc[target['dp_sub_type'] == 'madv']
 
@@ -212,9 +211,9 @@ def main():
         dayfirst=False, errors='coerce')
     cases['Case ID'] = cases['Case ID'].astype(int)
     # cases = cases.loc[cases['Group'] == 'Other Statutes']
-    df1 = cases.loc[cases['Date Filed'] <= datetime.datetime(2018, 5, 31)]
-    caseids = df1['Case ID'].tolist()
-    # caseids = cases['Case ID'].tolist()
+    # df1 = cases.loc[cases['Date Filed'] <= datetime.datetime(2019, 12, 31)]
+    # caseids = df['Case ID'].tolist()
+    caseids = cases['Case ID'].tolist()
     # caseids = [41091, 41099, 41106]
 
     for caseid in caseids:
@@ -222,7 +221,7 @@ def main():
         ua_dates.append(get_ua_date(caseid, target))
 
     with open('ua_dates.pkl', 'wb') as f:
-        pickle.dump(ua_dates, f, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(ua_dates, f)
 
     # with open('ua_dates.pkl', 'rb') as f:
     #     ua_dates = pickle.load(f)
