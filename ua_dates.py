@@ -1,10 +1,25 @@
 import pickle
 import datetime
-from dataclasses import dataclass, field
-
+from dataclasses import dataclass, field, make_dataclass
+import dill
 import pandas as pd
 import numpy as np
 from colorama import Fore, Style
+
+# fields = [('caseid', int),
+#           ('complaint_docnum', str, "0"),
+#           ('complaint_date', datetime.datetime, None),
+#           ('amended_complaints', list, field(default_factory=list)),
+#           ('ifp_docnum', int, None),
+#           ('ifp_date', datetime.datetime, None),
+#           ('screening_docnum', str, "0"),
+#           ('screening_date', datetime.datetime, None),
+#           ('ua_dates', list, field(default_factory=list)),
+#           ('trust_fund_dates', list, field(default_factory=list)),
+#           ('dismissal_dates', list, field(default_factory=list))]
+#
+# CaseDates = make_dataclass('CaseDates', fields)
+# CaseDates.__module__ = __name__
 
 
 @dataclass
@@ -36,6 +51,7 @@ def find_ua_date(cmp_docnum, screening_docnum, ua):
 
 def _find_complaint(case_dates, target):
     case = CaseDates(caseid=target['de_caseid'].iloc[0])
+
     # cmp = target.loc[target['de_type'] == 'cmp']
     cmp = target.query('dp_type == "motion" and dp_sub_type == "2255" or dp_type=="cmp" or dp_sub_type=="pwrithc" '
                        'or dp_sub_type =="ntcrem"')
@@ -221,7 +237,7 @@ def main():
         ua_dates.append(get_ua_date(caseid, target))
 
     with open('ua_dates.pkl', 'wb') as f:
-        pickle.dump(ua_dates, f)
+        dill.dump(ua_dates, f)
 
     # with open('ua_dates.pkl', 'rb') as f:
     #     ua_dates = pickle.load(f)
