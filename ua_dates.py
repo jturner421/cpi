@@ -1,40 +1,56 @@
-import pickle
-import datetime
-from dataclasses import dataclass, field, make_dataclass
+from datetime import datetime
+from dataclasses import dataclass, field, asdict
 import dill
 import pandas as pd
 import numpy as np
 from colorama import Fore, Style
-
-# fields = [('caseid', int),
-#           ('complaint_docnum', str, "0"),
-#           ('complaint_date', datetime.datetime, None),
-#           ('amended_complaints', list, field(default_factory=list)),
-#           ('ifp_docnum', int, None),
-#           ('ifp_date', datetime.datetime, None),
-#           ('screening_docnum', str, "0"),
-#           ('screening_date', datetime.datetime, None),
-#           ('ua_dates', list, field(default_factory=list)),
-#           ('trust_fund_dates', list, field(default_factory=list)),
-#           ('dismissal_dates', list, field(default_factory=list))]
-#
-# CaseDates = make_dataclass('CaseDates', fields)
-# CaseDates.__module__ = __name__
 
 
 @dataclass
 class CaseDates:
     caseid: int
     complaint_docnum: str = "0"
-    complaint_date: datetime.datetime = None
+    complaint_date: datetime = None
     amended_complaints: list = field(default_factory=list)
     ifp_docnum: int = None
-    ifp_date: datetime.datetime = None
+    ifp_date: datetime = None
     screening_docnum: str = "0"
-    screening_date: datetime.datetime = None
+    screening_date: datetime = None
+    ua_date: datetime = None
+    ltp_date: datetime = None
+    dismissal_date: datetime = None
+    order_to_leave_dates: list = field(default_factory=list)
     ua_dates: list = field(default_factory=list)
     trust_fund_dates: list = field(default_factory=list)
     dismissal_dates: list = field(default_factory=list)
+
+    def dict(self):
+        if len(self.order_to_leave_dates) == 2 and \
+                self.order_to_leave_dates[0]['seqno'] == self.order_to_leave_dates[1]['seqno']:
+            self.ltp_date = datetime.strptime(self.order_to_leave_dates[0]['ltp_date'], '%Y-%m-%d')
+        else:
+            print(f' More then one Leave order in {self.caseid}')
+        # ToDo: Check to see where UA dates are being set with an empty list
+        if len(self.ua_dates) == 1:
+            self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'][0][0],'%Y-%m-%d')
+        if len(self.dismissal_dates):
+            self.dismissal_date = datetime.strptime(self.dismissal_dates[0]['dis_date'], '%Y-%m-%d')
+        _dict = self.__dict__.copy()
+        if _dict['complaint_date'] is not None and _dict['complaint_date'] != 0:
+            _dict['complaint_date'] = datetime.strptime(_dict['complaint_date'], '%Y-%m-%d')
+        if _dict['ifp_date'] is not None and _dict['ifp_date'] != 0:
+            _dict['ifp_date'] = datetime.strptime(_dict['ifp_date'], '%Y-%m-%d')
+        if _dict['screening_date'] is not None and _dict['screening_date'] != 0:
+            _dict['screening_date'] = datetime.strptime(_dict['screening_date'], '%Y-%m-%d')
+        del _dict['amended_complaints']
+        del _dict['order_to_leave_dates']
+        del _dict['ua_dates']
+        del _dict['trust_fund_dates']
+        del _dict['dismissal_dates']
+        del _dict['complaint_docnum']
+        del _dict['screening_docnum']
+        del _dict['ifp_docnum']
+        return _dict
 
 
 def find_ua_date(cmp_docnum, screening_docnum, ua):
@@ -51,8 +67,6 @@ def find_ua_date(cmp_docnum, screening_docnum, ua):
 
 def _find_complaint(case_dates, target):
     case = CaseDates(caseid=target['de_caseid'].iloc[0])
-
-    # cmp = target.loc[target['de_type'] == 'cmp']
     cmp = target.query('dp_type == "motion" and dp_sub_type == "2255" or dp_type=="cmp" or dp_sub_type=="pwrithc" '
                        'or dp_sub_type =="ntcrem"')
     if not cmp.empty:
@@ -123,9 +137,10 @@ def _get_ua_date(case_dates, ua):
     if not ua.empty:
         ua_dates = find_ua_date(case_dates.complaint_docnum, case_dates.screening_docnum, ua)
         case_dates.ua_dates.append({'ua_date': ua_dates})
-    else:
-        ua_date = np.nan
-        case_dates.ua_dates.append({'ua_date': ua_date})
+    # else:
+    #     pass
+        # ua_date = np.nan
+        # case_dates.ua_dates.append({'ua_date': ua_date})
     return case_dates
 
     # check for alternative ua dates if not found
@@ -144,7 +159,8 @@ def _get_ua_date_alt(case_dates, ua):
                 ua_dates.append((row['de_date_filed'], row['dt_text']))
                 break
     else:
-        case_dates.ua_dates.append({'ua_date': ua_date})
+        # case_dates.ua_dates.append({'ua_date': ua_date})
+        ua_dates = []
     return case_dates
 
 
@@ -164,14 +180,15 @@ def _check_for_trust_fund_statement(case_dates, target):
 def _early_dismissal(case_dates, target):
     s1 = target.loc[target['dp_sub_type'] == 'voldism']
     s2 = target.loc[target['dp_sub_type'] == 'termcs']
-    s3 = target.loc[target['dp_sub_type'] == 'prose2']
-    dism = pd.concat([s1, s2, s3])
+    # s3 = target.loc[target['dp_sub_type'] == 'prose2']
+    dism = pd.concat([s1, s2])
     # take the last date filed
     if not dism.empty:
+        dism.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
         dis_date = dism['de_date_filed'].iloc[-1]
         case_dates.dismissal_dates.append({'dis_date': dis_date})
-    else:
-        case_dates.dismissal_dates.append({'dis_date': np.nan})
+    # else:
+    #     case_dates.dismissal_dates.append({'dis_date': np.nan})
     return case_dates
 
 
@@ -203,14 +220,23 @@ def get_ua_date(case_id: int, target: pd.DataFrame) -> pd.DataFrame:
         # Was there a voluntary dismissal or termination due to no prisoner trust fund statement?
         case_dates = _early_dismissal(case_dates, target)
 
+    # check for leave to proceed
+    ltp = target.loc[target['dp_sub_type'] == 'leave']
+    if not ltp.empty:
+        for index, row in ltp.iterrows():
+            case_dates.order_to_leave_dates.append({'ltp_date': row['de_date_filed'], 'seqno': row['dp_seqno']})
+    else:
+        _early_dismissal(case_dates, target)
+
     print(Fore.WHITE + f'Finished getting case dates for: {case_id}')
-    return case_dates
+    case_dates_dict = case_dates.dict()
+    return case_dates_dict
 
 
 def main():
     # get saved docket entries
     with open('dataframes2018-2022.pkl', 'rb') as f:
-        dataframes = pickle.load(f)
+        dataframes = dill.load(f)
 
     df = pd.concat(dataframes)
     # cleanup to assist with string matching and to eliminate unnecessary columns
@@ -226,21 +252,17 @@ def main():
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
     cases['Case ID'] = cases['Case ID'].astype(int)
-    # cases = cases.loc[cases['Group'] == 'Other Statutes']
-    # df1 = cases.loc[cases['Date Filed'] <= datetime.datetime(2019, 12, 31)]
-    # caseids = df['Case ID'].tolist()
     caseids = cases['Case ID'].tolist()
-    # caseids = [41091, 41099, 41106]
 
+    # gather information for each case
     for caseid in caseids:
         target = df.loc[df['de_caseid'] == caseid]
         ua_dates.append(get_ua_date(caseid, target))
-
     with open('ua_dates.pkl', 'wb') as f:
         dill.dump(ua_dates, f)
 
     # with open('ua_dates.pkl', 'rb') as f:
-    #     ua_dates = pickle.load(f)
+    #     ua_dates = dill.load(f)
 
 
 if __name__ == '__main__':
