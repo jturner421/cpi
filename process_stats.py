@@ -44,7 +44,7 @@ async def get_ua_date(q: asyncio.Queue) -> pd.DataFrame:
     Get under advisement date for a case based on the document number provided in the dataframe row.  Applied as a lambda
     function to a dataframe. Example:
 
-    df['Under Advisement Date'] = df.apply(lambda x: get_ua_date(x['Case ID'], x['IFP Document Number'], ua), axis=1)
+    df['Under Advisement Date'] = df.apply(lambda x: get_case_milestone_dates(x['Case ID'], x['IFP Document Number'], ua), axis=1)
 
     The case id is used to subset the under advisement dataframe to only the rows for the case id in question.  The document
     number is used as a search term to find the under advisement date in the dt_text column.
@@ -272,7 +272,7 @@ async def main(*caseids):
     print(Fore.GREEN + f'Finished in {total_time:.2f} seconds', flush=True)
 
     # task1 = [asyncio.create_task(get_docket_entries_for_case(caseid, q)) for caseid in caseids]
-    # task2 = [asyncio.create_task(get_ua_date(q)) for caseid in caseids]
+    # task2 = [asyncio.create_task(get_case_milestone_dates(q)) for caseid in caseids]
     # a, b = loop.run_until_complete(asyncio.gather(*task1, *task2))
 
     # await q.join()
@@ -287,7 +287,7 @@ async def main(*caseids):
     # order_leave = pd.read_csv('/Users/jwt/PycharmProjects/dashboard/CPI/order_leave.csv')
     # order_leave['de_date_filed'] = order_leave['de_date_filed'].apply(pd.to_datetime, yearfirst=True, dayfirst=False,
     #                                                                   errors='coerce')
-    # # df['Under Advisement Date'] = df.apply(lambda x: get_ua_date(x['Case ID'], x['DocNum'], ua), axis=1)
+    # # df['Under Advisement Date'] = df.apply(lambda x: get_case_milestone_dates(x['Case ID'], x['DocNum'], ua), axis=1)
     # #
     # # df['Under Advisement Date'] = df['Under Advisement Date'].apply(pd.to_datetime, yearfirst=True,
     # #                                                                 dayfirst=False, errors='coerce')
@@ -325,7 +325,7 @@ async def main(*caseids):
 # def ua__dates(caseid):
 #     print(caseid)
 #     target = asyncio.run(get_docket_entries_for_case(caseid))
-#     results = get_ua_date(caseid, target)
+#     results = get_case_milestone_dates(caseid, target)
 #     return results
 
 

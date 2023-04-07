@@ -71,7 +71,7 @@ def get_ua_date(case_id: int, doc_num, df: pd.DataFrame):
     Get under advisement date for a case based on the document number provided in the dataframe row.  Applied as a lambda
     function to a dataframe. Example:
 
-    df['Under Advisement Date'] = df.apply(lambda x: get_ua_date(x['Case ID'], x['IFP Document Number'], ua), axis=1)
+    df['Under Advisement Date'] = df.apply(lambda x: get_case_milestone_dates(x['Case ID'], x['IFP Document Number'], ua), axis=1)
 
     The case id is used to subset the under advisement dataframe to only the rows for the case id in question.  The document
     number is used as a search term to find the under advisement date in the dt_text column.
