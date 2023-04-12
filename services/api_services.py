@@ -12,12 +12,21 @@ from configuration.config import Config
 
 
 class ApiSession:
-    def __init__(self):
-        self.access_token = ApiSession.get_api_token(self)
-        self.url = Config.base_api_url
-        self.headers = {'Authorization': f'Bearer {self.access_token}'}
+    _instance = None
 
-    def get_api_token(self):
+    def __init__(self):
+        raise RuntimeError('Call instance() instead')
+
+    @classmethod
+    def instance(cls):
+        if cls._instance is None:
+            cls._instance = cls.__new__(cls)
+            cls._instance.access_token = ApiSession._get_api_token(cls)
+            cls._instance.url = Config.base_api_url
+            cls._instance.headers = {'Authorization': f'Bearer {cls._instance.access_token}'}
+        return cls._instance
+
+    def _get_api_token(self) -> str:
         """
         Get the API token from the ecfapi endpoint.
         """
@@ -43,3 +52,26 @@ class ApiSession:
         return pd.DataFrame(r['data'])
 
 
+def get_data(case_ids, access_token, url, params, event, overall_type) -> pd.DataFrame:
+    """
+   Retrieves data from the API for a list of case IDs. Makes distinction between specific event and
+   overall catagory type.
+
+   :param case_ids: list of case IDs
+   :param access_token: API access token
+   :param url: API endpoint
+   :param params: API parameters
+   :param event: event type e.g. ['cmp','cmp'] for a complaint
+   :param overall_type: overall type e.g. 'motion' for all motions regardless of type
+   :return: dataframe of data
+
+    """
+    headers = {'Authorization': f'Bearer {access_token}', 'Content-Type': 'application/json'}
+    if event:
+        data = {'case_ids': case_ids, 'subtype': event}
+    if overall_type:
+        data = {'case_ids': case_ids, 'overall_type': overall_type}
+    r = httpx.post(url, params=params, headers=headers, json=data, verify=False, timeout=None)
+    df = pd.DataFrame(r.json()['data'])
+
+    return df

@@ -34,7 +34,7 @@ async def main(*caseids):
 if __name__ == '__main__':
     import time
 
-    df = pd.read_csv('/Users/jwt/PycharmProjects/dashboard/CPI/prose_merged.csv')
+    df = pd.read_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/civil_cases_2018-2022.csv')
     df[['Date Filed', 'Date Terminated', 'DateAgg']] = df[['Date Filed', 'Date Terminated', 'DateAgg']].apply(
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
