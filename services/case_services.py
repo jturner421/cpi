@@ -7,6 +7,8 @@ from services.dataframe_services import _format_columns
 from services.api_services import ApiSession
 
 api = ApiSession.instance()
+
+
 def get_civil_cases_by_date(start_date: datetime.date, end_date: datetime.date) -> pd.DataFrame:
     """
     retrieves civil cases between two dates
@@ -46,5 +48,3 @@ def create_event(event_type: tuple) -> list:
         stage_list.append(e)
     event.append(stage_list)
     return event
-
-

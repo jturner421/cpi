@@ -6,7 +6,8 @@ import pandas as pd
 from colorama import Fore
 
 from util import timeit
-from services.dataframe_services import create_merged_ua_dates_or_deadlines, cleanup_merged_deadlines
+from services.dataframe_services import create_merged_ua_dates_or_deadlines, cleanup_merged_deadlines, \
+    create_dataframe_docket_entries, create_dataframe_deadlines, create_dataframe_hearings, calculate_intervals
 
 
 class DismissalType(Enum):
@@ -37,6 +38,8 @@ class CaseDates:
     case_type: str = None
     complaint_docnum: str = "0"
     complaint_date: datetime = None
+    complaint_dismissal_date: datetime = None
+    amended_complaint_date: datetime = None
     amended_complaint_count: int = None
     case_reopen_count: int = None
     ifp_docnum: int = None
@@ -46,8 +49,9 @@ class CaseDates:
     ua_date: datetime = None
     ltp_date: datetime = None
     initial_pretrial_conference_date: datetime = None
-    dismissal_date: datetime = None
-    dismissal_reason: str = None
+    dismissal_date_prior_to_screening: datetime = None
+    dismissal_reason_prior_to_screening: str = None
+    order_dismissing_complaints: list = field(default_factory=list)
     amended_complaints: list = field(default_factory=list)
     order_to_leave_dates: list = field(default_factory=list)
     case_reopen_dates: list = field(default_factory=list)
@@ -65,16 +69,28 @@ class CaseDates:
             print(f' No Leave order in {self.caseid}')
 
         if len(self.ua_dates) >= 1:
-            # assumption that first UA date is screening date
-            self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
+            # Check to see if there is an order dismissing the complaint.  Usually that means that an amended complaint
+            #  was filed
+            if self.order_dismissing_complaints:
+                # get the date
+                self.complaint_dismissal_date = datetime.strptime(self.order_dismissing_complaints[0]['dis_date'],
+                                                                  '%Y-%m-%d')
+                self.amended_complaint_date = datetime.strptime(self.amended_complaints[0]['amdcmp_date'], '%Y-%m-%d')
+                # Use the date of the amended complaint to set the UA date
+                self.ua_date = datetime.strptime([x for x in self.ua_dates if 'amended' in x['ua_text']]
+                                                 [0]['ua_date'], '%Y-%m-%d')
+            else:
+                # assumption that first UA date is screening date
+                self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
         else:
             self.ua_date = None
             print(f' No UA date in {self.caseid}')
         if len(self.dismissal_dates):
-            self.dismissal_date = datetime.strptime(self.dismissal_dates[-1]['dis_date'], '%Y-%m-%d')
-            self.dismissal_reason = DismissalType[self.dismissal_dates[-1]['dis_reason']].value
-        if self.dismissal_date is not None and self.ua_date is not None:
-            if self.ua_date > self.dismissal_date:
+            # Notice of Dismissal prior to screening
+            self.dismissal_date_prior_to_screening = datetime.strptime(self.dismissal_dates[-1]['dis_date'], '%Y-%m-%d')
+            self.dismissal_reason_prior_to_screening = DismissalType[self.dismissal_dates[-1]['dis_reason']].value
+        if self.dismissal_date_prior_to_screening is not None and self.ua_date is not None:
+            if self.ua_date > self.dismissal_date_prior_to_screening:
                 print(f'{Fore.RED} UA date after dismissal date in {self.caseid}{Fore.RESET}')
                 self.ua_date = None
 
@@ -103,6 +119,15 @@ class CaseDates:
 
 
 def find_ua_date(cmp_docnum, screening_docnum, ua):
+    """
+    Function to find the under advisement date for a case.  Utilizes keywords to find candidate dates and appends
+    to a list.
+
+    :param cmp_docnum: Complaint document number
+    :param screening_docnum: Screening document number
+    :param ua: dataframe of UA dates for that case
+
+    """
     ua['dt_text'] = ua['dt_text'].str.lower()
     ua_dates = []
     matches = [cmp_docnum, str(screening_docnum), "screening", 'complaint', 'pauperis', 'habeas', 'reopen',
@@ -111,12 +136,27 @@ def find_ua_date(cmp_docnum, screening_docnum, ua):
         a_string = row['dt_text']
         if any(x in a_string for x in matches):
             ua_dates.append((row['de_date_filed'], row['dt_text']))
-        # else:
-        #     ua_date = np.nan
     return ua_dates
 
 
-def _find_complaint(target):
+def _complaint_dismmised(case: CaseDates, target: pd.DataFrame) -> CaseDates:
+    """
+    Function to find the dismissal date for a complaint that led to an amended complaint case.
+
+    """
+    dis = target.query('dp_sub_type == "dismcmp"')
+    if not dis.empty:
+        case.order_dismissing_complaints.append({'dis_date': dis['de_date_filed'].iloc[0]})
+    return case
+
+
+def _find_complaint(target: pd.DataFrame) -> CaseDates:
+    """
+    Function to find the complaint date for a case.  Utilizes keywords to find initiating documents based on events. If
+    multiple events found, the first date is used as the complaint filing date.  Also looks to see if any amended
+    complaints wer filed
+
+    """
     case = CaseDates(caseid=target['de_caseid'].iloc[0])
     cmp = target.query('dp_type == "motion" and dp_sub_type == "2255" or dp_sub_type=="cmp" or dp_sub_type=="pwrithc" '
                        'or dp_sub_type == "ntcrem" or dp_sub_type == "emerinj" or dp_sub_type == "bkntc" '
@@ -125,7 +165,6 @@ def _find_complaint(target):
         case.complaint_docnum = cmp['de_document_num'].iloc[0].astype(int)
         case.complaint_docnum = f'[{int(case.complaint_docnum)}]'
         case.complaint_date = cmp['de_date_filed'].iloc[0]
-    # check for amended complaints
 
     case = _get_screening_date(case, target)
     # was an amended complaint, 2255 motion filed?
@@ -133,6 +172,7 @@ def _find_complaint(target):
     mask = target['dp_sub_type'].isin(events)
     amdcmp = target[mask]
     if not amdcmp.empty:
+        case = _complaint_dismmised(case, target)
         amdcmp_docnum = amdcmp['de_document_num'].iloc[0].astype(int)
         amdcmp_docnum = f'[{int(amdcmp_docnum)}]'
         amdcmp_date = amdcmp['de_date_filed'].iloc[0]
@@ -141,11 +181,20 @@ def _find_complaint(target):
     return case
 
 
-def _get_screening_date(case, target):
+def _get_screening_date(case: CaseDates, target: pd.DataFrame) -> CaseDates:
+    """
+    Function to find the screening date for a case where there was no ifp request. 
+    
+    :param case: CaseDates object
+    :param target: dataframe of events for a case
+    :return: CaseDates object
+    -------
+
+    """
     # Check for dummy screening motion
     screening = target.loc[target['dp_sub_type'] == 'dummyscr']
     if not screening.empty:
-        case.screening_docnum = screening['de_document_num'].iloc[0].astype(int)
+        case.screening_docnum = screening['dp_seqno'].iloc[0].astype(int)
         case.screening_docnum = f'[{int(case.screening_docnum)}]'
         case.screening_date = screening['de_date_filed'].iloc[0]
 
@@ -154,7 +203,16 @@ def _get_screening_date(case, target):
     return case
 
 
-def _get_ifp_date(case_dates, target):
+def _get_ifp_date(case_dates: CaseDates, target: pd.DataFrame) -> pd.DataFrame:
+    """
+    Function to find the ifp date for a case if it exists.
+
+    :param case_dates: CaseDates object
+    :param target: dataframe of events for a case
+    :return: CaseDates object
+    -------
+
+    """
     ifp = target.loc[target['dp_sub_type'] == 'ifp']
     if not ifp.empty:
         ifp_docnum = ifp['de_document_num'].iloc[0].astype(int)
@@ -177,7 +235,7 @@ def _get_ua_date(case_dates, ua):
 
 
 def _check_for_trust_fund_statement(case_dates, target):
-    # Was the case dismissed due to lack or prisoner trust fund statement?
+    # Was the case dismissed due to lack of prisoner trust fund statement?
     mask = target['dp_sub_type'] == 'termpscs'
     term = target[mask]
     if not term.empty:
@@ -186,7 +244,14 @@ def _check_for_trust_fund_statement(case_dates, target):
     return case_dates
 
 
-def _early_dismissal(case_dates, target):
+def _early_dismissal(case_dates, target) -> CaseDates
+    """
+    Function to check for voluntary dismissal or other dismissal prior to screening 
+   
+    :param case_dates: CaseDates object
+    :param target: dataframe of events for a case
+
+    """
     s1 = target.loc[target['dp_sub_type'] == 'voldism']
     s2 = target.loc[target['dp_sub_type'] == 'termcs']
     s3 = target.loc[target['dp_sub_type'] == 'termpscs']
@@ -222,23 +287,25 @@ def _get_leave_to_proceed(case_dates, target):
 
 
 def _get_pretrial_conference_date(case_dates, target):
-    # Check for pretrial conference
+    # Check for pretrial conference minutes. Subtype 'minutes' is not needed for identification
     pretrial = target.loc[target['dp_sub_type'] == 'ptcnf']
     if not pretrial.empty:
-        for index, row in pretrial.iterrows():
-            case_dates.initial_pretrial_conference_date = row['de_date_filed']
+        case_dates.initial_pretrial_conference_date = pretrial['de_date_filed'].iloc[0]
     return case_dates
 
 
-def _find_preliminary_pretrial_conference(target_dline, target_hearing):
+def _find_preliminary_pretrial_conference_deadlines(target_dline: pd.DataFrame, target_hearing: pd.DataFrame) \
+        -> CaseDeadlines:
+    """
+    Function to find preliminary pretrial conference deadlines. Uses the first set of deadlines found.
+
+
+    """
     try:
         deadline = CaseDeadlines(caseid=target_dline['sd_caseid'].iloc[0])
-        ptcnf = target_hearing.query('sd_type == "ptcnf" and sd_class == "hrg" ')
-        if not ptcnf.empty:
-            deadline.pptcnf_date = ptcnf['sd_dtset'].iloc[0]
-            deadline.dispositve_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'disp'].iloc[-1]
-            deadline.limine_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'limine'].iloc[-1]
-            deadline.fptcnf_date = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'fptcnf'].iloc[-1]
+        deadline.dispositve_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'disp'].iloc[0]
+        deadline.limine_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'limine'].iloc[0]
+        deadline.fptcnf_date = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'fptcnf'].iloc[0]
         return deadline
     except Exception as e:
         print(Fore.RED + f'No Deadlines Found: {e}', flush=True)
@@ -252,7 +319,7 @@ def get_case_deadlines(case_id: int, target_dline: pd.DataFrame, target_hearing:
         print(Fore.BLUE + f'Getting deadline dates for {case_id}...', flush=True)
         deadline_dates.append({'case_id': case_id})
         # locate preliminary pre trial conference
-        deadline_dates = _find_preliminary_pretrial_conference(target_dline, target_hearing)
+        deadline_dates = _find_preliminary_pretrial_conference_deadlines(target_dline, target_hearing)
         print(Fore.WHITE + f'Finished getting case deadlines for: {case_id}')
         deadline_dates_dict = deadline_dates.dict()
         if deadline_dates_dict:
@@ -266,6 +333,8 @@ def get_case_deadlines(case_id: int, target_dline: pd.DataFrame, target_hearing:
 
 def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str) -> pd.DataFrame:
     """
+    Wrapper Function to get case milestone dates for a case. Milestones include:
+    Complaint, Screening, Under Advisement, IFP Motion, Dismissal, Reopen, Leave to Proceed, Pretrial Conference,
     """
     case_dates = []
     print(Fore.BLUE + f'Getting ua dates for {case_id}...', flush=True)
@@ -282,8 +351,8 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str)
         if not ua.empty:
             # Find the under advisement date for the complaint
             case_dates = _get_ua_date(case_dates, ua)
-            if not case_dates.ua_dates:
-                case_dates = _check_for_trust_fund_statement(case_dates, target)
+            # if not case_dates.ua_dates:
+            #     case_dates = _check_for_trust_fund_statement(case_dates, target)
         # Was there a voluntary dismissal or termination due to no prisoner trust fund statement?
         case_dates = _early_dismissal(case_dates, target)
         # check for leave to proceed
@@ -305,43 +374,20 @@ def main():
     with open('dataframes.pkl', 'rb') as f:
         dataframes_entries = dill.load(f)
 
-    df_entries = pd.concat(dataframes_entries)
-    # cleanup to assist with string matching and to eliminate unnecessary columns
-    df_entries = df_entries.drop(['de_date_enter', 'de_who_entered', 'initials', 'name', 'pr_type', 'pr_crttype'],
-                                 axis=1)
-    df_entries['de_type'] = df_entries['de_type'].str.strip()
-    df_entries['dp_type'] = df_entries['dp_type'].str.strip()
-    df_entries['dp_sub_type'] = df_entries['dp_sub_type'].str.strip()
-    del dataframes_entries
+    df_entries = create_dataframe_docket_entries(dataframes_entries)
 
     with open('dataframes_deadlines.pkl', 'rb') as f:
         dataframes_deadlines = dill.load(f)
 
-    df_deadlines = pd.concat(dataframes_deadlines)
-    # change column string to datetime
-    df_deadlines['sd_dtset'] = pd.to_datetime(df_deadlines['sd_dtset'], dayfirst=False, yearfirst=True, errors='coerce')
-    df_deadlines['sd_dtsatis'] = pd.to_datetime(df_deadlines['sd_dtsatis'], dayfirst=False, yearfirst=True,
-                                                errors='coerce')
-    df_deadlines['sd_dtsatis'] = pd.to_datetime(df_deadlines['sd_dtsatis'], dayfirst=False, yearfirst=True,
-                                                errors='coerce')
-    df_deadlines['sd_class'] = df_deadlines['sd_class'].str.strip()
-    df_deadlines['sd_type'] = df_deadlines['sd_type'].str.strip()
-
-    del dataframes_deadlines
+    df_deadlines = create_dataframe_deadlines(dataframes_deadlines)
 
     with open('dataframes_hearings.pkl', 'rb') as f:
         dataframes_hearings = dill.load(f)
 
-    df_hearings = pd.concat(dataframes_hearings)
-    # change column string to datetime
-    df_hearings['sd_dtset'] = pd.to_datetime(df_hearings['sd_dtset'], dayfirst=False, yearfirst=True, errors='coerce')
-    df_hearings['sd_dtsatis'] = pd.to_datetime(df_hearings['sd_dtsatis'], dayfirst=False, yearfirst=True,
-                                               errors='coerce')
-    df_hearings['sd_dtsatis'] = pd.to_datetime(df_hearings['sd_dtsatis'], dayfirst=False, yearfirst=True,
-                                               errors='coerce')
-    df_hearings['sd_class'] = df_hearings['sd_class'].str.strip()
-    df_hearings['sd_type'] = df_hearings['sd_type'].str.strip()
+    df_hearings = create_dataframe_hearings(dataframes_hearings)
 
+    # delete dataframes to free up memory
+    del dataframes_entries, dataframes_deadlines, dataframes_hearings
     ua_dates = []
     deadline_dates = []
     cases = pd.read_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/pro_se.csv')
@@ -349,6 +395,7 @@ def main():
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
     cases['Case ID'] = cases['Case ID'].astype(int)
+    cases.drop_duplicates(keep='first', inplace=True)
     caseids = cases['Case ID'].tolist()
 
     # gather information for each case and find the ua dates and deadlines
@@ -360,8 +407,11 @@ def main():
         target_hearings = df_hearings.loc[df_hearings['sd_caseid'] == caseid]
         deadline_dates.append(get_case_deadlines(caseid, target_dline, target_hearings, case_type))
 
+    # save objects to disk for later use
     with open('ua_dates.pkl', 'wb') as f:
         dill.dump(ua_dates, f)
+    with open('deadline_dates.pkl', 'wb') as f:
+        dill.dump(deadline_dates, f)
 
     deadline_dates = [x for x in deadline_dates if x is not None]
     ua_dates = [x for x in ua_dates if x is not None]
@@ -370,14 +420,10 @@ def main():
     df = create_merged_ua_dates_or_deadlines(cases, ua_dates_df)
     df = create_merged_ua_dates_or_deadlines(df, deadline_dates_df)
     df = cleanup_merged_deadlines(df)
-    # with open('deadline_dates.pkl', 'wb') as f:
-    #     dill.dump(deadline_dates, f)
+    df = calculate_intervals(df)
 
-    # with open('ua_dates.pkl', 'rb') as f:
-    #     ua_dates = dill.load(f)
-    # for case in ua_dates:
-    #     if len()
-    #     print(case)
+    with open('case_metrics.pkl', 'wb') as f:
+        dill.dump(df, f)
 
 
 if __name__ == '__main__':

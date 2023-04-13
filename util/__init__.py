@@ -1,16 +1,19 @@
 import functools
+from functools import wraps
 import json
 import time
 from typing import Callable, Any, Optional
 import asyncio
 import aiohttp
 from aiohttp import ClientSession
-from colorama import Fore, Style
+from colorama import Fore
 import httpx
 import pandas as pd
 
 
 def async_timed():
+    """Decorator to time async functions"""
+
     def wrapper(func: Callable) -> Callable:
         @functools.wraps(func)
         async def wrapped(*args, **kwargs) -> Any:
@@ -29,6 +32,7 @@ def async_timed():
 
 
 async def delay(delay_seconds: int) -> int:
+    """Delay for a number of seconds for an async function"""
     print(f'sleeping for {delay_seconds} second(s)')
     await asyncio.sleep(delay_seconds)
     print(f'finished sleeping for {delay_seconds} second(s)')
@@ -36,6 +40,7 @@ async def delay(delay_seconds: int) -> int:
 
 
 async def get(session: ClientSession, url: str, params: Optional = None, headers: Optional = None) -> int:
+    """Retrieve data asynchronously from an endpoint with aiohttp"""
     to = aiohttp.ClientTimeout(total=5 * 60)
     caseid = url.split('/')[-1]
     print(Fore.YELLOW + f'Getting docket entries for case {caseid}...', flush=True)
@@ -43,7 +48,6 @@ async def get(session: ClientSession, url: str, params: Optional = None, headers
         async with session.get(url, timeout=to, params=params, headers=headers, ssl=False) as result:
             res = await result.read()
             df = pd.DataFrame(json.loads(res)['data'])
-            # df.sort_values(by=['sd_deseqno'], ascending=True, inplace=True)
             df.head()
             return df
     else:
@@ -63,11 +67,8 @@ async def get_httpx(url: str, params: Optional = None, headers: Optional = None)
     return r.status_code
 
 
-from functools import wraps
-import time
-
-
 def timeit(func):
+    """Decorator to time synchronous functions"""
     @wraps(func)
     def timeit_wrapper(*args, **kwargs):
         start_time = time.perf_counter()

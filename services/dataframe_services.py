@@ -89,12 +89,85 @@ def create_merged_ua_dates_or_deadlines(original_df, candidate_df) -> pd.DataFra
 
 def cleanup_merged_deadlines(df) -> pd.DataFrame:
     df = df.drop(['Diversity Defendant', 'Diversity Plaintiff', 'IsProse', 'caseid_x', 'caseid_y', 'case_type'], axis=1)
-    df = df.drop_duplicates(keep='first')
     df['amended_complaint_count'] = df['amended_complaint_count'].fillna(0).astype(int)
     df['case_reopen_count'] = df['case_reopen_count'].fillna(0).astype(int)
+    return df
+
+
+def calculate_intervals(df) -> pd.DataFrame:
+    """
+    Calculates various intervals between case milestone dates
+
+    :param df: dataframe with raw data
+    :return: dataframe with calculated intervals
+
+    """
+    df['CMP To UA Elapsed'] = df['ua_date'] - df['complaint_date']
+    df['UA To LTP Elapsed'] = df['ltp_date'] - df['ua_date']
+    df['LTP to PPTCNF Elapsed'] = df['initial_pretrial_conference_date'] - df['ltp_date']
+    df['PPTCNF to SJ Elapsed'] = df['dispositve_deadline'] - df['initial_pretrial_conference_date']
+    df['SJ to FPTCNF Elapsed'] = df['fptcnf_date'] - df['dispositve_deadline']
+    return df
 
 
 def add_nos_grouping(df: pd.DataFrame, table_name: Table):
     nos_lookup = nos_group_lookup(table_name)
     df["Group"] = df.NOS.apply(lambda x: apply_nos_grouping(x, 'NOS', nos_lookup))
     return df
+
+
+def create_dataframe_docket_entries(dataframes_entries: List[Dict]) -> pd.DataFrame:
+    """
+    Concatenates list of dictionaries into a single dataframe with case docket entries with some formatting and cleanup.
+
+    :param dataframes_entries: list of dictionaries
+    :return: dataframe
+    """
+    df_entries = pd.concat(dataframes_entries)
+    # cleanup to assist with string matching and to eliminate unnecessary columns
+    df_entries = df_entries.drop(['de_date_enter', 'de_who_entered', 'initials', 'name', 'pr_type', 'pr_crttype'],
+                                 axis=1)
+    df_entries['de_type'] = df_entries['de_type'].str.strip()
+    df_entries['dp_type'] = df_entries['dp_type'].str.strip()
+    df_entries['dp_sub_type'] = df_entries['dp_sub_type'].str.strip()
+    del dataframes_entries
+    return df_entries
+
+
+def create_dataframe_deadlines(dataframes_deadlines):
+    """
+        Concatenates list of dictionaries into a single dataframe of case deadlines with some formatting and cleanup.
+
+        :param dataframes_deadlines: list of dictionaries
+        :return: dataframe
+        """
+    df_deadlines = pd.concat(dataframes_deadlines)
+    # change column string to datetime
+    df_deadlines['sd_dtset'] = pd.to_datetime(df_deadlines['sd_dtset'], dayfirst=False, yearfirst=True, errors='coerce')
+    df_deadlines['sd_dtsatis'] = pd.to_datetime(df_deadlines['sd_dtsatis'], dayfirst=False, yearfirst=True,
+                                                errors='coerce')
+    df_deadlines['sd_dtsatis'] = pd.to_datetime(df_deadlines['sd_dtsatis'], dayfirst=False, yearfirst=True,
+                                                errors='coerce')
+    df_deadlines['sd_class'] = df_deadlines['sd_class'].str.strip()
+    df_deadlines['sd_type'] = df_deadlines['sd_type'].str.strip()
+    del dataframes_deadlines
+    return df_deadlines
+
+
+def create_dataframe_hearings(dataframes_hearings):
+    """
+            Concatenates list of dictionaries into a single dataframe of case hearings with some formatting and cleanup.
+
+            :param dataframes_hearings: list of dictionaries
+            :return: dataframe
+            """
+    df_hearings = pd.concat(dataframes_hearings)
+    # change column string to datetime
+    df_hearings['sd_dtset'] = pd.to_datetime(df_hearings['sd_dtset'], dayfirst=False, yearfirst=True, errors='coerce')
+    df_hearings['sd_dtsatis'] = pd.to_datetime(df_hearings['sd_dtsatis'], dayfirst=False, yearfirst=True,
+                                               errors='coerce')
+    df_hearings['sd_dtsatis'] = pd.to_datetime(df_hearings['sd_dtsatis'], dayfirst=False, yearfirst=True,
+                                               errors='coerce')
+    df_hearings['sd_class'] = df_hearings['sd_class'].str.strip()
+    df_hearings['sd_type'] = df_hearings['sd_type'].str.strip()
+    return df_hearings
