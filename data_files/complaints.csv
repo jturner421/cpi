@@ -1,6 +1,8 @@
 de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_filed,de_date_enter,de_who_entered,initials,name,pr_type,pr_crttype
+46464,32,cmp                      ,4,cmp                      ,amdcmp  ,33,2020-08-31,2020-08-31T13:48:28,1446149,aom ,Amos Malone,crt,clk
 46485,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-08-31,2020-08-31T14:56:45,1446149,aom ,Amos Malone,crt,clk
 46489,31,cmp                      ,1,cmp                      ,cmp     ,32,2020-09-01,2020-09-01T16:33:46,1446149,aom ,Amos Malone,crt,clk
+43822,259,cmp                      ,76,cmp                      ,amdcmp  ,260,2020-09-02,2020-09-02T16:44:56,1503,,Christopher Stroebel,aty,
 46502,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-09-03,2020-09-03T13:39:14,1446149,aom ,Amos Malone,crt,clk
 46510,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-09-04,2020-09-04T13:22:55,1446149,aom ,Amos Malone,crt,clk
 46518,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-09-08,2020-09-08T16:58:53,932,,Timothy Hansen,aty,
@@ -9,8 +11,10 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46526,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-09-09,2020-09-09T14:56:25,661013,nln ,Nicole Nelson,crt,clk
 46530,9,cmp                      ,1,cmp                      ,cmp     ,10,2020-09-09,2020-09-09T16:46:53,24419,jef ,Joanne Friedl,crt,clk
 46556,20,cmp                      ,2,cmp                      ,cmp     ,21,2020-09-10,2020-09-10T15:50:08,1353789,rks ,Rachel Swanson,crt,clk
+43822,97,cmp                      ,28,cmp                      ,counter ,100,2019-08-19,2019-08-19T07:33:27,1398603,,John Ifediora,pty,
 46566,9,cmp                      ,1,cmp                      ,cmp     ,10,2020-09-11,2020-09-11T17:11:51,24419,jef ,Joanne Friedl,crt,clk
 46574,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-09-14,2020-09-14T14:00:46,1446149,aom ,Amos Malone,crt,clk
+46368,33,cmp                      ,7,cmp                      ,amdcmp  ,34,2020-09-14,2020-09-14T15:50:31,1446149,aom ,Amos Malone,crt,clk
 46576,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-09-14,2020-09-14T16:34:27,1446149,aom ,Amos Malone,crt,clk
 46578,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-09-14,2020-09-15T09:17:57,1446149,aom ,Amos Malone,crt,clk
 46580,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-09-15,2020-09-15T11:27:08,1446149,aom ,Amos Malone,crt,clk
@@ -21,6 +25,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46610,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-09-21,2020-09-21T16:29:25,24419,jef ,Joanne Friedl,crt,clk
 46615,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-09-22,2020-09-22T12:32:35,1446149,aom ,Amos Malone,crt,clk
 46620,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-09-23,2020-09-23T11:07:36,1446149,aom ,Amos Malone,crt,clk
+43821,121,cmp                      ,25,cmp                      ,amdcmp  ,122,2020-09-23,2020-09-23T11:45:41,1446149,aom ,Amos Malone,crt,clk
 46624,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-09-23,2020-09-23T15:53:44,1446149,aom ,Amos Malone,crt,clk
 46626,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-09-23,2020-09-23T16:29:59,1446149,aom ,Amos Malone,crt,clk
 46625,3,cmp                      ,1,cmp                      ,cmp     ,5,2020-09-23,2020-09-23T16:29:58,262042,,Danielle Schroder,aty,
@@ -41,6 +46,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46679,27,cmp                      ,1,cmp                      ,cmp     ,28,2020-10-02,2020-10-05T11:42:27,1446149,aom ,Amos Malone,crt,clk
 46682,19,cmp                      ,1,cmp                      ,cmp     ,20,2020-10-05,2020-10-05T13:13:55,1446149,aom ,Amos Malone,crt,clk
 46684,19,cmp                      ,1,cmp                      ,cmp     ,20,2020-10-05,2020-10-05T14:53:38,1446149,aom ,Amos Malone,crt,clk
+44706,253,cmp                      ,68,cmp                      ,amdcmp  ,256,2020-10-07,2020-10-07T17:40:38,776492,,Mark Hancock,aty,
 46700,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-10-08,2020-10-08T12:43:50,1446149,aom ,Amos Malone,crt,clk
 46705,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-10-09,2020-10-09T12:36:56,1446149,aom ,Amos Malone,crt,clk
 46713,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-10-13,2020-10-13T16:46:41,661013,nln ,Nicole Nelson,crt,clk
@@ -50,9 +56,13 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46726,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-10-15,2020-10-15T13:51:23,1446149,aom ,Amos Malone,crt,clk
 46728,22,cmp                      ,1,cmp                      ,cmp     ,23,2020-10-15,2020-10-15T14:59:50,1446149,aom ,Amos Malone,crt,clk
 46734,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-10-19,2020-10-19T12:15:21,1446149,aom ,Amos Malone,crt,clk
+44171,333,cmp                      ,73,cmp                      ,amdcmp  ,334,2020-10-19,2020-10-19T15:29:25,1407530,,Riyaz Kanji,aty,
+44706,275,answer                   ,75,cmp                      ,counter ,288,2020-10-21,2020-10-21T11:31:32,1053508,,Erin Rome,aty,
 46748,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-10-21,2020-10-21T12:24:09,1446149,aom ,Amos Malone,crt,clk
+45070,201,cmp                      ,51,cmp                      ,amdcmp  ,202,2020-10-21,2020-10-21T13:19:04,661013,nln ,Nicole Nelson,crt,clk
 46749,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-10-21,2020-10-21T13:27:30,1446149,aom ,Amos Malone,crt,clk
 46763,8,cmp                      ,1,cmp                      ,cmp     ,10,2020-10-22,2020-10-22T10:57:40,35192,,Robert Levine,aty,
+44236,146,cmp                      ,40,cmp                      ,amdcmp  ,147,2020-10-22,2020-10-22T14:58:43,1446149,aom ,Amos Malone,crt,clk
 46788,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-10-22,2020-10-23T12:13:29,24419,jef ,Joanne Friedl,crt,clk
 46791,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-10-23,2020-10-23T14:09:21,1446149,aom ,Amos Malone,crt,clk
 46800,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-10-26,2020-10-26T14:53:17,1446149,aom ,Amos Malone,crt,clk
@@ -69,7 +79,9 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46851,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-11-03,2020-11-03T11:29:19,1446149,aom ,Amos Malone,crt,clk
 46852,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-11-03,2020-11-03T11:31:50,1446149,aom ,Amos Malone,crt,clk
 46878,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-11-06,2020-11-06T11:43:37,1446149,aom ,Amos Malone,crt,clk
+46625,44,cmp                      ,14,cmp                      ,amdcmp  ,45,2020-11-06,2020-11-06T13:12:17,262042,,Danielle Schroder,aty,
 46883,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-05-08,2020-05-08T11:59:39,12573,lak ,Lynn Kamke,crt,clk
+44171,345,answer                   ,77,cmp                      ,counter ,351,2020-11-09,2020-11-09T20:20:46,1416075,,David Feinberg,aty,
 46884,34,cmp                      ,1,cmp                      ,cmp     ,35,2020-11-10,2020-11-10T09:02:58,1446149,aom ,Amos Malone,crt,clk
 46885,4,cmp                      ,1,cmp                      ,cmp     ,6,2020-11-10,2020-11-10T13:51:24,884,,Robert Gingras,aty,
 46894,7,cmp                      ,1,cmp                      ,cmp     ,8,2020-11-12,2020-11-12T15:20:08,1489502,lam ,Laura Miller,crt,clk
@@ -78,6 +90,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46903,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-11-16,2020-11-16T12:39:54,1446149,aom ,Amos Malone,crt,clk
 46904,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-11-16,2020-11-16T13:05:04,1446149,aom ,Amos Malone,crt,clk
 46912,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-11-17,2020-11-17T08:56:59,1446149,aom ,Amos Malone,crt,clk
+46464,59,cmp                      ,13,cmp                      ,amdcmp  ,60,2020-11-17,2020-11-17T12:22:21,1446149,aom ,Amos Malone,crt,clk
 46918,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-11-17,2020-11-17T16:14:28,661013,nln ,Nicole Nelson,crt,clk
 46919,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-11-17,2020-11-17T16:23:54,661013,nln ,Nicole Nelson,crt,clk
 46922,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-11-18,2020-11-18T10:00:15,1446149,aom ,Amos Malone,crt,clk
@@ -99,12 +112,15 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47012,25,cmp                      ,1,cmp                      ,cmp     ,26,2020-12-04,2020-12-04T10:18:35,1446149,aom ,Amos Malone,crt,clk
 47013,28,cmp                      ,2,cmp                      ,cmp     ,29,2020-12-04,2020-12-04T14:33:41,24419,jef ,Joanne Friedl,crt,clk
 47029,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-12-07,2020-12-07T15:27:55,1446149,aom ,Amos Malone,crt,clk
+46593,74,cmp                      ,16,cmp                      ,amdcmp  ,76,2020-12-09,2020-12-09T16:51:32,24419,jef ,Joanne Friedl,crt,clk
 47040,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-12-10,2020-12-10T14:12:17,1446149,aom ,Amos Malone,crt,clk
 47045,23,cmp                      ,1,cmp                      ,cmp     ,24,2020-12-11,2020-12-11T09:26:56,1446149,aom ,Amos Malone,crt,clk
 47046,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-12-11,2020-12-11T11:49:58,1446149,aom ,Amos Malone,crt,clk
 47049,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-12-14,2020-12-14T12:47:44,1446149,aom ,Amos Malone,crt,clk
 47050,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-12-14,2020-12-14T14:55:49,1446149,aom ,Amos Malone,crt,clk
 47051,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-12-14,2020-12-14T15:12:12,1446149,aom ,Amos Malone,crt,clk
+46642,53,cmp                      ,12,cmp                      ,amdcmp  ,54,2020-12-17,2020-12-17T14:00:59,1488179,,Najiy-Ullah Aziyz,pty,
+45643,202,cmp                      ,58,cmp                      ,amdcmp  ,203,2020-12-17,2020-12-17T16:36:52,1393850,,William Roberts,pty,
 47074,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-12-18,2020-12-18T12:47:06,661013,nln ,Nicole Nelson,crt,clk
 47076,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-12-18,2020-12-18T14:03:36,661013,nln ,Nicole Nelson,crt,clk
 47081,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-12-21,2020-12-21T14:19:59,1446149,aom ,Amos Malone,crt,clk
@@ -118,12 +134,14 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47101,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-12-30,2020-12-30T14:44:53,1446149,aom ,Amos Malone,crt,clk
 47103,9,cmp                      ,1,cmp                      ,cmp     ,10,2020-12-30,2020-12-30T16:34:00,24419,jef ,Joanne Friedl,crt,clk
 47110,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-01-04,2021-01-04T11:14:59,1446149,aom ,Amos Malone,crt,clk
+45822,53,cmp                      ,15,cmp                      ,amdcmp  ,54,2021-01-04,2021-01-04T13:08:35,1446149,aom ,Amos Malone,crt,clk
 47111,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-01-04,2021-01-04T14:37:00,1446149,aom ,Amos Malone,crt,clk
 47112,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-01-04,2021-01-04T14:42:36,1446149,aom ,Amos Malone,crt,clk
 47113,18,cmp                      ,1,cmp                      ,cmp     ,19,2021-01-04,2021-01-04T16:01:07,1446149,aom ,Amos Malone,crt,clk
 47127,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-01-11,2021-01-11T12:47:47,1446149,aom ,Amos Malone,crt,clk
 47129,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-01-11,2021-01-11T15:54:58,1446149,aom ,Amos Malone,crt,clk
 47131,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-01-11,2021-01-12T08:25:14,1446149,aom ,Amos Malone,crt,clk
+45313,35,cmp                      ,8,cmp                      ,amdcmp  ,36,2021-01-12,2021-01-12T09:09:04,1446149,aom ,Amos Malone,crt,clk
 47138,9,cmp                      ,1,cmp                      ,cmp     ,10,2021-01-12,2021-01-12T17:26:44,24419,jef ,Joanne Friedl,crt,clk
 47146,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-01-14,2021-01-14T12:58:20,1446149,aom ,Amos Malone,crt,clk
 47148,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-01-15,2021-01-15T11:24:03,1446149,aom ,Amos Malone,crt,clk
@@ -149,6 +167,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47266,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-02-11,2021-02-11T08:37:45,1446149,aom ,Amos Malone,crt,clk
 47268,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-02-11,2021-02-11T12:29:11,1446149,aom ,Amos Malone,crt,clk
 47275,20,cmp                      ,1,cmp                      ,cmp     ,21,2021-02-12,2021-02-12T14:36:00,1446149,aom ,Amos Malone,crt,clk
+47088,32,cmp                      ,6,cmp                      ,amdcmp  ,33,2021-02-04,2021-02-16T10:19:36,24419,jef ,Joanne Friedl,crt,clk
 47278,18,cmp                      ,1,cmp                      ,cmp     ,19,2021-02-16,2021-02-16T12:13:50,1446149,aom ,Amos Malone,crt,clk
 47280,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-02-16,2021-02-16T13:12:44,1446149,aom ,Amos Malone,crt,clk
 47289,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-02-19,2021-02-19T12:32:14,1446149,aom ,Amos Malone,crt,clk
@@ -164,6 +183,8 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47333,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-03-04,2021-03-04T10:38:57,1446149,aom ,Amos Malone,crt,clk
 47341,18,cmp                      ,1,cmp                      ,cmp     ,19,2021-03-05,2021-03-05T13:54:51,1446149,aom ,Amos Malone,crt,clk
 47350,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-03-10,2021-03-10T15:15:34,1446149,aom ,Amos Malone,crt,clk
+46788,200,cmp                      ,45,cmp                      ,amdcmp  ,202,2021-03-10,2021-03-10T17:23:43,24419,jef ,Joanne Friedl,crt,clk
+46684,115,cmp                      ,26,cmp                      ,amdcmp  ,119,2021-03-10,2021-03-10T17:28:39,24419,jef ,Joanne Friedl,crt,clk
 47358,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-03-12,2021-03-12T11:45:21,1446149,aom ,Amos Malone,crt,clk
 47364,21,cmp                      ,1,cmp                      ,cmp     ,22,2021-03-15,2021-03-15T09:23:45,1446149,aom ,Amos Malone,crt,clk
 47363,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-03-15,2021-03-15T09:25:52,1446149,aom ,Amos Malone,crt,clk
@@ -177,7 +198,11 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47390,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-03-22,2021-03-22T13:08:52,1446149,aom ,Amos Malone,crt,clk
 47391,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-03-22,2021-03-22T16:01:24,1446149,aom ,Amos Malone,crt,clk
 47395,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-12-10,2020-12-10T12:15:00,12573,lak ,Lynn Kamke,crt,clk
+47219,23,cmp                      ,6,cmp                      ,amdcmp  ,24,2021-03-24,2021-03-24T12:55:35,1446149,aom ,Amos Malone,crt,clk
+47088,41,cmp                      ,8,cmp                      ,amdcmp  ,42,2021-03-24,2021-03-24T13:59:14,1446149,aom ,Amos Malone,crt,clk
 47403,20,cmp                      ,1,cmp                      ,cmp     ,21,2021-03-25,2021-03-25T13:19:37,1446149,aom ,Amos Malone,crt,clk
+45943,157,cmp                      ,37,cmp                      ,amdcmp  ,158,2021-03-29,2021-03-29T16:01:12,1446149,aom ,Amos Malone,crt,clk
+45164,196,cmp                      ,54,cmp                      ,amdcmp  ,206,2021-03-29,2021-03-29T17:26:11,24419,jef ,Joanne Friedl,crt,clk
 47420,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-03-31,2021-03-31T16:10:19,1518391,kmd ,Kim Davis,crt,clk
 47423,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-04-01,2021-04-01T13:49:33,1518391,kmd ,Kim Davis,crt,clk
 47429,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-04-02,2021-04-02T15:37:20,1518391,kmd ,Kim Davis,crt,clk
@@ -196,6 +221,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47537,8,cmp                      ,1,cmp                      ,cmp     ,9,2021-04-16,2021-04-16T16:24:36,1518391,kmd ,Kim Davis,crt,clk
 47540,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-04-19,2021-04-19T11:54:08,1446149,aom ,Amos Malone,crt,clk
 47549,8,cmp                      ,1,cmp                      ,cmp     ,9,2021-04-09,2021-04-09T15:16:49,12573,lak ,Lynn Kamke,crt,clk
+44171,557,cmp                      ,123,cmp                      ,amdcmp  ,558,2021-04-20,2021-04-20T21:05:13,1407530,,Riyaz Kanji,aty,
 47551,9,cmp                      ,1,cmp                      ,cmp     ,10,2021-04-21,2021-04-21T12:14:23,1446149,aom ,Amos Malone,crt,clk
 47556,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-04-22,2021-04-22T15:04:50,1518391,kmd ,Kim Davis,crt,clk
 47570,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-04-23,2021-04-23T11:35:02,1446149,aom ,Amos Malone,crt,clk
@@ -204,6 +230,9 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47596,7,cmp                      ,1,cmp                      ,cmp     ,8,2021-04-28,2021-04-28T12:57:07,1518391,kmd ,Kim Davis,crt,clk
 47602,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-04-29,2021-04-29T14:02:43,1518391,kmd ,Kim Davis,crt,clk
 47606,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-04-27,2021-04-30T09:18:34,1446149,aom ,Amos Malone,crt,clk
+46885,39,cmp                      ,11,cmp                      ,amdcmp  ,40,2021-04-30,2021-04-30T12:17:09,884,,Robert Gingras,aty,
+47446,42,cmp                      ,9,cmp                      ,amdcmp  ,43,2021-05-03,2021-05-03T11:22:45,1489502,lam ,Laura Miller,crt,clk
+46682,126,cmp                      ,32,cmp                      ,amdcmp  ,127,2021-05-03,2021-05-03T12:52:22,24419,jef ,Joanne Friedl,crt,clk
 47626,15,cmp                      ,1,cmp                      ,cmp     ,16,2021-05-03,2021-05-04T09:41:28,1518391,kmd ,Kim Davis,crt,clk
 47629,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-05-03,2021-05-04T11:56:44,1518391,kmd ,Kim Davis,crt,clk
 47630,9,cmp                      ,1,cmp                      ,cmp     ,10,2021-05-03,2021-05-04T13:05:57,1446149,aom ,Amos Malone,crt,clk
@@ -215,7 +244,9 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47656,9,cmp                      ,1,cmp                      ,cmp     ,10,2021-05-10,2021-05-10T16:06:03,1518391,kmd ,Kim Davis,crt,clk
 47658,52,cmp                      ,1,cmp                      ,cmp     ,53,2021-05-12,2021-05-12T12:27:52,1446149,aom ,Amos Malone,crt,clk
 47662,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-05-12,2021-05-12T14:22:11,1518391,kmd ,Kim Davis,crt,clk
+46593,172,cmp                      ,43,cmp                      ,amdcmp  ,173,2021-05-13,2021-05-13T12:00:46,24419,jef ,Joanne Friedl,crt,clk
 47676,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-05-13,2021-05-13T12:36:32,1518391,kmd ,Kim Davis,crt,clk
+44710,111,cmp                      ,22,cmp                      ,amdcmp  ,112,2021-05-14,2021-05-14T11:37:22,1518391,kmd ,Kim Davis,crt,clk
 47683,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-05-17,2021-05-17T14:06:28,1446149,aom ,Amos Malone,crt,clk
 47685,22,cmp                      ,1,cmp                      ,cmp     ,23,2021-05-17,2021-05-17T15:31:07,1446149,aom ,Amos Malone,crt,clk
 47684,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-05-17,2021-05-17T15:31:44,1518391,kmd ,Kim Davis,crt,clk
@@ -223,10 +254,16 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47689,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-05-18,2021-05-18T13:21:34,1446149,aom ,Amos Malone,crt,clk
 47690,16,cmp                      ,2,cmp                      ,cmp     ,17,2021-05-18,2021-05-18T15:38:35,1489502,lam ,Laura Miller,crt,clk
 47696,15,cmp                      ,1,cmp                      ,cmp     ,16,2021-05-19,2021-05-19T14:02:56,1446149,aom ,Amos Malone,crt,clk
+44171,647,answer                   ,146,cmp                      ,counter ,653,2021-05-19,2021-05-19T18:23:10,1416075,,David Feinberg,aty,
 47704,25,cmp                      ,1,cmp                      ,cmp     ,26,2021-05-20,2021-05-20T15:56:05,1446149,aom ,Amos Malone,crt,clk
 47705,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-05-20,2021-05-20T15:56:50,1446149,aom ,Amos Malone,crt,clk
 47706,15,cmp                      ,1,cmp                      ,cmp     ,16,2021-05-21,2021-05-21T12:34:52,1446149,aom ,Amos Malone,crt,clk
 47712,15,cmp                      ,1,cmp                      ,cmp     ,16,2021-05-24,2021-05-24T13:26:25,1446149,aom ,Amos Malone,crt,clk
+47629,25,cmp                      ,5,cmp                      ,amdcmp  ,26,2021-05-24,2021-05-24T15:19:42,1446149,aom ,Amos Malone,crt,clk
+44594,125,cmp                      ,27,cmp                      ,amdcmp  ,126,2021-05-26,2021-05-26T18:22:40,1412907,,Pimal Patel,aty,
+47474,74,cmp                      ,16,cmp                      ,amdcmp  ,76,2021-05-26,2021-05-26T18:54:38,676,,Nathaniel Cade,aty,
+44594,127,cmp                      ,28,cmp                      ,amdcmp  ,128,2021-05-27,2021-05-27T10:00:18,1412907,,Pimal Patel,aty,
+47474,80,cmp                      ,18,cmp                      ,counter ,83,2021-05-28,2021-05-28T11:25:11,1134,,Lori Lubinsky,aty,
 47742,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-06-01,2021-06-01T13:48:06,1446149,aom ,Amos Malone,crt,clk
 47751,7,cmp                      ,1,cmp                      ,cmp     ,8,2021-06-03,2021-06-03T15:26:49,24419,jef ,Joanne Friedl,crt,clk
 47752,6,cmp                      ,1,cmp                      ,cmp     ,7,2021-06-04,2021-06-04T10:59:49,1518391,kmd ,Kim Davis,crt,clk
@@ -237,7 +274,9 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47763,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-06-07,2021-06-08T08:37:34,1446149,aom ,Amos Malone,crt,clk
 47769,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-06-09,2021-06-09T13:47:20,1446149,aom ,Amos Malone,crt,clk
 47779,20,cmp                      ,1,cmp                      ,cmp     ,21,2021-06-11,2021-06-11T11:27:08,1446149,aom ,Amos Malone,crt,clk
+47474,106,cmp                      ,22,cmp                      ,counter ,109,2021-06-14,2021-06-14T10:57:40,1134,,Lori Lubinsky,aty,
 47784,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-06-14,2021-06-14T17:25:02,24419,jef ,Joanne Friedl,crt,clk
+46314,85,cmp                      ,20,cmp                      ,amdcmp  ,86,2021-06-15,2021-06-15T12:58:42,1446149,aom ,Amos Malone,crt,clk
 47792,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-06-16,2021-06-16T13:32:56,1446149,aom ,Amos Malone,crt,clk
 47799,8,cmp                      ,1,cmp                      ,cmp     ,9,2021-06-17,2021-06-17T11:29:59,1446149,aom ,Amos Malone,crt,clk
 47800,8,cmp                      ,1,cmp                      ,cmp     ,9,2021-06-17,2021-06-17T11:33:37,1446149,aom ,Amos Malone,crt,clk
@@ -248,6 +287,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 47839,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-06-25,2021-06-25T14:45:28,1446149,aom ,Amos Malone,crt,clk
 47844,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-06-28,2021-06-29T13:54:42,1446149,aom ,Amos Malone,crt,clk
 47846,77,cmp                      ,1,cmp                      ,cmp     ,78,2021-06-29,2021-06-29T15:25:44,1446149,aom ,Amos Malone,crt,clk
+46148,276,cmp                      ,68,cmp                      ,amdcmp  ,278,2021-07-01,2021-07-02T09:10:02,1446149,aom ,Amos Malone,crt,clk
 47878,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-07-06,2021-07-06T13:37:08,1446149,aom ,Amos Malone,crt,clk
 47880,20,cmp                      ,1,cmp                      ,cmp     ,21,2021-07-06,2021-07-06T15:37:46,1446149,aom ,Amos Malone,crt,clk
 47881,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-07-06,2021-07-06T16:29:47,1446149,aom ,Amos Malone,crt,clk
@@ -270,6 +310,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 40955,9,cmp                      ,1,cmp                      ,cmp     ,10,2017-11-29,2017-11-30T16:30:19,24419,jef ,Joanne Friedl,crt,clk
 41158,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-01-19,2018-01-22T10:19:24,24419,jef ,Joanne Friedl,crt,clk
 41159,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-01-19,2018-01-22T10:24:33,24419,jef ,Joanne Friedl,crt,clk
+40578,27,cmp                      ,6,cmp                      ,amdcmp  ,28,2017-12-18,2017-12-18T13:07:29,24419,jef ,Joanne Friedl,crt,clk
 41091,13,cmp                      ,1,cmp                      ,cmp     ,14,2018-01-03,2018-01-04T10:03:37,24419,jef ,Joanne Friedl,crt,clk
 41099,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-01-04,2018-01-04T15:04:03,24419,jef ,Joanne Friedl,crt,clk
 41106,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-01-05,2018-01-05T15:20:41,24419,jef ,Joanne Friedl,crt,clk
@@ -360,6 +401,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 41596,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-04-11,2018-04-11T12:13:46,24419,jef ,Joanne Friedl,crt,clk
 41598,21,cmp                      ,1,cmp                      ,cmp     ,22,2018-04-11,2018-04-11T14:16:23,661013,nln ,Nicole Nelson,crt,clk
 41600,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-04-12,2018-04-12T09:03:53,24419,jef ,Joanne Friedl,crt,clk
+41542,47,cmp                      ,11,cmp                      ,amdcmp  ,50,2018-04-12,2018-04-12T12:29:37,20,elc ,Erica Clark,crt,clk
 41602,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-04-12,2018-04-12T14:44:18,20,elc ,Erica Clark,crt,clk
 42193,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-07-23,2018-07-23T14:25:32,661013,nln ,Nicole Nelson,crt,clk
 41607,11,cmp                      ,1,cmp                      ,cmp     ,12,2018-04-13,2018-04-13T13:23:28,24419,jef ,Joanne Friedl,crt,clk
@@ -376,8 +418,11 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 41697,12,cmp                      ,1,cmp                      ,cmp     ,13,2018-04-25,2018-04-25T15:27:39,661013,nln ,Nicole Nelson,crt,clk
 41709,4,cmp                      ,1,cmp                      ,cmp     ,5,2018-02-26,2018-02-27T11:18:03,12573,lak ,Lynn Kamke,crt,clk
 41720,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-04-30,2018-04-30T16:27:26,24419,jef ,Joanne Friedl,crt,clk
+41167,18,cmp                      ,4,cmp                      ,amdcmp  ,19,2018-04-30,2018-05-01T10:55:23,661013,nln ,Nicole Nelson,crt,clk
 41726,6,cmp                      ,1,cmp                      ,cmp     ,7,2018-05-01,2018-05-01T11:49:20,24419,jef ,Joanne Friedl,crt,clk
 41730,3,cmp                      ,1,cmp                      ,cmp     ,5,2015-09-25,2015-09-25T16:40:23,12573,lak ,Lynn Kamke,crt,clk
+41730,289,answer                   ,99,cmp                      ,counter ,293,2016-10-07,2016-10-07T20:15:03,12573,lak ,Lynn Kamke,crt,clk
+41730,352,answer                   ,118,cmp                      ,counter ,356,2016-11-21,2016-11-21T21:20:54,12573,lak ,Lynn Kamke,crt,clk
 41731,31,cmp                      ,1,cmp                      ,cmp     ,32,2018-05-02,2018-05-02T12:31:07,661013,nln ,Nicole Nelson,crt,clk
 41736,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-05-03,2018-05-03T12:58:03,24419,jef ,Joanne Friedl,crt,clk
 41737,13,cmp                      ,1,cmp                      ,cmp     ,14,2018-05-03,2018-05-03T13:52:58,661013,nln ,Nicole Nelson,crt,clk
@@ -445,6 +490,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42096,16,cmp                      ,1,cmp                      ,cmp     ,17,2018-06-28,2018-06-28T11:41:30,661013,nln ,Nicole Nelson,crt,clk
 42099,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-06-29,2018-06-29T12:44:50,24419,jef ,Joanne Friedl,crt,clk
 42106,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-07-02,2018-07-02T13:39:46,661013,nln ,Nicole Nelson,crt,clk
+41838,341,cmp                      ,64,cmp                      ,amdcmp  ,342,2018-07-03,2018-07-03T15:23:02,24419,jef ,Joanne Friedl,crt,clk
 42109,17,cmp                      ,1,cmp                      ,cmp     ,18,2018-07-03,2018-07-03T15:25:01,661013,nln ,Nicole Nelson,crt,clk
 42110,13,cmp                      ,1,cmp                      ,cmp     ,14,2018-07-03,2018-07-03T15:32:00,661013,nln ,Nicole Nelson,crt,clk
 42111,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-07-05,2018-07-05T13:18:02,661013,nln ,Nicole Nelson,crt,clk
@@ -475,6 +521,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42220,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-07-19,2018-07-20T13:33:12,12573,lak ,Lynn Kamke,crt,clk
 42254,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-08-03,2018-08-03T12:29:25,661013,nln ,Nicole Nelson,crt,clk
 42262,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-08-06,2018-08-06T11:30:20,20,elc ,Erica Clark,crt,clk
+42121,39,cmp                      ,5,cmp                      ,amdcmp  ,40,2018-08-06,2018-08-06T12:38:54,24419,jef ,Joanne Friedl,crt,clk
 42273,6,cmp                      ,1,cmp                      ,cmp     ,7,2018-08-06,2018-08-07T10:23:36,24419,jef ,Joanne Friedl,crt,clk
 42274,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-08-06,2018-08-07T11:07:23,24419,jef ,Joanne Friedl,crt,clk
 42275,11,cmp                      ,1,cmp                      ,cmp     ,12,2018-08-07,2018-08-07T11:18:17,24419,jef ,Joanne Friedl,crt,clk
@@ -483,10 +530,12 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42324,54,cmp                      ,1,cmp                      ,cmp     ,55,2018-08-08,2018-08-08T16:38:17,24419,jef ,Joanne Friedl,crt,clk
 42331,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-08-09,2018-08-09T13:11:29,661013,nln ,Nicole Nelson,crt,clk
 42338,26,cmp                      ,1,cmp                      ,cmp     ,27,2018-08-10,2018-08-10T14:07:32,661013,nln ,Nicole Nelson,crt,clk
+41926,19,cmp                      ,5,cmp                      ,amdcmp  ,20,2018-08-10,2018-08-10T14:47:03,661013,nln ,Nicole Nelson,crt,clk
 42341,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-08-10,2018-08-10T16:40:08,24419,jef ,Joanne Friedl,crt,clk
 42348,9,cmp                      ,1,cmp                      ,cmp     ,10,2017-08-22,2017-08-23T12:28:29,12573,lak ,Lynn Kamke,crt,clk
 42354,17,cmp                      ,1,cmp                      ,cmp     ,18,2018-08-13,2018-08-13T16:47:57,24419,jef ,Joanne Friedl,crt,clk
 42356,8,cmp                      ,1,cmp                      ,cmp     ,9,2017-11-27,2017-11-27T11:11:49,24419,jef ,Joanne Friedl,crt,clk
+42356,48,cmp                      ,11,cmp                      ,amdcmp  ,53,2018-08-14,2018-08-14T13:24:35,24419,jef ,Joanne Friedl,crt,clk
 42361,13,cmp                      ,1,cmp                      ,cmp     ,14,2018-08-15,2018-08-15T10:12:21,661013,nln ,Nicole Nelson,crt,clk
 42363,21,cmp                      ,1,cmp                      ,cmp     ,22,2018-08-15,2018-08-15T11:05:48,661013,nln ,Nicole Nelson,crt,clk
 42364,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-08-06,2018-08-07T10:55:51,12573,lak ,Lynn Kamke,crt,clk
@@ -505,6 +554,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42432,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-08-27,2018-08-28T13:52:56,24419,jef ,Joanne Friedl,crt,clk
 42433,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-08-27,2018-08-28T14:09:48,24419,jef ,Joanne Friedl,crt,clk
 42437,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-08-28,2018-08-29T12:47:43,24419,jef ,Joanne Friedl,crt,clk
+41974,34,cmp                      ,3,cmp                      ,amdcmp  ,35,2018-08-29,2018-08-29T15:25:01,24419,jef ,Joanne Friedl,crt,clk
 42448,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-08-30,2018-08-30T16:20:27,24419,jef ,Joanne Friedl,crt,clk
 42453,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-09-04,2018-09-04T16:16:26,20,elc ,Erica Clark,crt,clk
 42454,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-09-04,2018-09-04T16:31:41,20,elc ,Erica Clark,crt,clk
@@ -518,6 +568,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42484,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-09-10,2018-09-10T15:25:44,661013,nln ,Nicole Nelson,crt,clk
 42485,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-09-10,2018-09-10T16:07:29,661013,nln ,Nicole Nelson,crt,clk
 42515,12,cmp                      ,1,cmp                      ,cmp     ,13,2018-09-13,2018-09-13T12:54:49,661013,nln ,Nicole Nelson,crt,clk
+41901,95,cmp                      ,21,cmp                      ,amdcmp  ,101,2018-09-13,2018-09-13T16:13:11,24419,jef ,Joanne Friedl,crt,clk
 42537,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-09-14,2018-09-14T14:12:05,20,elc ,Erica Clark,crt,clk
 42544,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-09-14,2018-09-14T15:59:12,24419,jef ,Joanne Friedl,crt,clk
 42550,13,cmp                      ,1,cmp                      ,cmp     ,14,2018-09-14,2018-09-17T13:19:56,24419,jef ,Joanne Friedl,crt,clk
@@ -534,16 +585,22 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42582,14,cmp                      ,1,cmp                      ,cmp     ,15,2018-09-19,2018-09-20T17:33:27,24419,jef ,Joanne Friedl,crt,clk
 42588,31,cmp                      ,1,cmp                      ,cmp     ,32,2018-09-21,2018-09-21T15:02:28,661013,nln ,Nicole Nelson,crt,clk
 42592,6,cmp                      ,1,cmp                      ,cmp     ,7,2018-09-24,2018-09-24T13:46:46,20,elc ,Erica Clark,crt,clk
+42416,20,cmp                      ,5,cmp                      ,amdcmp  ,26,2018-09-24,2018-09-24T15:47:26,20,elc ,Erica Clark,crt,clk
 42607,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-09-28,2018-09-28T14:53:15,661013,nln ,Nicole Nelson,crt,clk
 42608,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-09-28,2018-09-28T16:05:52,661013,nln ,Nicole Nelson,crt,clk
 42609,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-09-28,2018-09-28T16:08:18,20,elc ,Erica Clark,crt,clk
 42612,11,cmp                      ,1,cmp                      ,cmp     ,12,2018-10-01,2018-10-01T15:48:34,661013,nln ,Nicole Nelson,crt,clk
+41598,56,cmp                      ,14,cmp                      ,amdcmp  ,57,2018-10-03,2018-10-03T13:01:32,661013,nln ,Nicole Nelson,crt,clk
+41091,53,cmp                      ,15,cmp                      ,amdcmp  ,56,2018-10-03,2018-10-03T13:19:11,24419,jef ,Joanne Friedl,crt,clk
 42631,6,cmp                      ,1,cmp                      ,cmp     ,7,2018-09-10,2018-09-11T10:34:12,12573,lak ,Lynn Kamke,crt,clk
 42650,7,cmp                      ,1,cmp                      ,cmp     ,8,2018-10-09,2018-10-09T15:56:37,24419,jef ,Joanne Friedl,crt,clk
+41596,67,cmp                      ,19,cmp                      ,amdcmp  ,69,2018-10-11,2018-10-11T14:52:26,24419,jef ,Joanne Friedl,crt,clk
 42688,32,cmp                      ,1,cmp                      ,cmp     ,33,2018-10-11,2018-10-15T09:40:17,24419,jef ,Joanne Friedl,crt,clk
 42692,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-10-12,2018-10-15T12:52:54,24419,jef ,Joanne Friedl,crt,clk
 42693,15,cmp                      ,1,cmp                      ,cmp     ,16,2018-10-12,2018-10-15T13:42:39,24419,jef ,Joanne Friedl,crt,clk
 42694,14,cmp                      ,1,cmp                      ,cmp     ,15,2018-10-15,2018-10-15T14:08:05,24419,jef ,Joanne Friedl,crt,clk
+42558,59,cmp                      ,16,cmp                      ,amdcmp  ,60,2018-10-15,2018-10-15T17:10:56,24419,jef ,Joanne Friedl,crt,clk
+42558,61,cmp                      ,17,cmp                      ,amdcmp  ,62,2018-10-15,2018-10-15T17:12:00,24419,jef ,Joanne Friedl,crt,clk
 42698,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-10-16,2018-10-16T13:57:51,661013,nln ,Nicole Nelson,crt,clk
 42709,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-10-17,2018-10-18T10:10:32,24419,jef ,Joanne Friedl,crt,clk
 42720,4,cmp                      ,1,cmp                      ,cmp     ,5,2018-01-30,2018-01-30T14:09:34,661013,nln ,Nicole Nelson,crt,clk
@@ -583,6 +640,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42860,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-11-13,2018-11-13T13:46:38,661013,nln ,Nicole Nelson,crt,clk
 42852,4,cmp                      ,1,cmp                      ,cmp     ,5,2018-11-13,2018-11-13T14:08:44,1357376,,Stephen Alford,pty,
 42852,8,cmp                      ,3,cmp                      ,cmp     ,9,2018-11-13,2018-11-13T14:34:51,1357376,,Stephen Alford,pty,
+41901,107,cmp                      ,24,cmp                      ,amdcmp  ,108,2018-11-15,2018-11-15T14:07:39,661013,nln ,Nicole Nelson,crt,clk
 42870,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-11-15,2018-11-15T14:39:14,1353789,rks ,Rachel Swanson,crt,clk
 42873,28,cmp                      ,1,cmp                      ,cmp     ,29,2018-11-15,2018-11-15T16:03:46,1353789,rks ,Rachel Swanson,crt,clk
 42875,14,cmp                      ,1,cmp                      ,cmp     ,15,2018-11-15,2018-11-16T11:17:53,24419,jef ,Joanne Friedl,crt,clk
@@ -590,6 +648,8 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42880,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-11-19,2018-11-19T16:19:14,1353789,rks ,Rachel Swanson,crt,clk
 42882,12,cmp                      ,1,cmp                      ,cmp     ,13,2018-11-19,2018-11-20T09:13:02,1353789,rks ,Rachel Swanson,crt,clk
 42889,11,cmp                      ,1,cmp                      ,cmp     ,12,2018-11-07,2018-11-20T12:29:03,661013,nln ,Nicole Nelson,crt,clk
+41849,84,cmp                      ,25,cmp                      ,amdcmp  ,101,2018-11-21,2018-11-21T10:08:13,24419,jef ,Joanne Friedl,crt,clk
+42852,25,cmp                      ,6,cmp                      ,amdcmp  ,27,2018-11-25,2018-11-25T19:25:55,1357378,,Evan Miller,pty,
 42911,14,cmp                      ,1,cmp                      ,cmp     ,15,2018-11-26,2018-11-26T10:23:01,1353789,rks ,Rachel Swanson,crt,clk
 42913,12,cmp                      ,1,cmp                      ,cmp     ,13,2018-11-26,2018-11-26T15:44:44,1353789,rks ,Rachel Swanson,crt,clk
 42914,15,cmp                      ,1,cmp                      ,cmp     ,16,2018-11-26,2018-11-27T09:17:19,1353789,rks ,Rachel Swanson,crt,clk
@@ -600,10 +660,12 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 42939,13,cmp                      ,1,cmp                      ,cmp     ,14,2018-11-28,2018-11-29T12:10:00,1353789,rks ,Rachel Swanson,crt,clk
 42963,14,cmp                      ,1,cmp                      ,cmp     ,15,2018-11-29,2018-11-29T16:38:07,1353789,rks ,Rachel Swanson,crt,clk
 42964,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-11-29,2018-11-30T11:32:05,1353789,rks ,Rachel Swanson,crt,clk
+42217,174,cmp                      ,59,cmp                      ,amdcmp  ,175,2018-11-30,2018-11-30T12:25:11,24419,jef ,Joanne Friedl,crt,clk
 42965,11,cmp                      ,1,cmp                      ,cmp     ,12,2018-11-30,2018-11-30T13:29:53,661013,nln ,Nicole Nelson,crt,clk
 42968,17,cmp                      ,1,cmp                      ,cmp     ,18,2018-11-30,2018-11-30T15:55:32,661013,nln ,Nicole Nelson,crt,clk
 42970,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-11-30,2018-12-03T11:17:50,1353789,rks ,Rachel Swanson,crt,clk
 42971,14,cmp                      ,1,cmp                      ,cmp     ,15,2018-12-03,2018-12-03T15:17:56,1353789,rks ,Rachel Swanson,crt,clk
+42823,33,cmp                      ,8,cmp                      ,amdcmp  ,35,2018-12-03,2018-12-03T15:24:18,24419,jef ,Joanne Friedl,crt,clk
 42972,14,cmp                      ,1,cmp                      ,cmp     ,15,2018-12-03,2018-12-03T15:54:39,1353789,rks ,Rachel Swanson,crt,clk
 42974,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-12-03,2018-12-04T09:20:06,1353789,rks ,Rachel Swanson,crt,clk
 42975,9,cmp                      ,1,cmp                      ,cmp     ,10,2018-12-03,2018-12-04T09:55:53,1353789,rks ,Rachel Swanson,crt,clk
@@ -629,6 +691,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43048,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-12-13,2018-12-14T17:27:33,24419,jef ,Joanne Friedl,crt,clk
 43049,8,cmp                      ,1,cmp                      ,cmp     ,9,2018-12-13,2018-12-14T17:48:45,24419,jef ,Joanne Friedl,crt,clk
 43050,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-12-14,2018-12-17T10:25:26,1353789,rks ,Rachel Swanson,crt,clk
+42995,31,cmp                      ,9,cmp                      ,amdcmp  ,32,2018-12-17,2018-12-17T12:46:29,24419,jef ,Joanne Friedl,crt,clk
 43051,37,cmp                      ,1,cmp                      ,cmp     ,38,2018-12-14,2018-12-17T14:18:04,1353789,rks ,Rachel Swanson,crt,clk
 43053,4,cmp                      ,1,cmp                      ,cmp     ,5,2018-12-17,2018-12-17T14:52:18,346454,,Jason Canfield,aty,
 43055,10,cmp                      ,1,cmp                      ,cmp     ,11,2018-12-17,2018-12-17T16:33:25,1353789,rks ,Rachel Swanson,crt,clk
@@ -644,9 +707,14 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43112,18,cmp                      ,1,cmp                      ,cmp     ,19,2018-12-28,2018-12-28T13:31:07,1353789,rks ,Rachel Swanson,crt,clk
 43114,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-12-28,2018-12-28T14:45:58,24419,jef ,Joanne Friedl,crt,clk
 43111,17,cmp                      ,1,cmp                      ,cmp     ,18,2018-12-28,2018-12-28T15:49:12,661013,nln ,Nicole Nelson,crt,clk
+42217,211,cmp                      ,72,cmp                      ,amdcmp  ,212,2018-12-28,2018-12-28T15:51:26,24419,jef ,Joanne Friedl,crt,clk
+42852,51,cmp                      ,12,cmp                      ,3rdcmp  ,54,2018-12-31,2018-12-31T17:11:02,1357378,,Evan Miller,pty,
 43126,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-01-02,2019-01-02T16:09:59,1353789,rks ,Rachel Swanson,crt,clk
 43127,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-01-02,2019-01-02T16:36:13,1353789,rks ,Rachel Swanson,crt,clk
+42592,24,cmp                      ,6,cmp                      ,amdcmp  ,25,2019-01-02,2019-01-03T10:45:48,1353789,rks ,Rachel Swanson,crt,clk
 43128,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-01-02,2019-01-03T12:53:03,661013,nln ,Nicole Nelson,crt,clk
+42078,35,cmp                      ,8,cmp                      ,amdcmp  ,36,2019-01-04,2019-01-04T11:00:36,1353789,rks ,Rachel Swanson,crt,clk
+42887,39,cmp                      ,7,cmp                      ,counter ,42,2019-01-04,2019-01-04T16:19:36,1353789,rks ,Rachel Swanson,crt,clk
 43135,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-01-07,2019-01-07T09:55:17,1353789,rks ,Rachel Swanson,crt,clk
 43140,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-01-07,2019-01-07T12:35:44,1353789,rks ,Rachel Swanson,crt,clk
 43142,18,cmp                      ,1,cmp                      ,cmp     ,19,2019-01-07,2019-01-07T15:05:11,1353789,rks ,Rachel Swanson,crt,clk
@@ -654,26 +722,35 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43149,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-01-07,2019-01-08T10:06:18,661013,nln ,Nicole Nelson,crt,clk
 43156,18,cmp                      ,1,cmp                      ,cmp     ,19,2019-01-09,2019-01-09T11:22:44,1353789,rks ,Rachel Swanson,crt,clk
 43160,18,cmp                      ,1,cmp                      ,cmp     ,19,2019-01-09,2019-01-09T16:08:11,1353789,rks ,Rachel Swanson,crt,clk
+42458,64,cmp                      ,17,cmp                      ,amdcmp  ,67,2019-01-10,2019-01-10T13:24:00,1353789,rks ,Rachel Swanson,crt,clk
 43183,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-01-10,2019-01-10T13:51:45,1353789,rks ,Rachel Swanson,crt,clk
 43191,26,cmp                      ,1,cmp                      ,cmp     ,27,2019-01-11,2019-01-11T16:01:27,1353789,rks ,Rachel Swanson,crt,clk
 43189,22,cmp                      ,1,cmp                      ,cmp     ,23,2019-01-11,2019-01-11T17:13:38,359141,,H. Haukaas,aty,
 43199,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-01-16,2019-01-16T09:38:06,1353789,rks ,Rachel Swanson,crt,clk
 43209,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-01-14,2019-01-16T14:08:27,1353789,rks ,Rachel Swanson,crt,clk
 43219,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-01-17,2019-01-17T15:43:32,1353789,rks ,Rachel Swanson,crt,clk
+42887,73,cmp                      ,17,cmp                      ,amdcmp  ,74,2019-01-18,2019-01-18T12:32:31,1358991,,Jeffrey Heist,pty,
 43226,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-01-22,2019-01-22T09:49:56,1353789,rks ,Rachel Swanson,crt,clk
 43227,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-01-22,2019-01-22T11:35:42,1353789,rks ,Rachel Swanson,crt,clk
+41596,87,cmp                      ,25,cmp                      ,amdcmp  ,88,2019-01-22,2019-01-22T14:42:56,1353789,rks ,Rachel Swanson,crt,clk
 43229,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-01-22,2019-01-22T16:26:44,1353789,rks ,Rachel Swanson,crt,clk
 43230,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-01-22,2019-01-22T16:28:57,24419,jef ,Joanne Friedl,crt,clk
 43231,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-01-22,2019-01-23T10:14:50,1353789,rks ,Rachel Swanson,crt,clk
+43209,32,cmp                      ,10,cmp                      ,amdcmp  ,33,2019-01-23,2019-01-23T10:22:52,24419,jef ,Joanne Friedl,crt,clk
 43235,25,cmp                      ,1,cmp                      ,cmp     ,26,2019-01-23,2019-01-23T15:34:47,1353789,rks ,Rachel Swanson,crt,clk
+42185,113,cmp                      ,28,cmp                      ,amdcmp  ,114,2019-01-29,2019-01-29T09:43:46,661013,nln ,Nicole Nelson,crt,clk
 43246,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-01-29,2019-01-29T11:40:06,661013,nln ,Nicole Nelson,crt,clk
+42461,42,cmp                      ,11,cmp                      ,amdcmp  ,43,2019-01-29,2019-01-30T14:29:06,24419,jef ,Joanne Friedl,crt,clk
+42963,63,cmp                      ,14,cmp                      ,amdcmp  ,64,2019-01-31,2019-01-31T09:31:40,661013,nln ,Nicole Nelson,crt,clk
 43270,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-02-01,2019-02-01T15:27:09,1353789,rks ,Rachel Swanson,crt,clk
+41926,99,cmp                      ,29,cmp                      ,amdcmp  ,100,2019-02-04,2019-02-04T13:43:22,1353789,rks ,Rachel Swanson,crt,clk
 43276,20,cmp                      ,1,cmp                      ,cmp     ,21,2019-02-04,2019-02-04T15:51:39,1353789,rks ,Rachel Swanson,crt,clk
 43278,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-02-04,2019-02-05T08:41:56,1353789,rks ,Rachel Swanson,crt,clk
 43283,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-02-05,2019-02-05T13:28:35,661013,nln ,Nicole Nelson,crt,clk
 43286,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-02-05,2019-02-05T15:15:42,1353789,rks ,Rachel Swanson,crt,clk
 43293,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-02-06,2019-02-06T16:37:31,1353789,rks ,Rachel Swanson,crt,clk
 43299,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-02-07,2019-02-07T14:00:18,1353789,rks ,Rachel Swanson,crt,clk
+42121,99,cmp                      ,21,cmp                      ,amdcmp  ,101,2019-02-08,2019-02-08T13:44:22,24419,jef ,Joanne Friedl,crt,clk
 43303,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-02-08,2019-02-08T13:56:43,661013,nln ,Nicole Nelson,crt,clk
 43304,33,cmp                      ,1,cmp                      ,cmp     ,34,2019-02-08,2019-02-08T15:10:13,1353789,rks ,Rachel Swanson,crt,clk
 43306,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-02-08,2019-02-11T10:24:34,24419,jef ,Joanne Friedl,crt,clk
@@ -686,10 +763,13 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43324,20,cmp                      ,1,cmp                      ,cmp     ,21,2019-02-15,2019-02-15T10:30:09,1353789,rks ,Rachel Swanson,crt,clk
 43323,26,cmp                      ,1,cmp                      ,cmp     ,27,2019-02-15,2019-02-15T11:02:49,1353789,rks ,Rachel Swanson,crt,clk
 43329,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-02-15,2019-02-15T12:15:28,1353789,rks ,Rachel Swanson,crt,clk
+43226,25,cmp                      ,8,cmp                      ,amdcmp  ,26,2019-02-19,2019-02-19T08:58:25,1353789,rks ,Rachel Swanson,crt,clk
 43339,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-02-19,2019-02-19T13:19:51,1353789,rks ,Rachel Swanson,crt,clk
 43340,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-02-19,2019-02-19T14:29:43,1353789,rks ,Rachel Swanson,crt,clk
 43341,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-02-19,2019-02-19T15:41:25,1353789,rks ,Rachel Swanson,crt,clk
+43271,40,cmp                      ,8,cmp                      ,amdcmp  ,41,2019-02-19,2019-02-19T16:10:17,22594,,Ryan Cari,aty,
 43342,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-02-19,2019-02-19T16:19:40,1353789,rks ,Rachel Swanson,crt,clk
+43189,56,cmp                      ,10,cmp                      ,amdcmp  ,57,2019-02-20,2019-02-20T09:33:50,359141,,H. Haukaas,aty,
 43344,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-02-19,2019-02-20T10:28:42,1353789,rks ,Rachel Swanson,crt,clk
 43345,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-02-20,2019-02-20T11:31:45,24419,jef ,Joanne Friedl,crt,clk
 43346,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-02-20,2019-02-20T12:19:13,661013,nln ,Nicole Nelson,crt,clk
@@ -703,16 +783,25 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43401,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-02-26,2019-02-26T15:28:45,1353789,rks ,Rachel Swanson,crt,clk
 43408,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-02-27,2019-02-27T15:40:57,1353789,rks ,Rachel Swanson,crt,clk
 43414,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-02-28,2019-02-28T17:36:58,23924,,Timothy Provis,aty,
+43345,33,cmp                      ,10,cmp                      ,amdcmp  ,34,2019-03-01,2019-03-01T09:38:40,1353789,rks ,Rachel Swanson,crt,clk
+43400,28,cmp                      ,5,cmp                      ,amdcmp  ,29,2019-03-01,2019-03-01T13:41:54,1353789,rks ,Rachel Swanson,crt,clk
 43419,24,cmp                      ,1,cmp                      ,cmp     ,25,2019-03-01,2019-03-01T14:56:13,1353789,rks ,Rachel Swanson,crt,clk
+43400,37,cmp                      ,9,cmp                      ,amdcmp  ,38,2019-03-06,2019-03-06T14:33:29,661013,nln ,Nicole Nelson,crt,clk
 43433,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-03-06,2019-03-07T13:49:37,1353789,rks ,Rachel Swanson,crt,clk
 43439,7,cmp                      ,1,cmp                      ,cmp     ,8,2019-03-07,2019-03-07T16:37:36,1353789,rks ,Rachel Swanson,crt,clk
 43440,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-03-08,2019-03-08T09:29:19,24419,jef ,Joanne Friedl,crt,clk
+42887,123,cmp                      ,34,cmp                      ,counter ,126,2019-03-08,2019-03-08T13:06:09,1358991,,Jeffrey Heist,pty,
+43112,43,cmp                      ,11,cmp                      ,amdcmp  ,44,2019-03-08,2019-03-08T13:37:53,1353789,rks ,Rachel Swanson,crt,clk
 43444,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-03-08,2019-03-08T13:40:52,661013,nln ,Nicole Nelson,crt,clk
+42887,140,cmp                      ,39,cmp                      ,counter ,143,2019-03-08,2019-03-08T21:03:22,1358991,,Jeffrey Heist,pty,
 43456,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-03-12,2019-03-12T09:38:57,1353789,rks ,Rachel Swanson,crt,clk
 43460,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-03-12,2019-03-12T15:41:38,1353789,rks ,Rachel Swanson,crt,clk
 43463,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-03-11,2019-03-13T09:17:19,1353789,rks ,Rachel Swanson,crt,clk
 43464,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-03-11,2019-03-13T10:14:48,1353789,rks ,Rachel Swanson,crt,clk
+43400,50,cmp                      ,15,cmp                      ,amdcmp  ,51,2019-03-13,2019-03-13T12:24:46,24419,jef ,Joanne Friedl,crt,clk
 43488,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-03-13,2019-03-14T10:06:42,1353789,rks ,Rachel Swanson,crt,clk
+42911,46,cmp                      ,11,cmp                      ,amdcmp  ,47,2019-03-14,2019-03-14T11:32:38,1353789,rks ,Rachel Swanson,crt,clk
+42338,74,cmp                      ,17,cmp                      ,amdcmp  ,75,2019-03-14,2019-03-14T14:16:48,661013,nln ,Nicole Nelson,crt,clk
 43493,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-03-14,2019-03-14T15:48:44,2205,,Craig Miller,aty,
 43497,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-03-14,2019-03-14T15:59:43,1353789,rks ,Rachel Swanson,crt,clk
 43500,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-03-15,2019-03-15T13:48:13,1353789,rks ,Rachel Swanson,crt,clk
@@ -724,9 +813,11 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43523,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-03-21,2019-03-21T13:26:30,1353789,rks ,Rachel Swanson,crt,clk
 43528,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-03-20,2019-03-22T10:24:26,1353789,rks ,Rachel Swanson,crt,clk
 43530,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-03-22,2019-03-22T14:15:27,1353789,rks ,Rachel Swanson,crt,clk
+43303,41,cmp                      ,9,cmp                      ,amdcmp  ,43,2019-03-25,2019-03-25T16:45:25,1353789,rks ,Rachel Swanson,crt,clk
 43536,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-03-26,2019-03-26T09:54:47,1353789,rks ,Rachel Swanson,crt,clk
 43537,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-03-25,2019-03-26T11:16:35,1353789,rks ,Rachel Swanson,crt,clk
 43538,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-03-26,2019-03-26T16:19:32,1353789,rks ,Rachel Swanson,crt,clk
+41598,62,cmp                      ,17,cmp                      ,amdcmp  ,70,2019-03-27,2019-03-27T14:46:52,1353789,rks ,Rachel Swanson,crt,clk
 43541,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-03-27,2019-03-27T15:15:51,1353789,rks ,Rachel Swanson,crt,clk
 43546,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-03-29,2019-03-29T13:58:29,1353789,rks ,Rachel Swanson,crt,clk
 43547,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-03-29,2019-03-29T15:07:39,1353789,rks ,Rachel Swanson,crt,clk
@@ -734,14 +825,19 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43555,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-04-01,2019-04-02T10:53:33,661013,nln ,Nicole Nelson,crt,clk
 43558,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-04-02,2019-04-02T12:05:56,661013,nln ,Nicole Nelson,crt,clk
 43562,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-04-01,2019-04-03T09:02:54,1353789,rks ,Rachel Swanson,crt,clk
+42185,228,cmp                      ,58,cmp                      ,amdcmp  ,236,2019-04-03,2019-04-03T13:26:21,24419,jef ,Joanne Friedl,crt,clk
 43569,20,cmp                      ,1,cmp                      ,cmp     ,21,2019-04-03,2019-04-03T14:52:03,1353789,rks ,Rachel Swanson,crt,clk
 43578,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-04-08,2019-04-08T09:42:05,1353789,rks ,Rachel Swanson,crt,clk
 43579,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-04-08,2019-04-08T12:06:24,1353789,rks ,Rachel Swanson,crt,clk
 43580,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-04-08,2019-04-08T14:25:46,661013,nln ,Nicole Nelson,crt,clk
+43493,71,answer                   ,20,cmp                      ,3rdcmp  ,83,2019-04-08,2019-04-08T16:25:49,1385342,,David Fessenden,pty,
+43493,71,answer                   ,20,cmp                      ,counter ,84,2019-04-08,2019-04-08T16:25:49,1385342,,David Fessenden,pty,
 43584,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-04-08,2019-04-08T17:04:50,24419,jef ,Joanne Friedl,crt,clk
+42185,239,cmp                      ,59,cmp                      ,amdcmp  ,240,2019-04-09,2019-04-09T12:06:26,1353789,rks ,Rachel Swanson,crt,clk
 43590,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-04-08,2019-04-09T16:14:44,661013,nln ,Nicole Nelson,crt,clk
 43592,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-04-08,2019-04-09T16:47:40,661013,nln ,Nicole Nelson,crt,clk
 43596,5,cmp                      ,1,cmp                      ,cmp     ,6,2018-12-06,2018-12-06T11:39:59,12573,lak ,Lynn Kamke,crt,clk
+43020,72,cmp                      ,16,cmp                      ,amdcmp  ,73,2019-04-11,2019-04-11T13:31:08,1353789,rks ,Rachel Swanson,crt,clk
 43599,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-04-11,2019-04-11T14:48:53,1353789,rks ,Rachel Swanson,crt,clk
 43601,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-04-11,2019-04-11T16:26:07,24419,jef ,Joanne Friedl,crt,clk
 43612,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-04-12,2019-04-12T11:36:17,1353789,rks ,Rachel Swanson,crt,clk
@@ -749,6 +845,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43615,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-04-15,2019-04-15T14:22:49,661013,nln ,Nicole Nelson,crt,clk
 43616,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-04-15,2019-04-15T15:02:23,1353789,rks ,Rachel Swanson,crt,clk
 43619,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-04-15,2019-04-16T10:38:59,1353789,rks ,Rachel Swanson,crt,clk
+41559,95,cmp                      ,18,cmp                      ,amdcmp  ,97,2019-04-16,2019-04-16T11:29:39,1301829,,Elizabeth Arumilli,aty,
 43621,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-04-16,2019-04-16T12:32:31,661013,nln ,Nicole Nelson,crt,clk
 43622,22,cmp                      ,1,cmp                      ,cmp     ,23,2019-04-16,2019-04-16T13:22:22,1353789,rks ,Rachel Swanson,crt,clk
 43624,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-04-16,2019-04-16T15:10:42,1353789,rks ,Rachel Swanson,crt,clk
@@ -763,11 +860,13 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43649,23,cmp                      ,1,cmp                      ,cmp     ,24,2019-04-19,2019-04-19T14:02:20,661013,nln ,Nicole Nelson,crt,clk
 43658,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-04-22,2019-04-22T15:30:53,661013,nln ,Nicole Nelson,crt,clk
 43662,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-04-22,2019-04-22T16:18:59,661013,nln ,Nicole Nelson,crt,clk
+43160,146,cmp                      ,42,cmp                      ,amdcmp  ,147,2019-04-25,2019-04-25T12:54:05,661013,nln ,Nicole Nelson,crt,clk
 43694,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-04-26,2019-04-26T17:18:19,24419,jef ,Joanne Friedl,crt,clk
 43697,5,cmp                      ,1,cmp                      ,cmp     ,6,2019-04-26,2019-04-29T11:21:50,24419,jef ,Joanne Friedl,crt,clk
 43698,23,cmp                      ,1,cmp                      ,cmp     ,24,2019-04-26,2019-04-29T14:00:28,24419,jef ,Joanne Friedl,crt,clk
 43700,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-04-29,2019-04-29T15:07:47,661013,nln ,Nicole Nelson,crt,clk
 43706,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-04-29,2019-04-30T09:02:14,1353789,rks ,Rachel Swanson,crt,clk
+41206,230,cmp                      ,64,cmp                      ,amdcmp  ,231,2019-04-30,2019-04-30T10:41:54,24419,jef ,Joanne Friedl,crt,clk
 43709,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-04-30,2019-04-30T12:06:26,661013,nln ,Nicole Nelson,crt,clk
 43708,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-04-30,2019-04-30T12:10:17,1353789,rks ,Rachel Swanson,crt,clk
 43712,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-04-30,2019-04-30T13:03:16,24419,jef ,Joanne Friedl,crt,clk
@@ -776,6 +875,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43715,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-04-30,2019-04-30T13:49:57,661013,nln ,Nicole Nelson,crt,clk
 43722,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-05-01,2019-05-01T14:06:24,1353789,rks ,Rachel Swanson,crt,clk
 43727,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-05-02,2019-05-02T11:31:20,1353789,rks ,Rachel Swanson,crt,clk
+43464,43,cmp                      ,8,cmp                      ,amdcmp  ,44,2019-05-03,2019-05-03T11:58:16,1353789,rks ,Rachel Swanson,crt,clk
 43734,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-05-06,2019-05-06T10:31:32,1353789,rks ,Rachel Swanson,crt,clk
 43736,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-05-06,2019-05-06T15:57:17,1353789,rks ,Rachel Swanson,crt,clk
 43739,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-05-07,2019-05-07T15:27:12,1353789,rks ,Rachel Swanson,crt,clk
@@ -784,8 +884,10 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43744,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-05-08,2019-05-08T14:55:45,661013,nln ,Nicole Nelson,crt,clk
 43746,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-05-08,2019-05-08T15:17:10,1353789,rks ,Rachel Swanson,crt,clk
 43747,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-05-08,2019-05-08T16:05:00,1353789,rks ,Rachel Swanson,crt,clk
+43734,27,cmp                      ,6,cmp                      ,amdcmp  ,28,2019-05-09,2019-05-09T08:31:50,1353789,rks ,Rachel Swanson,crt,clk
 43755,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-05-10,2019-05-13T08:28:55,1353789,rks ,Rachel Swanson,crt,clk
 43756,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-05-10,2019-05-13T10:19:38,1353789,rks ,Rachel Swanson,crt,clk
+43734,31,cmp                      ,8,cmp                      ,amdcmp  ,32,2019-05-13,2019-05-13T11:51:41,661013,nln ,Nicole Nelson,crt,clk
 43758,8,cmp                      ,1,cmp                      ,cmp     ,9,2019-05-13,2019-05-13T12:48:19,24419,jef ,Joanne Friedl,crt,clk
 43759,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-05-13,2019-05-13T14:19:23,1353789,rks ,Rachel Swanson,crt,clk
 43761,5,cmp                      ,1,cmp                      ,cmp     ,6,2019-05-13,2019-05-13T14:54:31,24419,jef ,Joanne Friedl,crt,clk
@@ -799,20 +901,25 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43808,18,cmp                      ,1,cmp                      ,cmp     ,19,2019-05-17,2019-05-17T15:48:28,1353789,rks ,Rachel Swanson,crt,clk
 43810,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-05-20,2019-05-20T13:46:16,1353789,rks ,Rachel Swanson,crt,clk
 43811,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-05-20,2019-05-20T13:59:45,1353789,rks ,Rachel Swanson,crt,clk
+41838,528,cmp                      ,108,cmp                      ,amdcmp  ,529,2019-05-20,2019-05-20T17:35:02,24419,jef ,Joanne Friedl,crt,clk
 43813,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-05-21,2019-05-21T09:58:34,1353789,rks ,Rachel Swanson,crt,clk
 43815,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-05-20,2019-05-21T11:37:29,1353789,rks ,Rachel Swanson,crt,clk
 43816,13,cmp                      ,2,cmp                      ,cmp     ,14,2019-05-20,2019-05-21T11:57:57,1353789,rks ,Rachel Swanson,crt,clk
 43821,28,cmp                      ,1,cmp                      ,cmp     ,29,2019-05-20,2019-05-21T15:19:57,1353789,rks ,Rachel Swanson,crt,clk
 43822,6,cmp                      ,1,cmp                      ,cmp     ,8,2019-05-21,2019-05-21T16:16:29,1503,,Christopher Stroebel,aty,
 43823,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-05-21,2019-05-21T16:41:08,24419,jef ,Joanne Friedl,crt,clk
+43156,69,cmp                      ,18,cmp                      ,amdcmp  ,70,2019-05-23,2019-05-23T09:52:19,661013,nln ,Nicole Nelson,crt,clk
 43832,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-05-23,2019-05-23T12:47:33,24419,jef ,Joanne Friedl,crt,clk
 43845,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-05-28,2019-05-28T09:29:00,1353789,rks ,Rachel Swanson,crt,clk
+43746,23,cmp                      ,5,cmp                      ,amdcmp  ,24,2019-05-28,2019-05-28T15:20:10,661013,nln ,Nicole Nelson,crt,clk
 43849,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-05-28,2019-05-28T16:44:47,1353789,rks ,Rachel Swanson,crt,clk
 43852,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-05-28,2019-05-29T13:51:01,1353789,rks ,Rachel Swanson,crt,clk
 43854,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-05-28,2019-05-29T15:03:18,1353789,rks ,Rachel Swanson,crt,clk
 43857,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-05-28,2019-05-30T09:40:37,1353789,rks ,Rachel Swanson,crt,clk
+43727,49,cmp                      ,13,cmp                      ,amdcmp  ,50,2019-05-30,2019-05-30T10:16:07,661013,nln ,Nicole Nelson,crt,clk
 43859,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-05-30,2019-05-30T12:51:04,1353789,rks ,Rachel Swanson,crt,clk
 43869,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-05-31,2019-05-31T10:41:41,1353789,rks ,Rachel Swanson,crt,clk
+43838,29,cmp                      ,4,cmp                      ,amdcmp  ,30,2019-05-31,2019-05-31T11:43:47,1353789,rks ,Rachel Swanson,crt,clk
 43871,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-05-31,2019-05-31T14:48:58,1353789,rks ,Rachel Swanson,crt,clk
 43875,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-05-31,2019-05-31T15:36:28,1353789,rks ,Rachel Swanson,crt,clk
 43880,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-06-03,2019-06-03T11:28:58,1353789,rks ,Rachel Swanson,crt,clk
@@ -836,11 +943,14 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 43958,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-06-12,2019-06-13T12:36:20,661013,nln ,Nicole Nelson,crt,clk
 43959,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-06-13,2019-06-13T12:50:14,661013,nln ,Nicole Nelson,crt,clk
 43960,20,cmp                      ,1,cmp                      ,cmp     ,21,2019-06-13,2019-06-13T13:02:17,661013,nln ,Nicole Nelson,crt,clk
+43822,28,cmp                      ,6,cmp                      ,amdcmp  ,29,2019-06-13,2019-06-13T16:28:38,1503,,Christopher Stroebel,aty,
+43760,55,cmp                      ,15,cmp                      ,amdcmp  ,57,2019-06-13,2019-06-13T19:08:02,722515,,Venkat Balasubramani,aty,
 43962,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-06-14,2019-06-14T09:26:50,1353789,rks ,Rachel Swanson,crt,clk
 43963,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-06-14,2019-06-14T11:19:43,661013,nln ,Nicole Nelson,crt,clk
 43964,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-06-14,2019-06-14T13:35:15,24419,jef ,Joanne Friedl,crt,clk
 43965,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-06-14,2019-06-14T13:48:37,1353789,rks ,Rachel Swanson,crt,clk
 43966,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-06-14,2019-06-14T14:40:41,661013,nln ,Nicole Nelson,crt,clk
+42224,143,cmp                      ,31,cmp                      ,amdcmp  ,144,2019-06-17,2019-06-17T10:36:40,1353789,rks ,Rachel Swanson,crt,clk
 43975,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-06-17,2019-06-17T14:45:37,1353789,rks ,Rachel Swanson,crt,clk
 43977,21,cmp                      ,1,cmp                      ,cmp     ,22,2019-06-17,2019-06-17T15:42:10,1353789,rks ,Rachel Swanson,crt,clk
 43978,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-06-17,2019-06-17T16:15:48,1353789,rks ,Rachel Swanson,crt,clk
@@ -851,26 +961,36 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 44001,23,cmp                      ,1,cmp                      ,cmp     ,24,2019-06-24,2019-06-24T14:53:34,661013,nln ,Nicole Nelson,crt,clk
 44010,34,cmp                      ,2,cmp                      ,cmp     ,35,2019-06-25,2019-06-25T16:29:03,24419,jef ,Joanne Friedl,crt,clk
 44011,34,cmp                      ,2,cmp                      ,cmp     ,35,2019-06-25,2019-06-25T16:31:08,24419,jef ,Joanne Friedl,crt,clk
+42761,172,cmp                      ,41,cmp                      ,amdcmp  ,175,2019-06-26,2019-06-26T12:23:43,1353789,rks ,Rachel Swanson,crt,clk
 44020,35,cmp                      ,1,cmp                      ,cmp     ,36,2019-06-26,2019-06-26T13:34:17,661013,nln ,Nicole Nelson,crt,clk
 44023,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-06-26,2019-06-26T16:16:09,1353789,rks ,Rachel Swanson,crt,clk
 44055,18,cmp                      ,1,cmp                      ,cmp     ,19,2019-06-27,2019-06-27T13:17:14,661013,nln ,Nicole Nelson,crt,clk
 44061,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-06-28,2019-06-28T11:11:15,1353789,rks ,Rachel Swanson,crt,clk
+42158,286,cmp                      ,65,cmp                      ,amdcmp  ,287,2019-06-28,2019-06-28T16:53:07,24419,jef ,Joanne Friedl,crt,clk
 44063,21,cmp                      ,1,cmp                      ,cmp     ,22,2019-07-01,2019-07-01T12:41:24,1353789,rks ,Rachel Swanson,crt,clk
 44069,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-07-02,2019-07-02T09:58:32,1353789,rks ,Rachel Swanson,crt,clk
 44070,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-07-03,2019-07-03T10:02:58,661013,nln ,Nicole Nelson,crt,clk
 44080,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-07-08,2019-07-08T13:51:15,1353789,rks ,Rachel Swanson,crt,clk
 44094,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-07-09,2019-07-09T11:37:01,1353789,rks ,Rachel Swanson,crt,clk
+43921,24,cmp                      ,7,cmp                      ,amdcmp  ,25,2019-07-09,2019-07-09T15:28:14,24419,jef ,Joanne Friedl,crt,clk
 44097,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-07-09,2019-07-09T15:46:21,24419,jef ,Joanne Friedl,crt,clk
 44111,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-07-11,2019-07-11T12:02:27,1353789,rks ,Rachel Swanson,crt,clk
+43271,92,cmp                      ,21,cmp                      ,amdcmp  ,93,2019-07-11,2019-07-11T14:16:37,22594,,Ryan Cari,aty,
+43271,94,cmp                      ,22,cmp                      ,amdcmp  ,95,2019-07-11,2019-07-11T15:40:50,22594,,Ryan Cari,aty,
 44116,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-07-12,2019-07-12T14:18:08,1353789,rks ,Rachel Swanson,crt,clk
 44117,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-07-12,2019-07-12T14:37:58,24419,jef ,Joanne Friedl,crt,clk
 44118,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-07-12,2019-07-12T14:41:59,24419,jef ,Joanne Friedl,crt,clk
 44122,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-07-15,2019-07-15T11:04:40,1353789,rks ,Rachel Swanson,crt,clk
 44125,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-07-15,2019-07-15T13:29:48,1353789,rks ,Rachel Swanson,crt,clk
 44127,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-07-15,2019-07-15T15:44:22,1353789,rks ,Rachel Swanson,crt,clk
+43822,65,answer                   ,21,cmp                      ,counter ,69,2019-07-16,2019-07-16T08:25:33,1398604,,Jeff Wagner,pty,
+41205,85,cmp                      ,21,cmp                      ,amdcmp  ,86,2019-07-17,2019-07-17T13:05:38,1353789,rks ,Rachel Swanson,crt,clk
 44151,30,cmp                      ,1,cmp                      ,cmp     ,31,2019-07-18,2019-07-18T13:43:00,1353789,rks ,Rachel Swanson,crt,clk
 44152,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-07-18,2019-07-18T15:13:26,1353789,rks ,Rachel Swanson,crt,clk
+43209,56,cmp                      ,18,cmp                      ,amdcmp  ,57,2019-07-22,2019-07-22T09:43:05,661013,nln ,Nicole Nelson,crt,clk
+43992,73,cmp                      ,13,cmp                      ,amdcmp  ,74,2019-07-22,2019-07-22T09:46:51,661013,nln ,Nicole Nelson,crt,clk
 44163,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-07-22,2019-07-23T09:12:36,1353789,rks ,Rachel Swanson,crt,clk
+43806,37,cmp                      ,7,cmp                      ,amdcmp  ,38,2019-07-23,2019-07-23T09:29:21,661013,nln ,Nicole Nelson,crt,clk
 44164,20,cmp                      ,1,cmp                      ,cmp     ,21,2019-07-23,2019-07-23T10:47:43,661013,nln ,Nicole Nelson,crt,clk
 44166,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-07-22,2019-07-23T11:50:48,1353789,rks ,Rachel Swanson,crt,clk
 44171,6,cmp                      ,1,cmp                      ,cmp     ,8,2019-07-23,2019-07-23T13:44:03,1407530,,Riyaz Kanji,aty,
@@ -880,26 +1000,33 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 44182,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-07-25,2019-07-25T14:14:55,1353789,rks ,Rachel Swanson,crt,clk
 44183,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-07-25,2019-07-25T14:41:52,1353789,rks ,Rachel Swanson,crt,clk
 44188,5,cmp                      ,1,cmp                      ,cmp     ,7,2019-07-25,2019-07-25T16:50:02,1352777,,Eric Aberg,aty,
+43135,115,cmp                      ,32,cmp                      ,amdcmp  ,116,2019-07-25,2019-07-26T12:18:18,24419,jef ,Joanne Friedl,crt,clk
 44191,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-07-29,2019-07-29T11:24:50,1353789,rks ,Rachel Swanson,crt,clk
 44193,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-07-29,2019-07-29T13:33:09,1353789,rks ,Rachel Swanson,crt,clk
 44195,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-07-29,2019-07-29T14:52:26,1353789,rks ,Rachel Swanson,crt,clk
 44199,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-07-29,2019-07-29T16:35:45,1353789,rks ,Rachel Swanson,crt,clk
 44206,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-07-31,2019-07-31T13:16:18,24419,jef ,Joanne Friedl,crt,clk
 44211,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-07-31,2019-08-01T10:25:57,661013,nln ,Nicole Nelson,crt,clk
+44181,25,cmp                      ,7,cmp                      ,amdcmp  ,26,2019-08-01,2019-08-01T12:44:18,661013,nln ,Nicole Nelson,crt,clk
+43140,80,cmp                      ,20,cmp                      ,amdcmp  ,81,2019-08-01,2019-08-01T12:59:06,661013,nln ,Nicole Nelson,crt,clk
 44219,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-08-01,2019-08-01T17:45:54,24419,jef ,Joanne Friedl,crt,clk
 44230,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-08-05,2019-08-05T16:11:25,1353789,rks ,Rachel Swanson,crt,clk
 44231,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-08-05,2019-08-05T16:34:25,1353789,rks ,Rachel Swanson,crt,clk
 44236,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-08-06,2019-08-06T11:03:17,661013,nln ,Nicole Nelson,crt,clk
 44240,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-08-06,2019-08-06T16:30:24,661013,nln ,Nicole Nelson,crt,clk
+42823,116,cmp                      ,31,cmp                      ,amdcmp  ,117,2019-08-08,2019-08-08T16:00:55,1353789,rks ,Rachel Swanson,crt,clk
 44267,7,cmp                      ,1,cmp                      ,cmp     ,8,2019-08-08,2019-08-08T17:24:13,24419,jef ,Joanne Friedl,crt,clk
 44276,21,cmp                      ,1,cmp                      ,cmp     ,22,2019-08-13,2019-08-13T09:21:10,1353789,rks ,Rachel Swanson,crt,clk
 44277,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-08-12,2019-08-13T10:16:49,1353789,rks ,Rachel Swanson,crt,clk
+43760,129,cmp                      ,40,cmp                      ,cross   ,132,2019-08-13,2019-08-13T13:44:30,1551,,Harry Van Camp,aty,
 44283,10,cmp                      ,2,cmp                      ,cmp     ,11,2019-08-13,2019-08-13T17:11:25,1267873,,John Fay,aty,
 44287,20,cmp                      ,1,cmp                      ,cmp     ,21,2019-08-14,2019-08-14T15:13:42,1353789,rks ,Rachel Swanson,crt,clk
 44288,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-08-14,2019-08-14T15:58:14,1353789,rks ,Rachel Swanson,crt,clk
 44283,14,cmp                      ,4,cmp                      ,cmp     ,15,2019-08-15,2019-08-15T12:37:47,1267873,,John Fay,aty,
+43760,136,answer                   ,41,cmp                      ,cross   ,140,2019-08-15,2019-08-15T12:57:34,1404372,,Thomas McInturf,aty,
 44295,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-08-16,2019-08-16T15:21:19,661013,nln ,Nicole Nelson,crt,clk
 44308,23,cmp                      ,1,cmp                      ,cmp     ,24,2019-08-20,2019-08-20T09:55:43,1353789,rks ,Rachel Swanson,crt,clk
+43822,102,cmp                      ,29,cmp                      ,counter ,105,2019-08-21,2019-08-21T14:19:47,1398603,,John Ifediora,pty,
 44315,5,cmp                      ,1,cmp                      ,cmp     ,6,2019-08-20,2019-08-21T16:06:35,24419,jef ,Joanne Friedl,crt,clk
 44316,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-08-22,2019-08-22T14:09:53,1353789,rks ,Rachel Swanson,crt,clk
 44327,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-08-23,2019-08-23T16:21:08,24419,jef ,Joanne Friedl,crt,clk
@@ -926,28 +1053,36 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 44438,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-09-12,2019-09-12T16:39:15,1353789,rks ,Rachel Swanson,crt,clk
 44439,8,cmp                      ,1,cmp                      ,cmp     ,9,2019-09-12,2019-09-12T16:55:47,24419,jef ,Joanne Friedl,crt,clk
 44437,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-09-12,2019-09-13T08:17:18,1353789,rks ,Rachel Swanson,crt,clk
+43648,218,cmp                      ,51,cmp                      ,amdcmp  ,219,2019-09-13,2019-09-13T11:31:29,760,,Anthony Delyea,aty,
 44447,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-09-06,2019-09-13T13:34:32,661013,nln ,Nicole Nelson,crt,clk
 44449,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-09-12,2019-09-13T13:51:12,24419,jef ,Joanne Friedl,crt,clk
 44452,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-09-12,2019-09-13T14:22:56,24419,jef ,Joanne Friedl,crt,clk
 44454,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-09-13,2019-09-13T15:36:06,24419,jef ,Joanne Friedl,crt,clk
+43694,117,answer                   ,29,cmp                      ,counter ,121,2019-09-16,2019-09-16T12:46:27,661013,nln ,Nicole Nelson,crt,clk
 44458,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-09-16,2019-09-16T13:49:37,1353789,rks ,Rachel Swanson,crt,clk
 44459,7,cmp                      ,1,cmp                      ,cmp     ,8,2019-09-16,2019-09-16T15:07:23,24419,jef ,Joanne Friedl,crt,clk
 44461,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-09-16,2019-09-16T22:55:32,661013,nln ,Nicole Nelson,crt,clk
+43270,94,cmp                      ,25,cmp                      ,amdcmp  ,98,2019-09-17,2019-09-17T13:18:16,24419,jef ,Joanne Friedl,crt,clk
 44461,22,cmp                      ,5,cmp                      ,cmp     ,23,2019-09-17,2019-09-17T16:40:32,1353789,rks ,Rachel Swanson,crt,clk
 44473,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-09-17,2019-09-18T10:33:40,24419,jef ,Joanne Friedl,crt,clk
+43303,136,cmp                      ,35,cmp                      ,amdcmp  ,137,2019-09-18,2019-09-18T11:49:57,1353789,rks ,Rachel Swanson,crt,clk
 44506,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-09-19,2019-09-19T15:36:00,661013,nln ,Nicole Nelson,crt,clk
 44507,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-09-19,2019-09-19T16:23:50,661013,nln ,Nicole Nelson,crt,clk
 44517,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-09-20,2019-09-20T13:23:42,1353789,rks ,Rachel Swanson,crt,clk
 44548,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-09-23,2019-09-23T16:10:12,24419,jef ,Joanne Friedl,crt,clk
 44551,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-09-23,2019-09-24T09:38:06,1353789,rks ,Rachel Swanson,crt,clk
+44171,107,answer                   ,28,cmp                      ,counter ,112,2019-09-24,2019-09-24T18:59:40,1416077,,Michael Davis,aty,
 44556,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-09-25,2019-09-25T14:12:07,661013,nln ,Nicole Nelson,crt,clk
 44561,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-09-25,2019-09-25T17:41:42,24419,jef ,Joanne Friedl,crt,clk
 44563,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-09-26,2019-09-27T13:05:12,1353789,rks ,Rachel Swanson,crt,clk
 44566,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-09-27,2019-09-27T15:05:19,661013,nln ,Nicole Nelson,crt,clk
 44568,7,cmp                      ,1,cmp                      ,cmp     ,8,2019-09-27,2019-09-27T16:12:30,661013,nln ,Nicole Nelson,crt,clk
+44283,27,cmp                      ,6,cmp                      ,amdcmp  ,28,2019-09-29,2019-09-29T15:12:09,1267873,,John Fay,aty,
 44574,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-09-30,2019-09-30T12:22:48,661013,nln ,Nicole Nelson,crt,clk
+44283,33,cmp                      ,9,cmp                      ,amdcmp  ,34,2019-10-02,2019-10-02T13:06:38,1267873,,John Fay,aty,
 44592,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-10-03,2019-10-03T14:46:30,661013,nln ,Nicole Nelson,crt,clk
 44594,8,cmp                      ,1,cmp                      ,cmp     ,12,2019-10-03,2019-10-03T22:01:44,1412907,,Pimal Patel,aty,
+43822,116,cmp                      ,33,cmp                      ,amdcmp  ,117,2019-10-04,2019-10-04T20:38:41,1503,,Christopher Stroebel,aty,
 44597,7,cmp                      ,1,cmp                      ,cmp     ,8,2019-10-07,2019-10-07T13:21:55,24419,jef ,Joanne Friedl,crt,clk
 44601,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-10-07,2019-10-07T15:42:38,1353789,rks ,Rachel Swanson,crt,clk
 44604,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-10-07,2019-10-07T16:15:27,1353789,rks ,Rachel Swanson,crt,clk
@@ -960,8 +1095,10 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 44653,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-10-11,2019-10-11T09:38:26,1353789,rks ,Rachel Swanson,crt,clk
 44654,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-10-11,2019-10-11T14:22:31,1353789,rks ,Rachel Swanson,crt,clk
 44664,22,cmp                      ,1,cmp                      ,cmp     ,23,2019-10-15,2019-10-15T16:15:16,661013,nln ,Nicole Nelson,crt,clk
+44171,153,cmp                      ,34,cmp                      ,amdcmp  ,154,2019-10-15,2019-10-15T22:22:36,1407530,,Riyaz Kanji,aty,
 44665,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-10-15,2019-10-16T12:10:59,1353789,rks ,Rachel Swanson,crt,clk
 44681,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-10-17,2019-10-17T13:55:44,661013,nln ,Nicole Nelson,crt,clk
+41163,329,cmp                      ,86,cmp                      ,cross   ,332,2019-10-17,2019-10-17T15:21:47,1370094,,Brian Anderson,aty,
 44696,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-10-21,2019-10-21T15:30:54,661013,nln ,Nicole Nelson,crt,clk
 44698,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-10-23,2019-10-23T16:40:51,661013,nln ,Nicole Nelson,crt,clk
 44699,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-10-23,2019-10-23T16:50:45,24419,jef ,Joanne Friedl,crt,clk
@@ -969,16 +1106,21 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 44707,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-10-24,2019-10-25T10:24:41,1353789,rks ,Rachel Swanson,crt,clk
 44710,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-10-25,2019-10-25T15:00:39,1353789,rks ,Rachel Swanson,crt,clk
 44711,8,cmp                      ,1,cmp                      ,cmp     ,9,2019-10-25,2019-10-25T17:26:44,24419,jef ,Joanne Friedl,crt,clk
+43648,258,cmp                      ,60,cmp                      ,amdcmp  ,259,2019-10-28,2019-10-28T11:09:01,760,,Anthony Delyea,aty,
 44720,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-10-28,2019-10-28T14:00:08,24419,jef ,Joanne Friedl,crt,clk
 44721,19,cmp                      ,1,cmp                      ,cmp     ,20,2019-10-28,2019-10-28T15:59:42,24419,jef ,Joanne Friedl,crt,clk
 44729,21,cmp                      ,1,cmp                      ,cmp     ,22,2019-10-28,2019-10-29T14:49:54,24419,jef ,Joanne Friedl,crt,clk
 44730,8,cmp                      ,1,cmp                      ,cmp     ,9,2019-10-28,2019-10-29T15:06:15,24419,jef ,Joanne Friedl,crt,clk
 44733,13,cmp                      ,1,cmp                      ,cmp     ,14,2019-10-29,2019-10-29T16:01:19,661013,nln ,Nicole Nelson,crt,clk
+44171,175,answer                   ,39,cmp                      ,counter ,181,2019-10-29,2019-10-29T20:56:08,1416077,,Michael Davis,aty,
 44743,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-10-31,2019-10-31T17:00:19,24419,jef ,Joanne Friedl,crt,clk
 44752,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-11-04,2019-11-04T12:08:18,661013,nln ,Nicole Nelson,crt,clk
+44706,40,cmp                      ,8,cmp                      ,amdcmp  ,41,2019-11-04,2019-11-04T15:28:53,776492,,Mark Hancock,aty,
 44755,7,cmp                      ,1,cmp                      ,cmp     ,8,2019-11-04,2019-11-04T16:49:34,24419,jef ,Joanne Friedl,crt,clk
 44756,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-11-04,2019-11-04T17:04:39,24419,jef ,Joanne Friedl,crt,clk
 44789,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-11-07,2019-11-08T14:46:12,661013,nln ,Nicole Nelson,crt,clk
+44283,59,cmp                      ,17,cmp                      ,amdcmp  ,60,2019-11-08,2019-11-08T18:30:36,1267873,,John Fay,aty,
+44706,44,cmp                      ,10,cmp                      ,amdcmp  ,45,2019-11-11,2019-11-11T16:13:31,776492,,Mark Hancock,aty,
 44795,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-11-12,2019-11-12T10:49:36,661013,nln ,Nicole Nelson,crt,clk
 44796,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-11-12,2019-11-12T11:43:02,24419,jef ,Joanne Friedl,crt,clk
 44802,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-11-12,2019-11-13T10:11:01,661013,nln ,Nicole Nelson,crt,clk
@@ -989,16 +1131,20 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 44824,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-11-18,2019-11-18T11:00:42,24419,jef ,Joanne Friedl,crt,clk
 44827,23,cmp                      ,1,cmp                      ,cmp     ,24,2019-11-18,2019-11-18T11:11:10,661013,nln ,Nicole Nelson,crt,clk
 44832,87,cmp                      ,1,cmp                      ,cmp     ,88,2019-11-18,2019-11-18T15:55:20,24419,jef ,Joanne Friedl,crt,clk
+44236,53,cmp                      ,15,cmp                      ,amdcmp  ,54,2019-11-19,2019-11-19T10:21:14,661013,nln ,Nicole Nelson,crt,clk
 44835,15,cmp                      ,1,cmp                      ,cmp     ,16,2019-11-19,2019-11-19T13:24:59,661013,nln ,Nicole Nelson,crt,clk
 44862,17,cmp                      ,1,cmp                      ,cmp     ,18,2019-11-20,2019-11-20T17:07:57,24419,jef ,Joanne Friedl,crt,clk
 44887,6,cmp                      ,1,cmp                      ,cmp     ,7,2019-02-26,2019-02-26T10:09:50,12573,lak ,Lynn Kamke,crt,clk
 44892,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-06-07,2019-06-07T10:38:46,12573,lak ,Lynn Kamke,crt,clk
+44892,17,cmp                      ,4,cmp                      ,amdcmp  ,18,2019-06-10,2019-06-10T09:19:19,12573,lak ,Lynn Kamke,crt,clk
 44894,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-11-25,2019-11-25T16:33:04,661013,nln ,Nicole Nelson,crt,clk
 44899,20,cmp                      ,1,cmp                      ,cmp     ,21,2019-11-25,2019-11-25T17:11:54,24419,jef ,Joanne Friedl,crt,clk
 44904,14,cmp                      ,1,cmp                      ,cmp     ,15,2019-11-27,2019-11-27T11:46:59,1353789,rks ,Rachel Swanson,crt,clk
 44917,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-11-29,2019-11-30T14:42:52,661013,nln ,Nicole Nelson,crt,clk
 44918,12,cmp                      ,1,cmp                      ,cmp     ,13,2019-12-02,2019-12-02T11:30:49,661013,nln ,Nicole Nelson,crt,clk
 44925,10,cmp                      ,1,cmp                      ,cmp     ,11,2019-12-03,2019-12-03T15:51:05,1353789,rks ,Rachel Swanson,crt,clk
+44922,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-12-04,2019-12-04T11:32:25,1325,,Douglas Poland,aty,
+41821,96,cmp                      ,30,cmp                      ,amdcmp  ,97,2019-12-04,2019-12-04T13:59:54,24419,jef ,Joanne Friedl,crt,clk
 44956,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-12-04,2019-12-05T14:20:02,24419,jef ,Joanne Friedl,crt,clk
 44957,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-12-05,2019-12-05T16:06:37,24419,jef ,Joanne Friedl,crt,clk
 44958,9,cmp                      ,1,cmp                      ,cmp     ,10,2019-12-05,2019-12-05T16:37:00,24419,jef ,Joanne Friedl,crt,clk
@@ -1037,11 +1183,16 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45121,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-01-09,2020-01-09T14:45:35,1353789,rks ,Rachel Swanson,crt,clk
 45122,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-01-06,2020-01-09T15:32:07,1353789,rks ,Rachel Swanson,crt,clk
 45126,21,cmp                      ,1,cmp                      ,cmp     ,22,2020-01-09,2020-01-10T11:09:51,1353789,rks ,Rachel Swanson,crt,clk
+44454,27,cmp                      ,6,cmp                      ,amdcmp  ,28,2020-01-10,2020-01-10T12:44:05,1418622,,Gary Sukowatey,pty,
+44023,32,cmp                      ,7,cmp                      ,amdcmp  ,33,2020-01-10,2020-01-10T14:03:00,661013,nln ,Nicole Nelson,crt,clk
+44454,46,cmp                      ,8,cmp                      ,amdcmp  ,47,2020-01-10,2020-01-10T14:56:41,1418622,,Gary Sukowatey,pty,
 45131,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-01-10,2020-01-10T15:59:25,24419,jef ,Joanne Friedl,crt,clk
 45138,19,cmp                      ,1,cmp                      ,cmp     ,20,2020-01-13,2020-01-13T14:48:41,661013,nln ,Nicole Nelson,crt,clk
 45140,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-01-13,2020-01-13T15:52:40,661013,nln ,Nicole Nelson,crt,clk
 45144,30,cmp                      ,1,cmp                      ,cmp     ,31,2020-01-14,2020-01-14T12:44:00,661013,nln ,Nicole Nelson,crt,clk
 45145,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-01-14,2020-01-14T13:54:04,24419,jef ,Joanne Friedl,crt,clk
+42454,240,cmp                      ,68,cmp                      ,amdcmp  ,241,2020-01-15,2020-01-15T15:21:36,661013,nln ,Nicole Nelson,crt,clk
+42454,242,cmp                      ,69,cmp                      ,amdcmp  ,243,2020-01-15,2020-01-15T15:24:07,661013,nln ,Nicole Nelson,crt,clk
 45161,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-01-16,2020-01-17T12:46:43,1353789,rks ,Rachel Swanson,crt,clk
 45166,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-01-17,2020-01-17T14:36:26,661013,nln ,Nicole Nelson,crt,clk
 45162,27,cmp                      ,1,cmp                      ,cmp     ,28,2020-01-16,2020-01-17T15:03:43,24419,jef ,Joanne Friedl,crt,clk
@@ -1052,12 +1203,14 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45170,8,cmp                      ,1,cmp                      ,cmp     ,9,2020-01-21,2020-01-21T15:34:02,24419,jef ,Joanne Friedl,crt,clk
 45171,32,cmp                      ,1,cmp                      ,cmp     ,33,2020-01-21,2020-01-21T15:46:05,24419,jef ,Joanne Friedl,crt,clk
 45173,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-01-21,2020-01-22T11:20:35,24419,jef ,Joanne Friedl,crt,clk
+45104,35,cmp                      ,9,cmp                      ,amdcmp  ,36,2020-01-22,2020-01-22T12:16:22,661013,nln ,Nicole Nelson,crt,clk
 45185,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-01-23,2020-01-23T16:41:32,661013,nln ,Nicole Nelson,crt,clk
 45190,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-01-24,2020-01-24T17:17:57,661013,nln ,Nicole Nelson,crt,clk
 45195,4,cmp                      ,1,cmp                      ,cmp     ,6,2020-01-27,2020-01-27T10:31:47,25594,,Nathan DeLadurantey,aty,
 45198,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-01-27,2020-01-27T14:33:09,24419,jef ,Joanne Friedl,crt,clk
 45199,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-01-27,2020-01-27T16:30:13,24419,jef ,Joanne Friedl,crt,clk
 45207,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-01-27,2020-01-28T16:13:40,24419,jef ,Joanne Friedl,crt,clk
+41324,103,cmp                      ,22,cmp                      ,amdcmp  ,106,2020-01-29,2020-01-29T12:51:07,24419,jef ,Joanne Friedl,crt,clk
 45229,9,cmp                      ,1,cmp                      ,cmp     ,10,2020-01-29,2020-01-29T17:44:27,24419,jef ,Joanne Friedl,crt,clk
 45231,30,cmp                      ,1,cmp                      ,cmp     ,31,2020-01-29,2020-01-30T10:32:04,24419,jef ,Joanne Friedl,crt,clk
 45232,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-01-30,2020-01-30T11:57:27,661013,nln ,Nicole Nelson,crt,clk
@@ -1075,6 +1228,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45292,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-02-10,2020-02-10T11:35:01,661013,nln ,Nicole Nelson,crt,clk
 45297,9,cmp                      ,1,cmp                      ,cmp     ,10,2020-02-11,2020-02-11T12:53:07,24419,jef ,Joanne Friedl,crt,clk
 45305,25,cmp                      ,1,cmp                      ,cmp     ,26,2020-02-10,2020-02-11T16:17:02,24419,jef ,Joanne Friedl,crt,clk
+42158,646,cmp                      ,159,cmp                      ,amdcmp  ,647,2020-02-11,2020-02-11T21:22:36,661013,nln ,Nicole Nelson,crt,clk
 45306,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-02-10,2020-02-12T09:08:50,24419,jef ,Joanne Friedl,crt,clk
 45308,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-02-10,2020-02-12T09:24:01,24419,jef ,Joanne Friedl,crt,clk
 45309,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-02-10,2020-02-12T10:48:49,24419,jef ,Joanne Friedl,crt,clk
@@ -1082,11 +1236,17 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45333,24,cmp                      ,1,cmp                      ,cmp     ,25,2020-02-12,2020-02-12T16:56:42,661013,nln ,Nicole Nelson,crt,clk
 45341,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-02-14,2020-02-14T13:11:01,1353789,rks ,Rachel Swanson,crt,clk
 45346,7,cmp                      ,1,cmp                      ,cmp     ,9,2020-02-17,2020-02-17T15:17:14,6380,,Larry Johnson,aty,
+43632,155,cmp                      ,32,cmp                      ,amdcmp  ,157,2020-02-18,2020-02-18T08:53:14,24419,jef ,Joanne Friedl,crt,clk
+45346,10,cmp                      ,2,cmp                      ,amdcmp  ,11,2020-02-18,2020-02-18T09:56:23,6380,,Larry Johnson,aty,
 45348,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-02-18,2020-02-18T12:10:06,661013,nln ,Nicole Nelson,crt,clk
+43270,190,cmp                      ,51,cmp                      ,amdcmp  ,192,2020-02-18,2020-02-18T16:18:22,24419,jef ,Joanne Friedl,crt,clk
 45372,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-02-20,2020-02-21T11:10:14,24419,jef ,Joanne Friedl,crt,clk
+44711,58,cmp                      ,13,cmp                      ,amdcmp  ,59,2020-02-21,2020-02-21T15:15:33,1446149,aom ,Amos Malone,crt,clk
 45375,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-02-21,2020-02-21T18:55:52,24419,jef ,Joanne Friedl,crt,clk
 45376,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-02-24,2020-02-24T09:59:51,1446149,aom ,Amos Malone,crt,clk
 45378,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-02-24,2020-02-24T18:13:27,24419,jef ,Joanne Friedl,crt,clk
+43270,209,cmp                      ,56,cmp                      ,amdcmp  ,212,2020-02-25,2020-02-25T13:02:28,24419,jef ,Joanne Friedl,crt,clk
+43553,360,cmp                      ,92,cmp                      ,amdcmp  ,361,2020-02-26,2020-02-26T10:37:02,1446149,aom ,Amos Malone,crt,clk
 45394,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-02-26,2020-02-26T10:45:31,24419,jef ,Joanne Friedl,crt,clk
 45404,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-02-27,2020-02-28T10:45:13,24419,jef ,Joanne Friedl,crt,clk
 45405,24,cmp                      ,1,cmp                      ,cmp     ,25,2020-02-28,2020-02-28T15:43:29,1446149,aom ,Amos Malone,crt,clk
@@ -1095,6 +1255,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45413,23,cmp                      ,1,cmp                      ,cmp     ,24,2020-03-02,2020-03-02T13:51:29,1446149,aom ,Amos Malone,crt,clk
 45414,26,cmp                      ,1,cmp                      ,cmp     ,27,2020-03-02,2020-03-02T15:08:19,1446149,aom ,Amos Malone,crt,clk
 45415,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-03-02,2020-03-02T20:44:54,661013,nln ,Nicole Nelson,crt,clk
+45341,30,cmp                      ,9,cmp                      ,amdcmp  ,31,2020-03-03,2020-03-03T11:17:06,661013,nln ,Nicole Nelson,crt,clk
 45420,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-03-03,2020-03-03T12:52:50,661013,nln ,Nicole Nelson,crt,clk
 45418,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-03-03,2020-03-03T14:13:36,702399,,Travis Romero-Boeck,aty,
 45425,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-03-03,2020-03-04T08:06:14,1446149,aom ,Amos Malone,crt,clk
@@ -1102,6 +1263,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45430,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-03-04,2020-03-04T13:26:02,24419,jef ,Joanne Friedl,crt,clk
 45458,8,cmp                      ,1,cmp                      ,cmp     ,9,2020-03-05,2020-03-05T21:07:05,661013,nln ,Nicole Nelson,crt,clk
 45459,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-03-05,2020-03-06T08:43:22,1446149,aom ,Amos Malone,crt,clk
+42979,244,cmp                      ,62,cmp                      ,amdcmp  ,245,2020-03-06,2020-03-06T10:21:07,24419,jef ,Joanne Friedl,crt,clk
 45463,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-03-06,2020-03-06T12:50:39,1446149,aom ,Amos Malone,crt,clk
 45466,18,cmp                      ,2,cmp                      ,cmp     ,19,2020-03-06,2020-03-06T16:43:50,24419,jef ,Joanne Friedl,crt,clk
 45467,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-03-06,2020-03-09T09:19:36,661013,nln ,Nicole Nelson,crt,clk
@@ -1122,7 +1284,6 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45508,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-03-16,2020-03-16T13:12:41,1446149,aom ,Amos Malone,crt,clk
 45509,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-03-16,2020-03-16T13:39:31,1446149,aom ,Amos Malone,crt,clk
 45518,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-03-18,2020-03-18T11:46:52,1446149,aom ,Amos Malone,crt,clk
-45519,4,cmp                      ,1,cmp                      ,cmp     ,5,2020-03-18,2020-03-18T13:14:30,13116,,Nicholas Fairweather,aty,
 45523,27,cmp                      ,1,cmp                      ,cmp     ,28,2020-03-18,2020-03-18T15:34:05,1446149,aom ,Amos Malone,crt,clk
 45526,4,cmp                      ,1,cmp                      ,cmp     ,5,2020-03-19,2020-03-19T12:17:46,13116,,Nicholas Fairweather,aty,
 45533,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-03-19,2020-03-19T13:58:05,1446149,aom ,Amos Malone,crt,clk
@@ -1143,10 +1304,13 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45632,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-04-03,2020-04-03T11:40:39,1446149,aom ,Amos Malone,crt,clk
 45641,30,cmp                      ,1,cmp                      ,cmp     ,31,2020-04-06,2020-04-06T14:12:03,1446149,aom ,Amos Malone,crt,clk
 45643,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-04-06,2020-04-06T17:05:49,24419,jef ,Joanne Friedl,crt,clk
+43760,221,cmp                      ,69,cmp                      ,amdcmp  ,222,2020-04-08,2020-04-08T15:18:59,722515,,Venkat Balasubramani,aty,
 45660,19,cmp                      ,1,cmp                      ,cmp     ,20,2020-04-09,2020-04-09T15:06:27,1446149,aom ,Amos Malone,crt,clk
 45662,11,cmp                      ,1,cmp                      ,cmp     ,12,2019-11-27,2019-11-27T11:18:09,12573,lak ,Lynn Kamke,crt,clk
+45641,57,cmp                      ,12,cmp                      ,amdcmp  ,67,2020-04-13,2020-04-13T10:50:31,24419,jef ,Joanne Friedl,crt,clk
 45676,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-04-13,2020-04-14T08:41:02,1446149,aom ,Amos Malone,crt,clk
 45683,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-04-13,2020-04-14T10:20:14,1446149,aom ,Amos Malone,crt,clk
+45346,60,answer                   ,17,cmp                      ,counter ,65,2020-04-15,2020-04-15T16:20:03,2564,,Travis West,aty,
 45690,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-04-16,2020-04-16T14:38:37,1446149,aom ,Amos Malone,crt,clk
 45694,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-04-17,2020-04-17T08:32:20,1446149,aom ,Amos Malone,crt,clk
 45703,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-04-20,2020-04-20T13:18:21,1446149,aom ,Amos Malone,crt,clk
@@ -1154,18 +1318,25 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45708,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-04-20,2020-04-21T12:10:32,1446149,aom ,Amos Malone,crt,clk
 45709,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-04-20,2020-04-21T12:52:14,1446149,aom ,Amos Malone,crt,clk
 45711,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-04-21,2020-04-21T13:59:22,1446149,aom ,Amos Malone,crt,clk
+43760,223,answer                   ,70,cmp                      ,cross   ,227,2020-04-22,2020-04-22T08:16:47,1404371,,Peter Turner,aty,
+44574,124,cmp                      ,41,cmp                      ,amdcmp  ,125,2020-04-22,2020-04-22T13:20:33,1446149,aom ,Amos Malone,crt,clk
+44574,126,cmp                      ,42,cmp                      ,amdcmp  ,164,2020-04-22,2020-04-22T13:57:43,1446149,aom ,Amos Malone,crt,clk
 45715,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-04-22,2020-04-22T15:01:41,661013,nln ,Nicole Nelson,crt,clk
 45716,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-04-22,2020-04-22T15:39:34,1446149,aom ,Amos Malone,crt,clk
 45723,16,cmp                      ,1,cmp                      ,cmp     ,17,2019-10-21,2020-04-23T09:14:17,24419,jef ,Joanne Friedl,crt,clk
 45722,48,cmp                      ,1,cmp                      ,cmp     ,49,2020-04-22,2020-04-23T09:23:41,1446149,aom ,Amos Malone,crt,clk
 45727,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-04-23,2020-04-23T14:40:39,1446149,aom ,Amos Malone,crt,clk
+45289,38,cmp                      ,4,cmp                      ,amdcmp  ,41,2020-04-24,2020-04-24T14:25:45,24419,jef ,Joanne Friedl,crt,clk
 45744,19,cmp                      ,1,cmp                      ,cmp     ,20,2020-04-27,2020-04-27T15:08:44,1446149,aom ,Amos Malone,crt,clk
 45748,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-04-27,2020-04-27T19:02:34,661013,nln ,Nicole Nelson,crt,clk
 45749,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-04-27,2020-04-27T19:47:55,661013,nln ,Nicole Nelson,crt,clk
 45750,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-04-27,2020-04-28T08:06:52,1446149,aom ,Amos Malone,crt,clk
+44191,85,cmp                      ,20,cmp                      ,amdcmp  ,86,2020-04-28,2020-04-28T09:11:15,1446149,aom ,Amos Malone,crt,clk
 45779,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-04-29,2020-04-29T16:09:34,661013,nln ,Nicole Nelson,crt,clk
 45782,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-04-29,2020-04-30T08:41:18,1446149,aom ,Amos Malone,crt,clk
 45783,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-04-29,2020-04-30T09:17:17,1446149,aom ,Amos Malone,crt,clk
+42995,145,cmp                      ,42,cmp                      ,amdcmp  ,146,2020-04-30,2020-04-30T11:21:10,661013,nln ,Nicole Nelson,crt,clk
+45703,31,cmp                      ,6,cmp                      ,amdcmp  ,33,2020-05-01,2020-05-01T12:39:25,1446149,aom ,Amos Malone,crt,clk
 45799,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-05-01,2020-05-01T12:57:32,1446149,aom ,Amos Malone,crt,clk
 45800,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-05-01,2020-05-01T13:39:05,1446149,aom ,Amos Malone,crt,clk
 45808,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-05-04,2020-05-04T15:50:14,24419,jef ,Joanne Friedl,crt,clk
@@ -1177,17 +1348,26 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45829,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-05-08,2020-05-08T16:50:00,661013,nln ,Nicole Nelson,crt,clk
 45835,21,cmp                      ,1,cmp                      ,cmp     ,22,2020-05-11,2020-05-11T15:17:03,1446149,aom ,Amos Malone,crt,clk
 45848,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-05-14,2020-05-14T09:22:03,1446149,aom ,Amos Malone,crt,clk
+45372,59,cmp                      ,13,cmp                      ,amdcmp  ,60,2020-05-15,2020-05-15T11:59:54,1446149,aom ,Amos Malone,crt,clk
 45865,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-05-18,2020-05-18T11:11:34,661013,nln ,Nicole Nelson,crt,clk
 45867,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-05-18,2020-05-18T18:55:53,661013,nln ,Nicole Nelson,crt,clk
 45868,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-05-18,2020-05-18T19:35:56,661013,nln ,Nicole Nelson,crt,clk
 45879,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-05-19,2020-05-20T09:49:22,1446149,aom ,Amos Malone,crt,clk
 45882,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-05-21,2020-05-21T10:15:31,1446149,aom ,Amos Malone,crt,clk
+44699,74,cmp                      ,17,cmp                      ,amdcmp  ,81,2020-05-21,2020-05-21T10:35:07,24419,jef ,Joanne Friedl,crt,clk
+45162,209,cmp                      ,54,cmp                      ,amdcmp  ,210,2020-05-21,2020-05-21T14:03:46,24419,jef ,Joanne Friedl,crt,clk
+45641,97,cmp                      ,19,cmp                      ,amdcmp  ,98,2020-05-22,2020-05-22T11:28:35,24419,jef ,Joanne Friedl,crt,clk
+44699,95,cmp                      ,21,cmp                      ,amdcmp  ,104,2020-05-26,2020-05-26T12:07:06,1446149,aom ,Amos Malone,crt,clk
+45463,44,cmp                      ,12,cmp                      ,amdcmp  ,45,2020-05-26,2020-05-26T12:32:30,1446149,aom ,Amos Malone,crt,clk
 45905,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-05-26,2020-05-26T15:01:31,1446149,aom ,Amos Malone,crt,clk
 45907,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-05-26,2020-05-26T15:41:44,661013,nln ,Nicole Nelson,crt,clk
 45908,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-05-26,2020-05-26T16:04:18,1446149,aom ,Amos Malone,crt,clk
 45914,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-05-26,2020-05-27T08:31:29,1446149,aom ,Amos Malone,crt,clk
+43632,267,cmp                      ,62,cmp                      ,amdcmp  ,268,2020-05-28,2020-05-28T08:21:29,1446149,aom ,Amos Malone,crt,clk
+44699,108,cmp                      ,22,cmp                      ,amdcmp  ,109,2020-05-28,2020-05-28T09:24:58,1446149,aom ,Amos Malone,crt,clk
 45933,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-05-28,2020-05-28T13:31:56,1446149,aom ,Amos Malone,crt,clk
 45939,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-05-28,2020-05-28T14:54:55,1446149,aom ,Amos Malone,crt,clk
+45104,213,cmp                      ,51,cmp                      ,amdcmp  ,214,2020-05-28,2020-05-28T15:04:57,24419,jef ,Joanne Friedl,crt,clk
 45941,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-05-28,2020-05-28T18:14:03,661013,nln ,Nicole Nelson,crt,clk
 45943,22,cmp                      ,1,cmp                      ,cmp     ,23,2020-05-28,2020-05-29T09:43:15,1446149,aom ,Amos Malone,crt,clk
 45944,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-05-29,2020-05-29T10:28:11,1446149,aom ,Amos Malone,crt,clk
@@ -1199,16 +1379,21 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 45973,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-06-05,2020-06-05T11:02:04,1446149,aom ,Amos Malone,crt,clk
 45979,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-06-08,2020-06-08T08:35:21,1446149,aom ,Amos Malone,crt,clk
 45986,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-06-08,2020-06-08T12:49:39,1446149,aom ,Amos Malone,crt,clk
+43497,60,cmp                      ,11,cmp                      ,amdcmp  ,62,2020-06-11,2020-06-11T01:46:03,1385351,,Scott Schneider,pty,
 46008,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-06-11,2020-06-11T10:02:14,1446149,aom ,Amos Malone,crt,clk
+46011,6,cmp                      ,1,cmp                      ,cmptrad ,8,2020-06-12,2020-06-12T08:04:08,1888,,Garet Galster,aty,
 46013,18,cmp                      ,1,cmp                      ,cmp     ,19,2020-06-12,2020-06-12T11:27:38,1446149,aom ,Amos Malone,crt,clk
 46030,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-06-16,2020-06-16T09:04:41,1446149,aom ,Amos Malone,crt,clk
+44706,182,answer                   ,49,cmp                      ,counter ,189,2020-06-16,2020-06-16T14:13:13,1286,,Kevin Palmersheim,aty,
 46042,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-06-18,2020-06-18T09:27:57,1446149,aom ,Amos Malone,crt,clk
 46057,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-06-18,2020-06-18T13:40:34,1446149,aom ,Amos Malone,crt,clk
+43632,285,cmp                      ,67,cmp                      ,amdcmp  ,286,2020-06-19,2020-06-19T08:39:33,1446149,aom ,Amos Malone,crt,clk
 46068,26,cmp                      ,1,cmp                      ,cmp     ,27,2020-06-19,2020-06-19T13:31:46,661013,nln ,Nicole Nelson,crt,clk
 46076,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-06-22,2020-06-22T13:52:42,1446149,aom ,Amos Malone,crt,clk
 46089,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-06-24,2020-06-24T10:52:38,1446149,aom ,Amos Malone,crt,clk
 46092,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-06-24,2020-06-24T13:00:11,1446149,aom ,Amos Malone,crt,clk
 46096,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-06-24,2020-06-24T16:48:16,24419,jef ,Joanne Friedl,crt,clk
+43632,293,cmp                      ,69,cmp                      ,amdcmp  ,294,2020-06-25,2020-06-25T08:25:58,1446149,aom ,Amos Malone,crt,clk
 46105,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-06-26,2020-06-26T11:24:31,661013,nln ,Nicole Nelson,crt,clk
 46111,27,cmp                      ,1,cmp                      ,cmp     ,28,2020-06-29,2020-06-29T14:34:56,1446149,aom ,Amos Malone,crt,clk
 46113,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-06-29,2020-06-29T17:41:46,24419,jef ,Joanne Friedl,crt,clk
@@ -1218,6 +1403,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46141,5,cmp                      ,1,cmp                      ,cmp     ,6,2020-07-02,2020-07-02T15:52:02,24419,jef ,Joanne Friedl,crt,clk
 46148,22,cmp                      ,1,cmp                      ,cmp     ,23,2020-07-06,2020-07-06T14:01:08,1446149,aom ,Amos Malone,crt,clk
 46149,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-07-06,2020-07-06T14:34:33,1446149,aom ,Amos Malone,crt,clk
+46141,17,cmp                      ,4,cmp                      ,amdcmp  ,23,2020-07-06,2020-07-07T13:03:37,24419,jef ,Joanne Friedl,crt,clk
 46163,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-07-08,2020-07-08T12:04:05,1446149,aom ,Amos Malone,crt,clk
 46164,20,cmp                      ,1,cmp                      ,cmp     ,21,2020-07-08,2020-07-08T12:49:26,1446149,aom ,Amos Malone,crt,clk
 46165,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-07-08,2020-07-08T13:16:19,1446149,aom ,Amos Malone,crt,clk
@@ -1225,19 +1411,24 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46205,26,cmp                      ,1,cmp                      ,cmp     ,27,2020-07-13,2020-07-13T16:30:43,1446149,aom ,Amos Malone,crt,clk
 46207,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-07-13,2020-07-14T08:37:38,1446149,aom ,Amos Malone,crt,clk
 46208,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-07-13,2020-07-14T08:59:01,1446149,aom ,Amos Malone,crt,clk
+43706,79,cmp                      ,22,cmp                      ,amdcmp  ,87,2020-07-15,2020-07-15T11:05:51,1446149,aom ,Amos Malone,crt,clk
 46219,19,cmp                      ,1,cmp                      ,cmp     ,20,2020-07-17,2020-07-17T11:38:58,1446149,aom ,Amos Malone,crt,clk
 46221,7,cmp                      ,1,cmp                      ,cmp     ,8,2020-07-13,2020-07-13T16:06:09,24419,jef ,Joanne Friedl,crt,clk
 46220,9,cmp                      ,1,cmp                      ,cmp     ,10,2020-07-17,2020-07-17T16:21:19,24419,jef ,Joanne Friedl,crt,clk
+45105,144,cmp                      ,35,cmp                      ,amdcmp  ,145,2020-07-20,2020-07-20T13:35:26,661013,nln ,Nicole Nelson,crt,clk
 46230,8,cmp                      ,1,cmp                      ,cmp     ,10,2020-07-20,2020-07-20T16:03:52,1473301,,Mark Belongia,aty,
 46231,31,cmp                      ,1,cmp                      ,cmp     ,32,2020-07-20,2020-07-20T16:16:20,1446149,aom ,Amos Malone,crt,clk
 46235,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-07-20,2020-07-21T09:16:56,1446149,aom ,Amos Malone,crt,clk
 46253,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-07-24,2020-07-24T12:25:45,1446149,aom ,Amos Malone,crt,clk
+45010,69,cmp                      ,14,cmp                      ,amdcmp  ,71,2020-07-27,2020-07-27T12:21:46,1446149,aom ,Amos Malone,crt,clk
 46266,24,cmp                      ,1,cmp                      ,cmp     ,25,2020-07-27,2020-07-27T14:05:11,1446149,aom ,Amos Malone,crt,clk
+46118,43,cmp                      ,6,cmp                      ,amdcmp  ,44,2020-07-28,2020-07-28T09:27:19,1471243,,Michelle Gilbank,pty,
 46281,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-07-29,2020-07-29T11:40:23,1446149,aom ,Amos Malone,crt,clk
 46288,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-07-30,2020-07-30T08:23:34,1446149,aom ,Amos Malone,crt,clk
 46312,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-07-30,2020-07-30T10:45:17,1446149,aom ,Amos Malone,crt,clk
 46313,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-07-30,2020-07-30T13:12:55,1446149,aom ,Amos Malone,crt,clk
 46314,16,cmp                      ,1,cmp                      ,cmp     ,17,2020-07-30,2020-07-30T14:00:56,1446149,aom ,Amos Malone,crt,clk
+44152,272,cmp                      ,78,cmp                      ,amdcmp  ,274,2020-07-31,2020-07-31T11:50:33,1446149,aom ,Amos Malone,crt,clk
 46316,22,cmp                      ,1,cmp                      ,cmp     ,23,2020-07-31,2020-07-31T12:22:58,1446149,aom ,Amos Malone,crt,clk
 46318,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-07-31,2020-07-31T13:30:03,1446149,aom ,Amos Malone,crt,clk
 46319,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-07-31,2020-07-31T13:46:49,1446149,aom ,Amos Malone,crt,clk
@@ -1248,6 +1439,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46334,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-08-04,2020-08-04T14:12:03,1446149,aom ,Amos Malone,crt,clk
 46347,9,cmp                      ,1,cmp                      ,cmp     ,10,2020-08-05,2020-08-05T12:24:51,24419,jef ,Joanne Friedl,crt,clk
 46348,12,cmp                      ,1,cmp                      ,cmp     ,13,2020-08-05,2020-08-05T14:34:20,661013,nln ,Nicole Nelson,crt,clk
+44329,288,cmp                      ,80,cmp                      ,amdcmp  ,289,2020-08-05,2020-08-05T17:11:34,24419,jef ,Joanne Friedl,crt,clk
 46360,21,cmp                      ,1,cmp                      ,cmp     ,22,2020-08-07,2020-08-07T09:35:37,1446149,aom ,Amos Malone,crt,clk
 46367,17,cmp                      ,1,cmp                      ,cmp     ,18,2020-08-10,2020-08-10T11:31:55,1446149,aom ,Amos Malone,crt,clk
 46368,15,cmp                      ,1,cmp                      ,cmp     ,16,2020-08-10,2020-08-10T12:00:36,1446149,aom ,Amos Malone,crt,clk
@@ -1255,6 +1447,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46370,34,cmp                      ,1,cmp                      ,cmp     ,35,2020-08-10,2020-08-10T13:24:21,1446149,aom ,Amos Malone,crt,clk
 46374,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-08-10,2020-08-10T15:23:03,1446149,aom ,Amos Malone,crt,clk
 46379,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-08-10,2020-08-11T14:41:23,661013,nln ,Nicole Nelson,crt,clk
+42389,109,cmp                      ,32,cmp                      ,amdcmp  ,110,2020-08-12,2020-08-12T11:56:02,661013,nln ,Nicole Nelson,crt,clk
 46400,13,cmp                      ,1,cmp                      ,cmp     ,14,2020-08-13,2020-08-13T14:05:19,1446149,aom ,Amos Malone,crt,clk
 46410,14,cmp                      ,1,cmp                      ,cmp     ,15,2020-08-18,2020-08-18T13:27:25,1446149,aom ,Amos Malone,crt,clk
 46445,10,cmp                      ,1,cmp                      ,cmp     ,11,2020-08-21,2020-08-21T13:29:37,1446149,aom ,Amos Malone,crt,clk
@@ -1268,6 +1461,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 46469,4,cmp                      ,1,cmp                      ,cmp     ,5,2020-08-27,2020-08-27T15:26:58,1137,,Heidi Luehring,aty,
 46472,11,cmp                      ,1,cmp                      ,cmp     ,12,2020-08-28,2020-08-28T12:50:29,1446149,aom ,Amos Malone,crt,clk
 47984,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-07-29,2021-08-02T12:41:13,24419,jef ,Joanne Friedl,crt,clk
+47985,4,cmp                      ,1,cmp                      ,cmptrad ,5,2021-08-02,2021-08-02T17:13:34,1160895,,Adam Szymanski,aty,
 47987,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-08-03,2021-08-03T08:37:54,1446149,aom ,Amos Malone,crt,clk
 47988,15,cmp                      ,1,cmp                      ,cmp     ,16,2021-08-02,2021-08-03T09:12:56,1446149,aom ,Amos Malone,crt,clk
 47989,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-08-02,2021-08-03T09:43:14,1446149,aom ,Amos Malone,crt,clk
@@ -1291,8 +1485,10 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 48081,8,cmp                      ,1,cmp                      ,cmp     ,9,2021-08-23,2021-08-23T16:49:24,24419,jef ,Joanne Friedl,crt,clk
 48084,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-08-23,2021-08-24T11:23:54,1518391,kmd ,Kim Davis,crt,clk
 48094,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-08-26,2021-08-26T13:19:17,1446149,aom ,Amos Malone,crt,clk
+47993,63,cmp                      ,14,cmp                      ,amdcmp  ,64,2021-08-26,2021-08-26T14:50:55,1518391,kmd ,Kim Davis,crt,clk
 48095,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-08-26,2021-08-26T16:30:05,1446149,aom ,Amos Malone,crt,clk
 48096,9,cmp                      ,1,cmp                      ,cmp     ,10,2021-08-26,2021-08-26T16:32:56,1446149,aom ,Amos Malone,crt,clk
+47437,61,cmp                      ,12,cmp                      ,amdcmp  ,62,2021-08-26,2021-08-26T17:48:25,1522217,,Lori Gintner,pty,
 48126,41,cmp                      ,1,cmp                      ,cmp     ,42,2021-09-02,2021-09-02T15:10:34,1446149,aom ,Amos Malone,crt,clk
 48129,4,cmp                      ,1,cmp                      ,cmp     ,5,2021-09-03,2021-09-03T14:09:01,1137,,Heidi Luehring,aty,
 48131,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-09-07,2021-09-07T11:36:53,1446149,aom ,Amos Malone,crt,clk
@@ -1302,11 +1498,13 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 48154,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-09-04,2021-09-13T09:41:27,1446149,aom ,Amos Malone,crt,clk
 48162,15,cmp                      ,1,cmp                      ,cmp     ,16,2021-09-13,2021-09-13T15:33:22,1446149,aom ,Amos Malone,crt,clk
 48163,15,cmp                      ,1,cmp                      ,cmp     ,16,2021-09-13,2021-09-13T15:51:40,1446149,aom ,Amos Malone,crt,clk
+43320,167,cmp                      ,40,cmp                      ,amdcmp  ,168,2021-09-13,2021-09-14T11:53:10,1518391,kmd ,Kim Davis,crt,clk
 48171,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-09-15,2021-09-15T13:09:19,1446149,aom ,Amos Malone,crt,clk
 48180,8,cmp                      ,1,cmp                      ,cmp     ,9,2021-09-16,2021-09-16T15:17:02,1446149,aom ,Amos Malone,crt,clk
 48184,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-09-16,2021-09-16T17:57:20,24419,jef ,Joanne Friedl,crt,clk
 48185,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-09-17,2021-09-17T10:19:56,1446149,aom ,Amos Malone,crt,clk
 48200,28,cmp                      ,1,cmp                      ,cmp     ,29,2021-09-22,2021-09-22T11:02:49,24419,jef ,Joanne Friedl,crt,clk
+47985,24,answer                   ,6,cmp                      ,counter ,30,2021-09-22,2021-09-22T14:12:43,430218,,Parrish Jones,aty,
 48232,16,cmp                      ,1,cmp                      ,cmp     ,17,2021-09-24,2021-09-27T08:37:32,1446149,aom ,Amos Malone,crt,clk
 48236,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-09-24,2021-09-27T15:38:45,1446149,aom ,Amos Malone,crt,clk
 48242,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-09-29,2021-09-29T14:02:35,1446149,aom ,Amos Malone,crt,clk
@@ -1320,14 +1518,17 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 48277,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-10-08,2021-10-12T08:46:06,1446149,aom ,Amos Malone,crt,clk
 48279,28,cmp                      ,1,cmp                      ,cmp     ,29,2021-10-08,2021-10-12T09:49:19,1446149,aom ,Amos Malone,crt,clk
 48291,28,cmp                      ,1,cmp                      ,cmp     ,29,2021-10-13,2021-10-13T13:56:04,1446149,aom ,Amos Malone,crt,clk
+43497,331,cmp                      ,87,cmp                      ,amdcmp  ,332,2021-10-13,2021-10-13T15:08:30,1385351,,Scott Schneider,pty,
 48302,19,cmp                      ,1,cmp                      ,cmp     ,20,2021-10-15,2021-10-15T11:56:03,1446149,aom ,Amos Malone,crt,clk
 48307,24,cmp                      ,1,cmp                      ,cmp     ,25,2021-10-15,2021-10-15T12:16:19,1446149,aom ,Amos Malone,crt,clk
 48321,11,cmp                      ,2,cmp                      ,cmp     ,12,2021-10-19,2021-10-19T17:37:27,24419,jef ,Joanne Friedl,crt,clk
 48331,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-10-21,2021-10-21T16:17:38,1446149,aom ,Amos Malone,crt,clk
 48336,14,cmp                      ,1,cmp                      ,cmp     ,15,2021-10-22,2021-10-22T14:47:06,1446149,aom ,Amos Malone,crt,clk
 48337,10,cmp                      ,1,cmp                      ,cmp     ,11,2021-10-22,2021-10-22T15:02:55,1446149,aom ,Amos Malone,crt,clk
+42096,843,cmp                      ,227,cmp                      ,amdcmp  ,844,2021-10-25,2021-10-25T09:13:10,1446149,aom ,Amos Malone,crt,clk
 48348,17,cmp                      ,1,cmp                      ,cmp     ,18,2021-10-26,2021-10-26T09:15:00,1446149,aom ,Amos Malone,crt,clk
 48364,13,cmp                      ,1,cmp                      ,cmp     ,14,2021-10-28,2021-10-28T12:19:38,1446149,aom ,Amos Malone,crt,clk
+48171,66,cmp                      ,16,cmp                      ,amdcmp  ,67,2021-10-28,2021-10-29T12:02:13,1518391,kmd ,Kim Davis,crt,clk
 48369,12,cmp                      ,1,cmp                      ,cmp     ,13,2021-11-01,2021-11-01T13:53:16,1446149,aom ,Amos Malone,crt,clk
 48370,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-11-01,2021-11-01T14:17:26,1446149,aom ,Amos Malone,crt,clk
 48371,11,cmp                      ,1,cmp                      ,cmp     ,12,2021-11-01,2021-11-01T14:37:45,1446149,aom ,Amos Malone,crt,clk
@@ -1369,6 +1570,7 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 48606,18,cmp                      ,1,cmp                      ,cmp     ,19,2021-12-23,2021-12-23T16:27:51,1446149,aom ,Amos Malone,crt,clk
 48614,84,cmp                      ,1,cmp                      ,cmp     ,85,2021-12-29,2021-12-29T14:21:24,24419,jef ,Joanne Friedl,crt,clk
 48620,12,cmp                      ,1,cmp                      ,cmp     ,13,2022-01-03,2022-01-03T11:48:49,1446149,aom ,Amos Malone,crt,clk
+48583,37,cmp                      ,5,cmp                      ,amdcmp  ,38,2022-01-03,2022-01-03T15:35:15,1446149,aom ,Amos Malone,crt,clk
 48624,11,cmp                      ,1,cmp                      ,cmp     ,12,2022-01-03,2022-01-03T16:03:57,1446149,aom ,Amos Malone,crt,clk
 48626,15,cmp                      ,1,cmp                      ,cmp     ,16,2022-01-03,2022-01-04T09:51:30,1446149,aom ,Amos Malone,crt,clk
 48627,16,cmp                      ,1,cmp                      ,cmp     ,17,2022-01-03,2022-01-04T09:53:06,1446149,aom ,Amos Malone,crt,clk
@@ -1381,10 +1583,13 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 48708,28,cmp                      ,1,cmp                      ,cmp     ,29,2022-01-19,2022-01-19T14:35:31,1446149,aom ,Amos Malone,crt,clk
 48710,23,cmp                      ,1,cmp                      ,cmp     ,24,2022-01-19,2022-01-19T15:10:07,1446149,aom ,Amos Malone,crt,clk
 48709,16,cmp                      ,1,cmp                      ,cmp     ,17,2022-01-19,2022-01-19T15:12:53,1446149,aom ,Amos Malone,crt,clk
+45848,79,cmp                      ,21,cmp                      ,amdcmp  ,80,2022-01-20,2022-01-20T13:22:10,1446149,aom ,Amos Malone,crt,clk
 48714,12,cmp                      ,1,cmp                      ,cmp     ,13,2022-01-20,2022-01-20T15:21:59,1446149,aom ,Amos Malone,crt,clk
 48728,17,cmp                      ,1,cmp                      ,cmp     ,18,2022-01-24,2022-01-25T15:23:54,1446149,aom ,Amos Malone,crt,clk
 48729,11,cmp                      ,1,cmp                      ,cmp     ,12,2022-01-24,2022-01-26T08:49:13,1446149,aom ,Amos Malone,crt,clk
 48731,14,cmp                      ,1,cmp                      ,cmp     ,15,2022-01-24,2022-01-26T09:54:15,1446149,aom ,Amos Malone,crt,clk
+48370,25,cmp                      ,5,cmp                      ,amdcmp  ,26,2022-01-24,2022-01-26T10:35:44,1446149,aom ,Amos Malone,crt,clk
+47954,40,cmp                      ,8,cmp                      ,amdcmp  ,41,2022-01-31,2022-01-31T16:18:13,1357,,Peter Reinhardt,aty,
 48762,9,cmp                      ,1,cmp                      ,cmp     ,10,2022-02-01,2022-02-01T13:18:56,24419,jef ,Joanne Friedl,crt,clk
 48763,12,cmp                      ,1,cmp                      ,cmp     ,13,2022-02-01,2022-02-01T13:54:03,1446149,aom ,Amos Malone,crt,clk
 48768,10,cmp                      ,1,cmp                      ,cmp     ,11,2022-02-02,2022-02-03T13:40:47,1446149,aom ,Amos Malone,crt,clk
@@ -1435,6 +1640,8 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 49052,5,cmp                      ,1,cmp                      ,cmp     ,6,2022-03-30,2022-03-30T16:25:17,24419,jef ,Joanne Friedl,crt,clk
 49057,21,cmp                      ,1,cmp                      ,cmp     ,22,2022-04-01,2022-04-01T11:50:34,1446149,aom ,Amos Malone,crt,clk
 49063,10,cmp                      ,1,cmp                      ,cmp     ,11,2022-04-04,2022-04-04T13:22:11,1446149,aom ,Amos Malone,crt,clk
+48707,58,cmp                      ,16,cmp                      ,amdcmp  ,59,2022-04-05,2022-04-05T10:43:02,1489502,lam ,Laura Miller,crt,clk
+48955,20,cmp                      ,4,cmp                      ,amdcmp  ,21,2022-04-06,2022-04-06T11:16:03,1446149,aom ,Amos Malone,crt,clk
 49072,14,cmp                      ,1,cmp                      ,cmp     ,15,2022-04-07,2022-04-07T11:15:24,1446149,aom ,Amos Malone,crt,clk
 49079,14,cmp                      ,1,cmp                      ,cmp     ,15,2022-04-08,2022-04-08T14:30:23,1446149,aom ,Amos Malone,crt,clk
 49092,13,cmp                      ,1,cmp                      ,cmp     ,14,2022-04-11,2022-04-11T14:12:15,1446149,aom ,Amos Malone,crt,clk
@@ -1451,12 +1658,14 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 49160,17,cmp                      ,1,cmp                      ,cmp     ,18,2022-04-28,2022-04-28T15:53:52,1446149,aom ,Amos Malone,crt,clk
 49164,11,cmp                      ,1,cmp                      ,cmp     ,12,2022-04-29,2022-04-29T13:33:57,1446149,aom ,Amos Malone,crt,clk
 49167,13,cmp                      ,1,cmp                      ,cmp     ,14,2022-05-02,2022-05-02T15:13:59,1446149,aom ,Amos Malone,crt,clk
+48728,65,cmp                      ,13,cmp                      ,amdcmp  ,66,2022-05-03,2022-05-03T11:06:55,1489502,lam ,Laura Miller,crt,clk
 49174,10,cmp                      ,1,cmp                      ,cmp     ,11,2022-05-04,2022-05-04T12:22:52,1446149,aom ,Amos Malone,crt,clk
 49193,13,cmp                      ,1,cmp                      ,cmp     ,14,2022-05-06,2022-05-09T10:05:26,1489502,lam ,Laura Miller,crt,clk
 49195,19,cmp                      ,1,cmp                      ,cmp     ,20,2022-05-09,2022-05-09T16:40:24,1446149,aom ,Amos Malone,crt,clk
 49200,13,cmp                      ,1,cmp                      ,cmp     ,14,2022-05-10,2022-05-10T17:00:04,1489502,lam ,Laura Miller,crt,clk
 49203,16,cmp                      ,1,cmp                      ,cmp     ,17,2022-05-06,2022-05-11T12:35:22,1446149,aom ,Amos Malone,crt,clk
 49206,13,cmp                      ,1,cmp                      ,cmp     ,14,2022-05-11,2022-05-11T13:19:08,1446149,aom ,Amos Malone,crt,clk
+49101,116,cmp                      ,37,cmp                      ,amdcmp  ,117,2022-05-16,2022-05-16T09:08:57,1446149,aom ,Amos Malone,crt,clk
 49260,11,cmp                      ,1,cmp                      ,cmp     ,12,2022-05-16,2022-05-17T11:51:37,24419,jef ,Joanne Friedl,crt,clk
 49261,11,cmp                      ,1,cmp                      ,cmp     ,12,2022-05-17,2022-05-17T14:49:43,1489502,lam ,Laura Miller,crt,clk
 49263,21,cmp                      ,1,cmp                      ,cmp     ,22,2022-05-18,2022-05-18T11:37:01,1489502,lam ,Laura Miller,crt,clk
@@ -1474,3 +1683,17 @@ de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_
 49317,10,cmp                      ,1,cmp                      ,cmp     ,11,2022-05-26,2022-05-26T16:24:11,24419,jef ,Joanne Friedl,crt,clk
 49318,5,cmp                      ,1,cmp                      ,cmp     ,7,2022-05-26,2022-05-26T16:48:30,1585529,,Linda Ringstad,aty,
 49325,14,cmp                      ,1,cmp                      ,cmp     ,15,2022-04-01,2022-04-04T13:06:09,12573,lak ,Lynn Kamke,crt,clk
+49206,54,cmp                      ,13,cmp                      ,amdcmp  ,55,2022-07-07,2022-07-07T12:43:40,24419,jef ,Joanne Friedl,crt,clk
+47423,163,cmp                      ,39,cmp                      ,amdcmp  ,164,2022-07-18,2022-07-18T17:45:08,24419,jef ,Joanne Friedl,crt,clk
+48785,82,cmp                      ,20,cmp                      ,amdcmp  ,83,2022-07-27,2022-07-27T13:41:02,24419,jef ,Joanne Friedl,crt,clk
+43191,150,cmp                      ,38,cmp                      ,amdcmp  ,151,2022-07-28,2022-07-28T12:40:58,24419,jef ,Joanne Friedl,crt,clk
+43987,280,cmp                      ,87,cmp                      ,amdcmp  ,281,2022-08-01,2022-08-01T09:36:49,24419,jef ,Joanne Friedl,crt,clk
+48785,135,cmp                      ,36,cmp                      ,amdcmp  ,136,2022-10-05,2022-10-05T12:55:42,24419,jef ,Joanne Friedl,crt,clk
+47751,286,cmp                      ,83,cmp                      ,amdcmp  ,289,2022-10-25,2022-10-25T14:28:07,20284,jat ,Jennifer Titak,crt,oth
+48728,120,cmp                      ,20,cmp                      ,amdcmp  ,121,2022-11-14,2022-11-14T09:48:06,1564646,,Mark Joseph,pty,
+49027,67,cmp                      ,16,cmp                      ,amdcmp  ,68,2022-12-01,2022-12-02T10:31:24,24419,jef ,Joanne Friedl,crt,clk
+48307,84,cmp                      ,17,cmp                      ,amdcmp  ,85,2022-12-30,2022-12-30T12:37:36,24419,jef ,Joanne Friedl,crt,clk
+49167,86,cmp                      ,24,cmp                      ,amdcmp  ,87,2023-01-10,2023-01-10T16:20:34,24419,jef ,Joanne Friedl,crt,clk
+48498,103,cmp                      ,22,cmp                      ,amdcmp  ,104,2023-03-07,2023-03-07T17:22:14,1555673,,Siren Lewis,pty,
+47203,138,cmp                      ,22,cmp                      ,amdcmp  ,139,2023-03-27,2023-03-27T08:35:22,620774,,Sidney Coleman,pty,
+49072,123,cmp                      ,26,cmp                      ,amdcmp  ,124,2023-03-27,2023-03-27T16:16:22,1353789,rks ,Rachel Swanson,crt,clk
