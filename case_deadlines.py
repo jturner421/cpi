@@ -24,10 +24,10 @@ async def main(*caseids):
     async with aiohttp.ClientSession() as session:
         params = {'documents': 'false', 'docket_text': 'true'}
         headers = {'Authorization': f'Bearer {api.access_token}', 'Content-Type': 'application/json'}
-        urls = [f'{api_base_url}/cases/entries/{caseid}' for caseid in caseids]
+        urls = [f'{api_base_url}/cases/deadlines/{caseid}' for caseid in caseids]
         requests = [get(session, url, params=params, headers=headers) for url in urls]
         dataframes = await asyncio.gather(*requests)
-        with open('dataframes.pkl', 'wb') as f:
+        with open('dataframes_deadlines.pkl', 'wb') as f:
             pickle.dump(dataframes, f, pickle.HIGHEST_PROTOCOL)
 
 

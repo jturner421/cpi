@@ -73,11 +73,13 @@ def main():
     end_date = datetime.date(2022, 5, 31)
     stats = get_civil_cases_by_date(start_date=start_date, end_date=end_date)
     stats = add_nos_grouping(stats, nos)
+    stats.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/civil_cases_2018-2022.csv', index=False)
 
     # filter dataframe to return cases where IsProse is y
     # df = pd.read_csv('/Users/jwt/PycharmProjects/dashboard/CPI/civil_cases_2018-2022.csv')
     mask = stats['IsProse'] == 'y'
     pro_se = stats[mask]
+    pro_se.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/pro_se.csv', index=False)
 
     # retrieve complaints from ecf for cases
     url = f'{api_base_url}{config.docket_entries_by_case_and_type}'
@@ -87,28 +89,28 @@ def main():
     # event = create_event(('cmp', 'cmp'))
     complaints = get_data(case_ids, api.access_token, url, params, event=None,
                           overall_type='cmp')
-    complaints.to_csv('/Users/jwt/PycharmProjects/dashboard/CPI/complaints.csv', index=False)
+    complaints.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/complaints.csv', index=False)
 
     # retrieve habeas complaints from ecf for cases
     url = f'{api_base_url}{config.docket_entries_by_case_and_typeSub}'
     event = create_event(('motion', 'pwrithc'))
     habeas_complaints = get_data(case_ids, api.access_token, url, params, event=event,
                                  overall_type=None)
-    habeas_complaints.to_csv('/Users/jwt/PycharmProjects/dashboard/CPI/habeas_complaints.csv', index=False)
+    habeas_complaints.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/habeas_complaints.csv', index=False)
 
     # retrieve 2255 motions from ecf for cases
     params = {'documents': False, 'docket_text': False}
     event = create_event(('motion', '2255'))
     motion_2255 = get_data(case_ids, api.access_token, url, params, event=event,
                            overall_type=None)
-    motion_2255.to_csv('/Users/jwt/PycharmProjects/dashboard/CPI/motion_2255.csv', index=False)
+    motion_2255.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/motion_2255.csv', index=False)
 
     # retrieve notice of removal from ecf for cases
     params = {'documents': False, 'docket_text': False}
     event = create_event(('notice', 'ntcrem'))
     notice_removal = get_data(case_ids, api.access_token, url, params, event=event,
                               overall_type=None)
-    notice_removal.to_csv('/Users/jwt/PycharmProjects/dashboard/CPI/notice_removal.csv', index=False)
+    notice_removal.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/notice_removal.csv', index=False)
 
     # retrieve emergency injunctions from ecf for cases
 
@@ -116,14 +118,14 @@ def main():
     event = create_event(('motion', 'emerinj'))
     injunctions = get_data(case_ids, api.access_token, url, params, event=event,
                            overall_type=None)
-    injunctions.to_csv('/Users/jwt/PycharmProjects/dashboard/CPI/injunctions.csv', index=False)
+    injunctions.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/injunctions.csv', index=False)
 
     # retrieve bankruptcy  appeals from ecf for cases
     params = {'documents': False, 'docket_text': False}
     event = create_event(('appeal', 'bkntc'))
     bk_appeal = get_data(case_ids, api.access_token, url, params, event=event,
                          overall_type=None)
-    bk_appeal.to_csv('/Users/jwt/PycharmProjects/dashboard/CPI/bk_appeal.csv', index=False)
+    bk_appeal.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/bk_appeal.csv', index=False)
 
     # merge complaint dataframes
     complaints_df = create_merged_df(pro_se, complaints)
@@ -139,7 +141,10 @@ def main():
 
     injunctions_df = create_merged_df(pro_se, injunctions)
 
-
+    df = pd.concat(
+        [complaints_df, habeas_df, df_2255, notice_df, injunctions_df], ignore_index=True)
+    df.drop_duplicates(subset=['Case ID'], keep='first', inplace=True)
+    df.to_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/prose_merged.csv', index=False)
 # dummy screening
 
 # params = {'documents': False, 'docket_text': False}

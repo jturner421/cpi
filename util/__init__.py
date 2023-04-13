@@ -43,7 +43,7 @@ async def get(session: ClientSession, url: str, params: Optional = None, headers
         async with session.get(url, timeout=to, params=params, headers=headers, ssl=False) as result:
             res = await result.read()
             df = pd.DataFrame(json.loads(res)['data'])
-            df.sort_values(by=['de_seqno'], ascending=True, inplace=True)
+            # df.sort_values(by=['sd_deseqno'], ascending=True, inplace=True)
             df.head()
             return df
     else:
@@ -61,3 +61,20 @@ async def get_httpx(url: str, params: Optional = None, headers: Optional = None)
         async with httpx.AsyncClient() as client:
             r = await client.get(url, params=params, timeout=None)
     return r.status_code
+
+
+from functools import wraps
+import time
+
+
+def timeit(func):
+    @wraps(func)
+    def timeit_wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        total_time = end_time - start_time
+        print(f'Function {func.__name__}{args} {kwargs} Took {total_time:.4f} seconds')
+        return result
+
+    return timeit_wrapper

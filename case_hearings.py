@@ -22,14 +22,15 @@ api_base_url = config.base_api_url
 @async_timed()
 async def main(*caseids):
     async with aiohttp.ClientSession() as session:
-        params = {'documents': 'false', 'docket_text': 'true'}
+        params = {'deadline_class': 'hrg'}
         headers = {'Authorization': f'Bearer {api.access_token}', 'Content-Type': 'application/json'}
-        urls = [f'{api_base_url}/cases/entries/{caseid}' for caseid in caseids]
+        urls = [f'{api_base_url}/cases/deadlines/{caseid}' for caseid in caseids]
         requests = [get(session, url, params=params, headers=headers) for url in urls]
         dataframes = await asyncio.gather(*requests)
-        with open('dataframes.pkl', 'wb') as f:
+        with open('dataframes_hearings.pkl', 'wb') as f:
             pickle.dump(dataframes, f, pickle.HIGHEST_PROTOCOL)
-
+        with open('dataframes_hearings.pkl', 'rb') as f:
+            dataframes = pickle.load(f)
 
 if __name__ == '__main__':
     import time

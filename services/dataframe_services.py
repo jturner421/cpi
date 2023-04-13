@@ -82,6 +82,18 @@ def create_merged_df(original_df, candidate_df) -> pd.DataFrame:
     return df
 
 
+def create_merged_ua_dates_or_deadlines(original_df, candidate_df) -> pd.DataFrame:
+    df = pd.merge(original_df, candidate_df, left_on='Case ID', right_on='caseid', how='left')
+    return df
+
+
+def cleanup_merged_deadlines(df) -> pd.DataFrame:
+    df = df.drop(['Diversity Defendant', 'Diversity Plaintiff', 'IsProse', 'caseid_x', 'caseid_y', 'case_type'], axis=1)
+    df = df.drop_duplicates(keep='first')
+    df['amended_complaint_count'] = df['amended_complaint_count'].fillna(0).astype(int)
+    df['case_reopen_count'] = df['case_reopen_count'].fillna(0).astype(int)
+
+
 def add_nos_grouping(df: pd.DataFrame, table_name: Table):
     nos_lookup = nos_group_lookup(table_name)
     df["Group"] = df.NOS.apply(lambda x: apply_nos_grouping(x, 'NOS', nos_lookup))
