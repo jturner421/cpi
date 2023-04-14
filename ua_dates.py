@@ -23,6 +23,7 @@ class CaseDeadlines:
     dispositve_deadline: datetime = None
     limine_deadline: datetime = None
     fptcnf_date: datetime = None
+    trial_date: datetime = None
 
     def dict(self):
         if self.dispositve_deadline:
@@ -63,7 +64,7 @@ class CaseDates:
         if len(self.order_to_leave_dates) == 1:
             self.ltp_date = datetime.strptime(self.order_to_leave_dates[0]['ltp_date'], '%Y-%m-%d')
         elif len(self.order_to_leave_dates) > 2:
-            print(f' More then one Leave order in {self.caseid}')
+            self.ltp_date = datetime.strptime(self.order_to_leave_dates[-1]['ltp_date'], '%Y-%m-%d')
         else:
             self.ltp_date = None
             print(f' No Leave order in {self.caseid}')
@@ -71,24 +72,14 @@ class CaseDates:
         if len(self.ua_dates) >= 1:
             # Check to see if there is an order dismissing the complaint.  Usually that means that an amended complaint
             #  was filed
-            if self.order_dismissing_complaints:
-                # get the date
-                self.complaint_dismissal_date = datetime.strptime(self.order_dismissing_complaints[0]['dis_date'],
-                                                                  '%Y-%m-%d')
-                self.amended_complaint_date = datetime.strptime(self.amended_complaints[0]['amdcmp_date'], '%Y-%m-%d')
-                # Use the date of the amended complaint to set the UA date
-                self.ua_date = datetime.strptime([x for x in self.ua_dates if 'amended' in x['ua_text']]
-                                                 [0]['ua_date'], '%Y-%m-%d')
-            else:
-                # assumption that first UA date is screening date
-                self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
+            self._calculate_dismissal_date()
+            self._calculate_amended_complaint_date()
         else:
             self.ua_date = None
             print(f' No UA date in {self.caseid}')
         if len(self.dismissal_dates):
             # Notice of Dismissal prior to screening
-            self.dismissal_date_prior_to_screening = datetime.strptime(self.dismissal_dates[-1]['dis_date'], '%Y-%m-%d')
-            self.dismissal_reason_prior_to_screening = DismissalType[self.dismissal_dates[-1]['dis_reason']].value
+            self._calculate_dismissal_date_prior_to_screening()
         if self.dismissal_date_prior_to_screening is not None and self.ua_date is not None:
             if self.ua_date > self.dismissal_date_prior_to_screening:
                 print(f'{Fore.RED} UA date after dismissal date in {self.caseid}{Fore.RESET}')
@@ -116,6 +107,32 @@ class CaseDates:
         del _dict['ifp_docnum']
         del _dict['case_reopen_dates']
         return _dict
+
+    def _calculate_dismissal_date_prior_to_screening(self):
+        self.dismissal_date_prior_to_screening = datetime.strptime(self.dismissal_dates[-1]['dis_date'], '%Y-%m-%d')
+        self.dismissal_reason_prior_to_screening = DismissalType[self.dismissal_dates[-1]['dis_reason']].value
+
+    def _calculate_dismissal_date(self):
+        # get the date
+        if len(self.order_dismissing_complaints) > 0:
+            self.complaint_dismissal_date = datetime.strptime(self.order_dismissing_complaints[0]['dis_date'],
+                                                          '%Y-%m-%d')
+
+    def _calculate_amended_complaint_date(self):
+        # Only use amended complaints prior to the leave to proceed date
+        if self.ltp_date:
+            amended_complaint_dates = [x for x in self.amended_complaints if
+                                       datetime.strptime(x['amdcmp_date'], '%Y-%m-%d') < self.ltp_date]
+        else:
+            amended_complaint_dates = self.amended_complaints
+        if len(amended_complaint_dates) > 0:
+            # Use the date of the last amended complaint to set the screening date
+            self.amended_complaint_date = datetime.strptime(amended_complaint_dates[-1]['amdcmp_date'], '%Y-%m-%d')
+            # Use the date of the last amended complaint to set the UA date
+            self.ua_date = datetime.strptime([x for x in self.ua_dates if 'amended' in x['ua_text']]
+                                             [-1]['ua_date'], '%Y-%m-%d')
+        else:
+            self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
 
 
 def find_ua_date(cmp_docnum, screening_docnum, ua):
@@ -173,11 +190,13 @@ def _find_complaint(target: pd.DataFrame) -> CaseDates:
     amdcmp = target[mask]
     if not amdcmp.empty:
         case = _complaint_dismmised(case, target)
-        amdcmp_docnum = amdcmp['de_document_num'].iloc[0].astype(int)
-        amdcmp_docnum = f'[{int(amdcmp_docnum)}]'
-        amdcmp_date = amdcmp['de_date_filed'].iloc[0]
-        case.amended_complaints.append({'amdcmp_date': amdcmp_date,
-                                        'amdcmp_docnum': amdcmp_docnum})
+        amdcmp.drop_duplicates(subset='de_seqno', keep='first', inplace=True)
+        for index, row in amdcmp.iterrows():
+            amdcmp_docnum = row['de_document_num']
+            amdcmp_docnum = f'[{int(amdcmp_docnum)}]'
+            amdcmp_date = row['de_date_filed']
+            case.amended_complaints.append({'amdcmp_date': amdcmp_date,
+                                            'amdcmp_docnum': amdcmp_docnum})
     return case
 
 
@@ -192,7 +211,7 @@ def _get_screening_date(case: CaseDates, target: pd.DataFrame) -> CaseDates:
 
     """
     # Check for dummy screening motion
-    screening = target.loc[target['dp_sub_type'] == 'dummyscr']
+    screening = target.query('dp_sub_type == "dummyscr" or dp_sub_type == "pdpro" ')
     if not screening.empty:
         case.screening_docnum = screening['dp_seqno'].iloc[0].astype(int)
         case.screening_docnum = f'[{int(case.screening_docnum)}]'
@@ -244,7 +263,7 @@ def _check_for_trust_fund_statement(case_dates, target):
     return case_dates
 
 
-def _early_dismissal(case_dates, target) -> CaseDates
+def _early_dismissal(case_dates, target) -> CaseDates:
     """
     Function to check for voluntary dismissal or other dismissal prior to screening 
    
@@ -303,12 +322,43 @@ def _find_preliminary_pretrial_conference_deadlines(target_dline: pd.DataFrame, 
     """
     try:
         deadline = CaseDeadlines(caseid=target_dline['sd_caseid'].iloc[0])
-        deadline.dispositve_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'disp'].iloc[0]
-        deadline.limine_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'limine'].iloc[0]
-        deadline.fptcnf_date = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'fptcnf'].iloc[0]
+        try:
+            deadline.dispositve_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'disp'].iloc[0]
+        except IndexError:
+            deadline.dispositve_deadline = pd.NaT
+
+        # Todo: Explore way to to handle multiple deadline types comparisons. Currently if one is not found, an error
+        #  is thrown since a datetime cannot be compared to none.
+        #  fptcnf = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'fptcnf'] or \
+        #  target_hearing['sd_dtset'][target_hearing['sd_type'] == 'Tfptcnf'] does not work if one of the values is not
+        #  found. This is because the comparison is done between a datetime and a none type.
+        try:
+            deadline.limine_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'limine'].iloc[0]
+        except IndexError:
+            pass
+        try:
+            if deadline.limine_deadline is None:
+                deadline.limine_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'Plimine'].iloc[0]
+        except IndexError:
+            deadline.limine_deadline = pd.NaT
+
+        try:
+            deadline.fptcnf_date = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'fptcnf'].iloc[0]
+        except IndexError:
+            pass
+        try:
+            if deadline.fptcnf_date is None:
+                deadline.fptcnf_date = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'Tfptcnf'].iloc[0]
+        except (IndexError, ValueError):
+            deadline.fptcnf_date = pd.NaT
+
+        try:
+            deadline.trial_date = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'jst'].iloc[-1]
+        except IndexError:
+            deadline.trial_date = pd.NaT
         return deadline
-    except Exception as e:
-        print(Fore.RED + f'No Deadlines Found: {e}', flush=True)
+
+    except IndexError:
         return None
 
 
@@ -346,6 +396,7 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str)
         if case_dates.complaint_date or case_dates.screening_date:
             # check for ifp motion
             case_dates = _get_ifp_date(case_dates, target)
+        case_dates = _early_dismissal(case_dates, target)
         ua = target.loc[target['dp_sub_type'] == 'madv']
 
         if not ua.empty:
@@ -354,7 +405,7 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str)
             # if not case_dates.ua_dates:
             #     case_dates = _check_for_trust_fund_statement(case_dates, target)
         # Was there a voluntary dismissal or termination due to no prisoner trust fund statement?
-        case_dates = _early_dismissal(case_dates, target)
+
         # check for leave to proceed
         case_dates = _get_leave_to_proceed(case_dates, target)
         case_dates = _get_pretrial_conference_date(case_dates, target)
