@@ -1,3 +1,4 @@
+from collections import OrderedDict
 from datetime import datetime
 from dataclasses import dataclass, field
 from enum import Enum
@@ -14,6 +15,7 @@ class DismissalType(Enum):
     voldism = 'Voluntary Dismissal'
     termpscs = 'No Trust Fund Statement'
     termcs = 'Civil Case Terminated'
+    dismcmp = 'Complaint Dismissed'
 
 
 @dataclass
@@ -49,6 +51,8 @@ class CaseDates:
     screening_date: datetime = None
     ua_date: datetime = None
     ltp_date: datetime = None
+    transfer_date: datetime = None
+    judgment_date_closing_case_prior_to_reopen: datetime = None
     initial_pretrial_conference_date: datetime = None
     dismissal_date_prior_to_screening: datetime = None
     dismissal_reason_prior_to_screening: str = None
@@ -59,8 +63,13 @@ class CaseDates:
     ua_dates: list = field(default_factory=list)
     trust_fund_dates: list = field(default_factory=list)
     dismissal_dates: list = field(default_factory=list)
+    judgment_dates: list = field(default_factory=list)
+    dismissal_dates_prior_to_screening: list = field(default_factory=list)
 
     def dict(self):
+        # start tolling time from date transferred to this court
+        if self.transfer_date:
+            self.complaint_date = datetime.strptime(self.transfer_date, '%Y-%m-%d')
         if len(self.order_to_leave_dates) == 1:
             self.ltp_date = datetime.strptime(self.order_to_leave_dates[0]['ltp_date'], '%Y-%m-%d')
         elif len(self.order_to_leave_dates) > 2:
@@ -68,10 +77,14 @@ class CaseDates:
         else:
             self.ltp_date = None
             print(f' No Leave order in {self.caseid}')
-
+        if len(self.case_reopen_dates) >= 1:
+            pass
         if len(self.ua_dates) >= 1:
             # Check to see if there is an order dismissing the complaint.  Usually that means that an amended complaint
             #  was filed
+            # remove duplicates
+            # credit: https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python (author:fourtheye)
+            self.ua_dates = list(OrderedDict((frozenset(item.items()), item) for item in self.ua_dates).values())
             self._calculate_dismissal_date()
             self._calculate_amended_complaint_date()
         else:
@@ -91,11 +104,11 @@ class CaseDates:
         self.amended_complaint_count = len(self.amended_complaints)
         self.case_reopen_count = len(self.case_reopen_dates)
         _dict = self.__dict__.copy()
-        if _dict['complaint_date'] is not None and _dict['complaint_date'] != 0:
+        if type(_dict['complaint_date']) is str:
             _dict['complaint_date'] = datetime.strptime(_dict['complaint_date'], '%Y-%m-%d')
-        if _dict['ifp_date'] is not None and _dict['ifp_date'] != 0:
+        if type(_dict['ifp_date']) is str:
             _dict['ifp_date'] = datetime.strptime(_dict['ifp_date'], '%Y-%m-%d')
-        if _dict['screening_date'] is not None and _dict['screening_date'] != 0:
+        if type(_dict['screening_date']) is str:
             _dict['screening_date'] = datetime.strptime(_dict['screening_date'], '%Y-%m-%d')
         del _dict['amended_complaints']
         del _dict['order_to_leave_dates']
@@ -109,14 +122,17 @@ class CaseDates:
         return _dict
 
     def _calculate_dismissal_date_prior_to_screening(self):
-        self.dismissal_date_prior_to_screening = datetime.strptime(self.dismissal_dates[-1]['dis_date'], '%Y-%m-%d')
-        self.dismissal_reason_prior_to_screening = DismissalType[self.dismissal_dates[-1]['dis_reason']].value
+        # there may be more than one order so we use a list comprehension to get all orders that dismisses the complaint
+        result = [element for element in self.dismissal_dates if element["dis_reason"] == "dismcmp"]
+        self.dismissal_date_prior_to_screening = datetime.strptime(result[-1]['dis_date'], '%Y-%m-%d')
+        self.dismissal_reason_prior_to_screening = DismissalType[result[-1]['dis_reason']].value
 
     def _calculate_dismissal_date(self):
         # get the date
+        # [item for item in self.dismissal_dates]
         if len(self.order_dismissing_complaints) > 0:
             self.complaint_dismissal_date = datetime.strptime(self.order_dismissing_complaints[0]['dis_date'],
-                                                          '%Y-%m-%d')
+                                                              '%Y-%m-%d')
 
     def _calculate_amended_complaint_date(self):
         # Only use amended complaints prior to the leave to proceed date
@@ -129,8 +145,11 @@ class CaseDates:
             # Use the date of the last amended complaint to set the screening date
             self.amended_complaint_date = datetime.strptime(amended_complaint_dates[-1]['amdcmp_date'], '%Y-%m-%d')
             # Use the date of the last amended complaint to set the UA date
-            self.ua_date = datetime.strptime([x for x in self.ua_dates if 'amended' in x['ua_text']]
-                                             [-1]['ua_date'], '%Y-%m-%d')
+            try:
+                self.ua_date = datetime.strptime([x for x in self.ua_dates if 'amended' in x['ua_text']]
+                                                 [-1]['ua_date'], '%Y-%m-%d')
+            except IndexError:
+                self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
         else:
             self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
 
@@ -162,8 +181,11 @@ def _complaint_dismmised(case: CaseDates, target: pd.DataFrame) -> CaseDates:
 
     """
     dis = target.query('dp_sub_type == "dismcmp"')
+    dis.drop_duplicates(subset=['de_seqno'], inplace=True)
     if not dis.empty:
-        case.order_dismissing_complaints.append({'dis_date': dis['de_date_filed'].iloc[0]})
+        for index, row in dis.iterrows():
+            case.dismissal_dates_prior_to_screening.append(
+                {'dis_date': row['de_date_filed'], 'dis_reason': row['dt_text']})
     return case
 
 
@@ -182,14 +204,18 @@ def _find_complaint(target: pd.DataFrame) -> CaseDates:
         case.complaint_docnum = cmp['de_document_num'].iloc[0].astype(int)
         case.complaint_docnum = f'[{int(case.complaint_docnum)}]'
         case.complaint_date = cmp['de_date_filed'].iloc[0]
-
+    # was case transferred?
+    trf = target.query('dp_sub_type == "distin"')
+    trf.drop_duplicates(subset='de_seqno', keep='first', inplace=True)
+    if not trf.empty:
+        case.transfer_date = trf['de_date_filed'].iloc[0]
     case = _get_screening_date(case, target)
     # was an amended complaint, 2255 motion filed?
     events = ['amdcmp', 'pamdcmp']
     mask = target['dp_sub_type'].isin(events)
     amdcmp = target[mask]
     if not amdcmp.empty:
-        case = _complaint_dismmised(case, target)
+        # case = _complaint_dismmised(case, target)
         amdcmp.drop_duplicates(subset='de_seqno', keep='first', inplace=True)
         for index, row in amdcmp.iterrows():
             amdcmp_docnum = row['de_document_num']
@@ -274,13 +300,19 @@ def _early_dismissal(case_dates, target) -> CaseDates:
     s1 = target.loc[target['dp_sub_type'] == 'voldism']
     s2 = target.loc[target['dp_sub_type'] == 'termcs']
     s3 = target.loc[target['dp_sub_type'] == 'termpscs']
-    dism = pd.concat([s1, s2, s3])
+    s4 = target.loc[target['dp_sub_type'] == 'dismcmp']
+    dism = pd.concat([s1, s2, s3,s4])
+    dism.drop_duplicates(subset='de_seqno', keep='first', inplace=True)
     # take the last date filed
     if not dism.empty:
         dism.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
-        dis_date = dism['de_date_filed'].iloc[-1]
-        dis_reason = dism['dp_sub_type'].iloc[-1]
-        case_dates.dismissal_dates.append({'dis_date': dis_date, 'dis_reason': dis_reason})
+        for index, row in dism.iterrows():
+            dis_date = dism['de_date_filed'].iloc[0]
+            dis_reason = dism['dp_sub_type'].iloc[0]
+            dis_text = dism['dt_text'].iloc[0]
+            type = dism['dp_sub_type'].iloc[0]
+            case_dates.dismissal_dates.append({'dis_date': dis_date, 'dis_reason': dis_reason,
+                                           'dis_text': dis_text, 'type': type})
     return case_dates
 
 
@@ -381,6 +413,16 @@ def get_case_deadlines(case_id: int, target_dline: pd.DataFrame, target_hearing:
         print(Fore.RED + f'No dates found for {case_id}: {e}', flush=True)
 
 
+def _get_judgment_date(case_dates, target):
+    judgments = target.loc[target['dp_sub_type'] == 'jgm']
+    if not judgments.empty:
+        judgments.drop_duplicates(subset=['dp_seqno'], inplace=True)
+        judgments.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
+        for index, row in judgments.iterrows():
+            case_dates.judgment_dates.append({'judgment_date': row['de_date_filed'], 'seqno': row['dp_seqno']})
+    return case_dates
+
+
 def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str) -> pd.DataFrame:
     """
     Wrapper Function to get case milestone dates for a case. Milestones include:
@@ -409,8 +451,10 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str)
         # check for leave to proceed
         case_dates = _get_leave_to_proceed(case_dates, target)
         case_dates = _get_pretrial_conference_date(case_dates, target)
-        # check for case re-openings
         case_dates = _get_reopen_date(case_dates, target)
+        if len(case_dates.case_reopen_dates) >= 1:
+            case_dates = _get_judgment_date(case_dates, target)
+        # check for case re-openings
 
         print(Fore.WHITE + f'Finished getting case dates for: {case_id}')
         case_dates_dict = case_dates.dict()
