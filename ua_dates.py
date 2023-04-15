@@ -244,7 +244,7 @@ def _check_for_trust_fund_statement(case_dates, target):
     return case_dates
 
 
-def _early_dismissal(case_dates, target) -> CaseDates
+def _early_dismissal(case_dates, target) -> CaseDates:
     """
     Function to check for voluntary dismissal or other dismissal prior to screening 
    
