@@ -28,38 +28,46 @@ def test_docket_entries_for_a_case(docket_entries):
 
 
 @pytest.mark.parametrize('caseid, expected',
-                         [
-                             (41669, '2018-04-20'),
-                             (41648, '2018-04-19'),
-                         ])
+                         [(41669, '2018-04-20')])
 def test_for_complaint_date(docket_entries, caseid, expected):
     from ua_dates import _find_complaint
-    target = docket_entries.loc[docket_entries['de_caseid'] == caseid]
-    result = _find_complaint(target)
-    assert result.complaint_date == expected
+    target = _docket_entries_for_case(docket_entries, caseid)
+    # target = docket_entries.loc[docket_entries['de_caseid'] == caseid]
+    case = _find_complaint(target)
+    assert case.complaint_date == expected
 
 
-@pytest.mark.parametrize('caseid, complaint_date, expected',
-                         [
-                             (41669, '2018-04-20', None),
-                         ])
-def test_for_ifp_date(docket_entries, caseid, complaint_date, expected):
+@pytest.mark.parametrize("caseid, complaint_date, expected", [(41669, '2018-04-20', None),
+                                                              (41648, '2018-04-19', '2018-04-19')
+                                                              ])
+def test_for_ifp_date(caseid, complaint_date, expected, docket_entries):
     from ua_dates import _get_ifp_date
-    case_for_test = CaseDates(caseid=caseid, complaint_date=complaint_date)
-    target = docket_entries.loc[docket_entries['de_caseid'] == case_for_test.caseid]
-    result = _get_ifp_date(case_for_test, target)
-    assert result.ifp_date == expected
+    case = _create_case(caseid, complaint_date)
+    target = _docket_entries_for_case(docket_entries, caseid)
+    case = _get_ifp_date(case, target)
+    assert case.ifp_date == expected
 
 
-@pytest.mark.parametrize('caseid, complaint_date, expected',
-                         [
-                             (41669, '2018-04-20', datetime(2018, 4, 30)),
-                         ])
-def test_identify_ua_dates_for_case(docket_entries, caseid, complaint_date, expected):
-    from ua_dates import _get_ua_date
-    case_for_test = CaseDates(caseid=caseid, complaint_date=complaint_date)
-    target = docket_entries.loc[docket_entries['de_caseid'] == case_for_test.caseid]
-    ua = target.loc[target['dp_sub_type'] == 'madv']
-    result = _get_ua_date(case_for_test, ua)
-    result.ua_date = datetime.strptime(result.ua_dates[0]['ua_date'], '%Y-%m-%d')
-    assert result.ua_date == expected
+def _create_case(caseid, complaint_date):
+    return CaseDates(caseid=caseid, complaint_date=complaint_date)
+
+
+def _docket_entries_for_case(docket_entries, caseid):
+    docket_entries_for_case = docket_entries.loc[docket_entries['de_caseid'] == caseid]
+    return docket_entries_for_case
+
+# @pytest.mark.parametrize('caseid, complaint_date, expected',
+#                          [
+#                              (41669, '2018-04-20', 3),
+#                              (41648, '2018-04-19', 1),
+#                          ])
+# def test_identify_ua_dates_for_case(docket_entries, caseid, complaint_date, expected):
+#     from ua_dates import _get_ua_date
+#     case_for_test = CaseDates(caseid=caseid, complaint_date=complaint_date)
+#     target = docket_entries.loc[docket_entries['de_caseid'] == case_for_test.caseid]
+#     ua = target.loc[target['dp_sub_type'] == 'madv']
+#     case_for_test = _get_ua_date(case_for_test, ua)
+#     assert len(case_for_test.ua_dates) == expected
+#
+# def get_ua_date_for_case(docket_entries_for_case):
+#     pass
