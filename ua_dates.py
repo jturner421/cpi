@@ -58,6 +58,7 @@ class CaseDates:
     initial_pretrial_conference_date: datetime = None
     dismissal_date_prior_to_screening: datetime = None
     dismissal_reason_prior_to_screening: str = None
+    judgment_without_prejudice_date: datetime = None
     order_dismissing_complaints: list = field(default_factory=list)
     amended_complaints: list = field(default_factory=list)
     order_to_leave_dates: list = field(default_factory=list)
@@ -73,23 +74,22 @@ class CaseDates:
         if self.transfer_date:
             self.complaint_date = datetime.strptime(self.transfer_date, '%Y-%m-%d')
         self._calculate_dismissal_date()
-        self._calculate_amended_complaint_date()
+        if len(self.early_dismissal_dates):
+            # Notice of Dismissal prior to screening
+            self._calculate_dismissal_date_prior_to_screening()
         if len(self.case_reopen_dates) >= 1:
-            pass
+            case_reopen_dates = [datetime.strptime(date, '%Y-%m-%d') for date in self.case_reopen_dates]
+            case_reopen_dates.sort()
+            case_reopen_dates = set(self.case_reopen_dates)
+            self.case_reopen_dates = list(case_reopen_dates)
+        self._calculate_amended_complaint_date()
         if len(self.ua_dates) >= 1:
             self._calculate_ua_date()
         else:
             self.ua_date = None
             print(f' No UA date in {self.caseid}')
-        self._calculate_ltp_date()
 
-        if len(self.early_dismissal_dates):
-            # Notice of Dismissal prior to screening
-            self._calculate_dismissal_date_prior_to_screening()
-        if self.dismissal_date_prior_to_screening is not None and self.ua_date is not None:
-            if self.ua_date > self.dismissal_date_prior_to_screening:
-                print(f'{Fore.RED} UA date after dismissal date in {self.caseid}{Fore.RESET}')
-                self.ua_date = None
+        self._calculate_ltp_date()
 
         if self.initial_pretrial_conference_date:
             self.initial_pretrial_conference_date = datetime.strptime(self.initial_pretrial_conference_date,
@@ -115,14 +115,15 @@ class CaseDates:
         return _dict
 
     def _calculate_ltp_date(self):
-        if len(self.order_to_leave_dates) == 1:
-            self.ltp_date = datetime.strptime(self.order_to_leave_dates[0]['ltp_date'], '%Y-%m-%d')
-        elif len(self.order_to_leave_dates) >= 2:
-              for i in range(len(self.order_to_leave_dates)):
-                if datetime.strptime(self.order_to_leave_dates[i]['ltp_date'],'%Y-%m-%d')>= self.ua_date:
-                    self.ltp_date = datetime.strptime(self.order_to_leave_dates[i]['ltp_date'], '%Y-%m-%d')
-                    continue
-        # self.ltp_date = datetime.strptime(self.order_to_leave_dates[-1]['ltp_date'], '%Y-%m-%d')
+        if len(self.order_to_leave_dates) >= 1:
+            try:
+                for i in range(len(self.order_to_leave_dates)):
+                    if datetime.strptime(self.order_to_leave_dates[i]['ltp_date'], '%Y-%m-%d') >= self.ua_date:
+                        self.ltp_date = datetime.strptime(self.order_to_leave_dates[i]['ltp_date'], '%Y-%m-%d')
+                        continue
+            except TypeError:
+                self.ltp_date = datetime.strptime(self.order_to_leave_dates[-1]['ltp_date'], '%Y-%m-%d')
+
         else:
             self.ltp_date = None
             print(f' No Leave order in {self.caseid}')
@@ -155,17 +156,58 @@ class CaseDates:
     def _calculate_ua_date(self):
         # credit: https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python (author:fourtheye)
         self.ua_dates = list(OrderedDict((frozenset(item.items()), item) for item in self.ua_dates).values())
+
+        # check for judgment without prejudice
+        if self.judgment_dates:
+            jgm_dates = ([datetime.strptime(x['judgment_date'], '%Y-%m-%d') for x in self.judgment_dates if
+                          "without prejudice" in x['judgment_text']])
+            jgm_dates.sort()
+            if len(jgm_dates) > 0:
+                # set it to the last judgment without prejudice date recorded
+                self.judgment_without_prejudice_date = jgm_dates[-1]
+
+        # is there a reopen date?
+        if len(self.case_reopen_dates) >= 1:
+            reopen_date = datetime.strptime(self.case_reopen_dates[-1], '%Y-%m-%d')
+
+        # set dismissal date prior to screening or judgment without prejudice date, whichever is later
+        try:
+            dismissal_date = max(self.dismissal_date_prior_to_screening, self.judgment_without_prejudice_date)
+        except TypeError:
+            pass
         # are there amended complaints?
         if self.amended_complaint_date:
             # if so extract the docnum
             amended_complaint_docnum = self.amended_complaints[-1]['amdcmp_docnum']
-            try:
-                self.ua_date = datetime.strptime([x for x in self.ua_dates if amended_complaint_docnum in x['ua_text']]
-                                                 [-1]['ua_date'], '%Y-%m-%d')
-            except IndexError:
-                self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
         else:
-            self.ua_date = datetime.strptime(self.ua_dates[0]['ua_date'], '%Y-%m-%d')
+            amended_complaint_docnum = None
+
+            # # Use onlu UA dates that are associated with the amended complaint(s)
+            # ua_dates = [x for x in self.ua_dates if amended_complaint_docnum in x['ua_text']]
+            # # Amended complaint could be filed but never go UA. This will result in an empty list. In this case we
+            # # compile all the UA dates.
+            # if len(ua_dates) == 0:
+            #     ua_dates = [x for x in self.ua_dates]
+        # else:
+        #     # If no amended complaints, use all UA dates
+        #     ua_dates = [x for x in self.ua_dates]
+        if amended_complaint_docnum is None:
+            matches = ['leave to proceed', 'pauperis']
+        else:
+            matches = ['leave to proceed', amended_complaint_docnum, 'pauperis', "screening"]
+        if len(self.ua_dates) > 0:
+            for ua_date in self.ua_dates:
+                if any(x in ua_date['ua_text'].lower() for x in matches):
+                    try:
+                        if datetime.strptime(ua_date['ua_date'], '%Y-%m-%d') > dismissal_date:
+                            self.ua_date = datetime.strptime(ua_date['ua_date'], '%Y-%m-%d')
+                            continue  # self.ua_date = ua_da
+                    except NameError:
+                        self.ua_date = datetime.strptime(ua_date['ua_date'], '%Y-%m-%d')
+                        continue
+        else:
+            self.ua_date = None
+
 
 
 def _find_target_dates(df: pd.DataFrame, keywords: List[str]):
@@ -336,7 +378,7 @@ def _early_dismissal(case_dates, target) -> CaseDates:
             dis_text = dism['dt_text'].iloc[0]
             type = dism['dp_sub_type'].iloc[0]
             case_dates.early_dismissal_dates.append({'dis_date': dis_date, 'dis_reason': dis_reason,
-                                               'dis_text': dis_text, 'type': type})
+                                                     'dis_text': dis_text, 'type': type})
     return case_dates
 
 
@@ -453,7 +495,8 @@ def _get_judgment_date(case_dates, target):
         judgments.drop_duplicates(subset=['dp_seqno'], inplace=True)
         judgments.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
         for index, row in judgments.iterrows():
-            case_dates.judgment_dates.append({'judgment_date': row['de_date_filed'], 'seqno': row['dp_seqno']})
+            case_dates.judgment_dates.append({'judgment_date': row['de_date_filed'], 'seqno': row['dp_seqno'], \
+                                              'judgment_text': row['dt_text']})
     return case_dates
 
 
