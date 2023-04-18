@@ -109,7 +109,7 @@ def test_fixture(create_case, get_case_data, docket_entries):
     (43516, '2019-03-20', '2022-02-23', '2022-02-23', '2022-03-01'),
     (45034, '2019-12-16', '2022-09-29', '2022-09-29', None),
     (40288, '2017-07-06', '2020-04-24', '2021-06-25', '2021-07-08'),
-    (41669, '2018-04-20', None, '2018-04-30', '2020-08-20'),
+    (41669, '2018-04-20', None, '2018-07-27', '2018-08-20'),
 
 ])
 def test_create_dict(create_case, get_case_data, docket_entries, caseid, complaint_date, amended_complaint_date,

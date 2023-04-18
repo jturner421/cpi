@@ -192,7 +192,7 @@ class CaseDates:
         #     # If no amended complaints, use all UA dates
         #     ua_dates = [x for x in self.ua_dates]
         if amended_complaint_docnum is None:
-            matches = ['leave to proceed', 'pauperis']
+            matches = ['leave to proceed', 'pauperis', 'screening']
         else:
             matches = ['leave to proceed', amended_complaint_docnum, 'pauperis', "screening"]
         if len(self.ua_dates) > 0:
