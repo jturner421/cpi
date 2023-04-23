@@ -3,6 +3,7 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List
+import re
 
 import dill
 import pandas as pd
@@ -54,14 +55,18 @@ class CaseDates:
     ua_date: datetime = None
     ltp_date: datetime = None
     transfer_date: datetime = None
+    notice_of_appeal_date: datetime = None
+
     judgment_date_closing_case_prior_to_reopen: datetime = None
     initial_pretrial_conference_date: datetime = None
     dismissal_date_prior_to_screening: datetime = None
     dismissal_reason_prior_to_screening: str = None
     judgment_without_prejudice_date: datetime = None
     order_dismissing_complaints: list = field(default_factory=list)
+    motion_for_reconsideration: list = field(default_factory=list)
     amended_complaints: list = field(default_factory=list)
     order_to_leave_dates: list = field(default_factory=list)
+    order_dates: list = field(default_factory=list)
     case_reopen_dates: list = field(default_factory=list)
     ua_dates: list = field(default_factory=list)
     trust_fund_dates: list = field(default_factory=list)
@@ -149,14 +154,25 @@ class CaseDates:
         else:
             amended_complaint_dates = self.amended_complaints
         if len(amended_complaint_dates) > 0:
-            # Use the date of the last amended complaint to set the screening date
-            self.amended_complaint_date = datetime.strptime(amended_complaint_dates[-1]['amdcmp_date'], '%Y-%m-%d')
-            amended_complaint_docnum = self.amended_complaints[-1]['amdcmp_docnum']
+            amended_complaint_dates = pd.DataFrame(amended_complaint_dates)
+            amended_complaint_dates['amdcmp_date'] = [datetime.strptime(x, '%Y-%m-%d') for x
+                                                      in amended_complaint_dates['amdcmp_date']]
+            orders = pd.DataFrame(self.order_dates)
+            ltp_orders = pd.DataFrame(self.order_to_leave_dates)
+            ltp_orders.sort_values(by='ltp_date', inplace=True)
+            ltp_orders['ltp_date'] = [datetime.strptime(x, '%Y-%m-%d') for x in ltp_orders['ltp_date']]
+            for index, row in ltp_orders.iterrows():
+                amended_complaint_dates = amended_complaint_dates.loc[amended_complaint_dates['amdcmp_date'] <
+                                                                      row['ltp_date']]
+            # use the
+            pass
+            # amended_complaint_docnum = self.amended_complaints[-1]['amdcmp_docnum']
 
     def _calculate_ua_date(self):
         # credit: https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python (author:fourtheye)
         self.ua_dates = list(OrderedDict((frozenset(item.items()), item) for item in self.ua_dates).values())
-
+        # remove item from list of dicts if text matches "dismissed
+        self.ua_dates = [x for x in self.ua_dates if "appeal" not in x['ua_text']]
         # check for judgment without prejudice
         if self.judgment_dates:
             jgm_dates = ([datetime.strptime(x['judgment_date'], '%Y-%m-%d') for x in self.judgment_dates if
@@ -207,7 +223,6 @@ class CaseDates:
                         continue
         else:
             self.ua_date = None
-
 
 
 def _find_target_dates(df: pd.DataFrame, keywords: List[str]):
@@ -284,8 +299,14 @@ def _get_amended_complaints(case, target):
             amdcmp_docnum = row['de_document_num']
             amdcmp_docnum = f'[{int(amdcmp_docnum)}]'
             amdcmp_date = row['de_date_filed']
+            if row['dp_dpseqno_ptr'] > 0:
+                amdcmp_seqno_ptr = row['dp_dpseqno_ptr']
+            else:
+                amdcmp_seqno_ptr = 0
             case.amended_complaints.append({'amdcmp_date': amdcmp_date,
-                                            'amdcmp_docnum': amdcmp_docnum})
+                                            'amdcmp_docnum': amdcmp_docnum,
+                                            'amdcmp_seqno': row['dp_seqno'],
+                                            'amdcmp_seqno_ptr': amdcmp_seqno_ptr})
     return case
 
 
@@ -337,11 +358,50 @@ def _get_ua_date(case_dates, target):
     ua = target.loc[target['dp_sub_type'] == 'madv']
     if not ua.empty:
         matches = ["screening", 'complaint', 'pauperis', 'habeas', 'reopen',
-                   'social security', 'bankruptcy', 'prepayment']
+                   'social security', 'bankruptcy', 'prepayment', '2255']
         ua_dates = _find_target_dates(ua, matches)
         if ua_dates:
             for ua_date in ua_dates:
                 case_dates.ua_dates.append({'ua_date': ua_date[0], 'ua_text': ua_date[1]})
+    return case_dates
+
+
+def combine_docket_text_into_one_row(target: pd.DataFrame) -> pd.DataFrame:
+    replacement_text = target.groupby('de_seqno')['dt_text'].apply(' '.join).reset_index()
+    target.drop(['dt_text'], axis=1, inplace=True)
+    target.drop_duplicates(subset=['de_seqno'], keep='first', inplace=True)
+    target = target.merge(replacement_text, left_on='de_seqno', right_on='de_seqno', how='left')
+    return target
+
+
+def _get_orders(case_dates, target):
+    orders = target.loc[(target['dp_dpseqno_ptr'].notnull()) & (target['dp_type'] == 'order')]
+    orders['dp_dpseqno_ptr'] = orders['dp_dpseqno_ptr'].astype(int)
+    order = combine_docket_text_into_one_row(orders)
+    order_motion = orders.merge(target, left_on='dp_dpseqno_ptr', right_on='dp_seqno', how='left')
+    order_motion = order_motion.drop(['dp_seqno_x', 'dp_deseqno_ptr_x', 'dp_partno_x',
+                                      'de_caseid_y', 'de_seqno_y', 'dp_dpseqno_ptr_y', 'dp_deseqno_ptr_y',
+                                      'dp_partno_y', 'dp_dispositive_y', 'dp_action_type_y'], axis=1)
+
+    order_motion.rename(columns={'de_caseid_x': 'Case ID',
+                                 'de_type_x': 'Order Type',
+                                 'dp_type_x': 'Order DP Type',
+                                 'dp_sub_type_x': 'Order DP Sub Type',
+                                 'de_seqno_x': 'Order Seqno',
+                                 'dp_dispositive_x': 'Order Dispositive',
+                                 'de_document_num_x': 'Order Docnum',
+                                 'dp_dpseqno_ptr_x': 'Order DP Seqno PTR Num',
+                                 'de_date_filed_x': 'Order Date',
+                                 'dp_action_type_x': 'Order Action',
+                                 'dt_text_x': 'Order Text',
+                                 'de_type_y': 'Motion Type',
+                                 'dp_type_y': 'Motion DP Type',
+                                 'dp_sub_type_y': 'Motion DP Sub Type',
+                                 'de_document_num_y': 'Motion Docnum',
+                                 'dp_seqno_y': 'Motion Seqno',
+                                 'de_date_filed_y': 'Motion Date',
+                                 'dt_text_y': 'Motion Text', }, inplace=True)
+    case_dates.order_dates = list(order_motion.to_dict('records'))
     return case_dates
 
 
@@ -397,7 +457,8 @@ def _get_leave_to_proceed(case_dates, target):
     if not ltp.empty:
         ltp = ltp.drop_duplicates(subset=['dp_seqno'])
         for index, row in ltp.iterrows():
-            case_dates.order_to_leave_dates.append({'ltp_date': row['de_date_filed'], 'seqno': row['dp_seqno']})
+            case_dates.order_to_leave_dates.append({'ltp_date': row['de_date_filed'], 'seqno': row['dp_seqno'],
+                                                    'ltp_text': row['dt_text']})
     # check for alternatives
     else:
         ltp = target.loc[target['dp_type'] == 'order']
@@ -500,6 +561,28 @@ def _get_judgment_date(case_dates, target):
     return case_dates
 
 
+def _get_motion_for_reconsideration(case_dates, target):
+    recon = target.loc[((target['dp_type'] == 'motion') & (target['dp_sub_type'] == 'recon'))]
+    if recon:
+        recon.drop_duplicates(subset=['dp_seqno'], inplace=True)
+        recon.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
+        for index, row in recon.iterrows():
+            case_dates.motion_for_reconsideration.append(
+                {'motiont_date': row['de_date_filed'], 'seqno': row['dp_seqno'], \
+                 'motion_text': row['dt_text']})
+    return case_dates
+
+
+def _get_notice_of_appeal(case_dates, target):
+    noa = target.loc[target['dp_sub_type'] == 'ntcapp']
+    if not noa.empty:
+        noa.drop_duplicates(subset=['dp_seqno'], inplace=True)
+        noa.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
+        for index, row in noa.iterrows():
+            case_dates.notice_of_appeal_date = datetime.strptime(row['de_date_filed'], '%Y-%m-%d')
+    return case_dates
+
+
 def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str) -> pd.DataFrame:
     """
     Wrapper Function to get case milestone dates for a case. Milestones include:
@@ -524,12 +607,23 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str)
         if len(case_dates.case_reopen_dates) >= 1:
             case_dates = _get_judgment_date(case_dates, target)
         # check for case re-openings
-
+        case_dates = _get_notice_of_appeal(case_dates, target)
         print(Fore.WHITE + f'Finished getting case dates for: {case_id}')
         case_dates_dict = case_dates.dict()
         return case_dates_dict
     except IndexError as e:
         print(Fore.RED + f'No dates found for {case_id}: {e}', flush=True)
+
+
+def get_docker_entries_for_case(caseid, df_entries):
+    target = df_entries.loc[df_entries['de_caseid'] == caseid]
+    target['de_document_num'].fillna(0, inplace=True)
+    target['de_document_num'] = target['de_document_num'].astype(int)
+    target['dp_dpseqno_ptr'].fillna(0, inplace=True)
+    target['dp_dpseqno_ptr'] = target['dp_dpseqno_ptr'].astype(int)
+    target['dt_text'] = target['dt_text'].str.lower()
+    target = combine_docket_text_into_one_row(target)
+    return target
 
 
 @timeit
@@ -539,6 +633,7 @@ def main():
         dataframes_entries = dill.load(f)
 
     df_entries = create_dataframe_docket_entries(dataframes_entries)
+    df_entries['dt_text'] = df_entries['dt_text'].str.lower()
 
     with open('dataframes_deadlines.pkl', 'rb') as f:
         dataframes_deadlines = dill.load(f)
@@ -555,17 +650,21 @@ def main():
     ua_dates = []
     deadline_dates = []
     cases = pd.read_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/pro_se.csv')
+    cases = cases.loc[cases['Group'] != 'Habeas Corpus']
     cases[['Date Filed', 'Date Terminated', 'DateAgg']] = cases[['Date Filed', 'Date Terminated', 'DateAgg']].apply(
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
+    cases = cases.drop(columns=['Diversity Plaintiff', 'Diversity Defendant', 'IsProse'])
+    cases = cases.loc[cases['Date Filed'] >= datetime(2018, 1, 1)]
     cases['Case ID'] = cases['Case ID'].astype(int)
     cases.drop_duplicates(keep='first', inplace=True)
+
     caseids = cases['Case ID'].tolist()
 
     # gather information for each case and find the ua dates and deadlines
     for caseid in caseids:
         case_type = cases.loc[cases['Case ID'] == caseid, 'Group'].iloc[0]
-        target = df_entries.loc[df_entries['de_caseid'] == caseid]
+        target = get_docker_entries_for_case(caseid, df_entries)
         ua_dates.append(get_case_milestone_dates(caseid, target, case_type))
         target_dline = df_deadlines.loc[df_deadlines['sd_caseid'] == caseid]
         target_hearings = df_hearings.loc[df_hearings['sd_caseid'] == caseid]
@@ -584,7 +683,7 @@ def main():
     df = create_merged_ua_dates_or_deadlines(cases, ua_dates_df)
     df = create_merged_ua_dates_or_deadlines(df, deadline_dates_df)
     df = cleanup_merged_deadlines(df)
-    df = calculate_intervals(df)
+    # df = calculate_intervals(df)
 
     with open('case_metrics.pkl', 'wb') as f:
         dill.dump(df, f)

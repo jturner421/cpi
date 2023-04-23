@@ -5,7 +5,8 @@ import pandas as pd
 import dill
 
 from ua_dates import _get_amended_complaints, _early_dismissal, _get_transfer_date, _get_ua_date, \
-    _get_leave_to_proceed, _get_pretrial_conference_date, _get_reopen_date, _get_judgment_date, _find_complaint
+    _get_leave_to_proceed, _get_pretrial_conference_date, _get_reopen_date, _get_judgment_date, _get_notice_of_appeal, \
+    _get_orders
 from services.dataframe_services import create_dataframe_docket_entries, create_dataframe_deadlines, \
     create_dataframe_hearings
 from ua_dates import CaseDeadlines, CaseDates
@@ -19,7 +20,7 @@ def _create_dataframe(path):
 
 @pytest.fixture(scope='session')
 def docket_entries():
-    dataframes_entries = _create_dataframe('./data/dataframes_testdata.pkl')
+    dataframes_entries = _create_dataframe('./data/dataframes.pkl')
     df_entries = create_dataframe_docket_entries(dataframes_entries)
     yield df_entries
     del df_entries
@@ -55,17 +56,23 @@ def create_case():
     return _create_case
 
 
+def _get_notices_of_appeal(case, docket_entries_for_case):
+    pass
+
+
 @pytest.fixture()
 def get_case_data():
     def _get_case_data(case, docket_entries_for_case):
+        case = _get_judgment_date(case, docket_entries_for_case)
+        case = _get_reopen_date(case, docket_entries_for_case)
+        case = _get_notice_of_appeal(case, docket_entries_for_case)
+        case = _get_orders(case, docket_entries_for_case)
         case = _get_amended_complaints(case, docket_entries_for_case)
         case = _early_dismissal(case, docket_entries_for_case)
         case = _get_transfer_date(case, docket_entries_for_case)
         case = _get_ua_date(case, docket_entries_for_case)
         case = _get_leave_to_proceed(case, docket_entries_for_case)
         case = _get_pretrial_conference_date(case, docket_entries_for_case)
-        case = _get_reopen_date(case, docket_entries_for_case)
-        case = _get_judgment_date(case, docket_entries_for_case)
         return case
 
     return _get_case_data

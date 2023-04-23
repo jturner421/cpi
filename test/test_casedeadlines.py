@@ -2,16 +2,15 @@ import datetime
 from datetime import datetime
 import pytest
 
-from ua_dates import CaseDeadlines, CaseDates, _get_amended_complaints
+from ua_dates import CaseDeadlines, CaseDates, _get_amended_complaints, get_docker_entries_for_case, \
+    combine_docket_text_into_one_row
 
 
 def _create_case(caseid, complaint_date, ifp_date=None):
     return CaseDates(caseid=caseid, complaint_date=complaint_date, ifp_date=ifp_date)
 
 
-def _docket_entries_for_case(docket_entries, caseid):
-    docket_entries_for_case = docket_entries.loc[docket_entries['de_caseid'] == caseid]
-    return docket_entries_for_case
+
 
 
 def test_field_access():
@@ -97,12 +96,14 @@ def test_leave_to_proceed_dates(docket_entries, caseid, complaint_date, expected
 
 def test_fixture(create_case, get_case_data, docket_entries):
     case = create_case(41669, '2018-04-20')
-    docket_entries_for_case = _docket_entries_for_case(docket_entries, case.caseid)
+    docket_entries_for_case = get_docker_entries_for_case(docket_entries, case.caseid)
     case_data = get_case_data(case, docket_entries_for_case)
     assert case.complaint_date == '2018-04-20'
 
 
 @pytest.mark.parametrize('caseid, complaint_date, amended_complaint_date, ua_date, ltp_date', [
+    (42972, '2018-12-03', None, '2018-12-21', '2019-03-12'),
+    (42990, '2018-12-04', None, '2019-02-04', '2022-01-25'),
     (41091, '2018-01-03', '2018-10-03', '2018-02-23', '2019-04-16'),
     (42348, '2018-08-13', '2022-04-25', '2022-04-25', '2022-05-2'),
     (43802, '2019-05-16', '2023-01-24', '2023-03-3', None),
@@ -115,7 +116,7 @@ def test_fixture(create_case, get_case_data, docket_entries):
 def test_create_dict(create_case, get_case_data, docket_entries, caseid, complaint_date, amended_complaint_date,
                      ua_date, ltp_date):
     case = create_case(caseid, complaint_date)
-    docket_entries_for_case = _docket_entries_for_case(docket_entries, case.caseid)
+    docket_entries_for_case = get_docker_entries_for_case(case.caseid, docket_entries)
     case_data = get_case_data(case, docket_entries_for_case)
     case_dict = case_data.dict()
     assert case_dict['complaint_date'] == datetime.strptime(complaint_date, '%Y-%m-%d')
@@ -129,7 +130,6 @@ def test_create_dict(create_case, get_case_data, docket_entries, caseid, complai
     else:
         assert case_dict['ltp_date'] == datetime.strptime(ltp_date, '%Y-%m-%d')
     assert case_dict['caseid'] == caseid
-
 
 # @pytest.mark.parametrize('caseid, complaint_date, ifp_date, length',
 #                          [(41099, '2018-01-04', '2018-01-22', 1),

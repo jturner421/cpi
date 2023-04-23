@@ -88,7 +88,8 @@ def create_merged_ua_dates_or_deadlines(original_df, candidate_df) -> pd.DataFra
 
 
 def cleanup_merged_deadlines(df) -> pd.DataFrame:
-    df = df.drop(['Diversity Defendant', 'Diversity Plaintiff', 'IsProse', 'caseid_x', 'caseid_y', 'case_type'], axis=1)
+    # df = df.drop(['Diversity Defendant', 'Diversity Plaintiff', 'IsProse', 'caseid_x', 'caseid_y', 'case_type'], axis=1)
+    df = df.drop(['caseid_x', 'caseid_y', 'case_type'], axis=1)
     df['amended_complaint_count'] = df['amended_complaint_count'].fillna(0).astype(int)
     df['case_reopen_count'] = df['case_reopen_count'].fillna(0).astype(int)
     return df
