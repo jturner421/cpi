@@ -333,7 +333,10 @@ class CaseDates:
         jgm_dates = ([datetime.strptime(x['judgment_date'], '%Y-%m-%d') for x in self.judgment_dates if
                       "without prejudice" in x['judgment_text']])
         jgm_dates.sort()
-        jgm_dates = [x for x in jgm_dates if x < self.notice_of_appeal_date]
+        try:
+            jgm_dates = [x for x in jgm_dates if x < self.notice_of_appeal_date]
+        except TypeError:
+            pass
         if len(jgm_dates) > 0:
             # set it to the last judgment without prejudice date recorded
             self.judgment_without_prejudice_date = jgm_dates[-1]

@@ -103,11 +103,12 @@ def calculate_intervals(df) -> pd.DataFrame:
     :return: dataframe with calculated intervals
 
     """
+    df['CMP To LTP Elapsed'] = df['ltp_date'] - df['complaint_date']
     df['CMP To UA Elapsed'] = df['ua_date'] - df['complaint_date']
     df['UA To LTP Elapsed'] = df['ltp_date'] - df['ua_date']
-    df['LTP to PPTCNF Elapsed'] = df['initial_pretrial_conference_date'] - df['ltp_date']
-    df['PPTCNF to SJ Elapsed'] = df['dispositve_deadline'] - df['initial_pretrial_conference_date']
-    df['SJ to FPTCNF Elapsed'] = df['fptcnf_date'] - df['dispositve_deadline']
+    # df['LTP to PPTCNF Elapsed'] = df['initial_pretrial_conference_date'] - df['ltp_date']
+    # df['PPTCNF to SJ Elapsed'] = df['dispositve_deadline'] - df['initial_pretrial_conference_date']
+    # df['SJ to FPTCNF Elapsed'] = df['fptcnf_date'] - df['dispositve_deadline']
     return df
 
 
