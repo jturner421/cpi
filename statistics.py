@@ -5,7 +5,7 @@ import dill
 with open('case_metrics.pkl', 'rb') as f:
     df = dill.load(f)
 
-df = df.drop(['dispositve_deadline', 'limine_deadline', 'fptcnf_date', 'trial_date'], axis=1)
+df = df.drop(['dispositive_deadline', 'limine_deadline', 'fptcnf_date', 'trial_date'], axis=1)
 
 pending = df.loc[(df['ltp_date'].isnull()) & (df['Date Terminated'].isnull())]
 no_ltp = df.loc[(df['ltp_date'].isnull()) & (~df['Date Terminated'].isnull())]

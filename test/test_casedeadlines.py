@@ -13,11 +13,11 @@ def _create_case(caseid, complaint_date, ifp_date=None):
 def test_field_access():
     cd = CaseDeadlines(caseid=12345,
                        pptcnf_date=datetime(2018, 4, 1),
-                       dispositve_deadline=datetime(2019, 4, 1))
+                       dispositive_deadline=datetime(2019, 4, 1))
 
     assert cd.caseid == 12345
     assert cd.pptcnf_date == datetime(2018, 4, 1)
-    assert cd.dispositve_deadline == datetime(2019, 4, 1)
+    assert cd.dispositive_deadline == datetime(2019, 4, 1)
     assert cd.limine_deadline is None
 
 
@@ -99,6 +99,8 @@ def test_docket_entries_for_a_case(docket_entries):
 
 
 @pytest.mark.parametrize('caseid, complaint_date, amended_complaint_date, ua_date, ltp_date', [
+    (47751, '2021-6-03', None, '2021-07-13', '2021-10-06'),
+    (47203, '2021-1-28', None, '2021-02-01', '2022-11-04'),
     (43978, '2019-06-17', '2022-03-04', '2022-03-04', '2022-05-19'),
     (40288, '2017-07-06', '2020-04-24', '2021-04-15', '2021-07-08'),
     (43802, '2019-05-16', '2023-01-24', '2023-03-3', None),

@@ -25,13 +25,13 @@ class DismissalType(Enum):
 class CaseDeadlines:
     caseid: int
     pptcnf_date: datetime = None
-    dispositve_deadline: datetime = None
+    dispositive_deadline: datetime = None
     limine_deadline: datetime = None
     fptcnf_date: datetime = None
     trial_date: datetime = None
 
     def dict(self):
-        if self.dispositve_deadline:
+        if self.dispositive_deadline:
             _dict = self.__dict__.copy()
             return _dict
         else:
@@ -181,14 +181,17 @@ class CaseDates:
                             continue
                     elif judgment_date_exists:
                         if row['ltp_date'] <= self.judgment_date:
-                            self.ltp_date = row['ltp_date']
-                            continue
+                            if row['ltp_date'] <= datetime.strptime(self.initial_pretrial_conference_date, '%Y-%m-%d'):
+                                self.ltp_date = row['ltp_date']
+                                continue
                         else:
                             self.ltp_date = None
                             continue
                     else:
-                        self.ltp_date = row['ltp_date']
-                        continue
+                        if row['ltp_date'] <= datetime.strptime(self.initial_pretrial_conference_date, '%Y-%m-%d'):
+                            self.ltp_date = row['ltp_date']
+                            continue
+
             except TypeError:
                 pass
 
@@ -619,9 +622,13 @@ def _find_preliminary_pretrial_conference_deadlines(target_dline: pd.DataFrame, 
     try:
         deadline = CaseDeadlines(caseid=target_dline['sd_caseid'].iloc[0])
         try:
-            deadline.dispositve_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'disp'].iloc[0]
+            deadline.pptcnf_date = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'ptcnf'].iloc[0]
         except IndexError:
-            deadline.dispositve_deadline = pd.NaT
+            deadline.pptcnf_date = pd.NaT
+        try:
+            deadline.dispositive_deadline = target_dline['sd_dtset'][target_dline['sd_type'] == 'disp'].iloc[0]
+        except IndexError:
+            deadline.dispositive_deadline = pd.NaT
 
         # Todo: Explore way to to handle multiple deadline types comparisons. Currently if one is not found, an error
         #  is thrown since a datetime cannot be compared to none.
@@ -810,7 +817,7 @@ def main():
     df = create_merged_ua_dates_or_deadlines(cases, ua_dates_df)
     df = create_merged_ua_dates_or_deadlines(df, deadline_dates_df)
     df = cleanup_merged_deadlines(df)
-    # df = calculate_intervals(df)
+    df = calculate_intervals(df)
 
     with open('case_metrics.pkl', 'wb') as f:
         dill.dump(df, f)
