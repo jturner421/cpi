@@ -653,7 +653,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 43778,3:19-cv-00397-wmc                       ,wmc ,2019-05-15,,2020-03-10,550,42:1983pr ,,,y,2019-05-15,Prisoner Petitions
 43802,3:19-cv-00401-wmc                       ,wmc ,2019-05-16,2023-01-03,,550,42:1983cv ,,,y,2023-01-03,Prisoner Petitions
 43806,3:19-cv-00403-bbc                       ,bbc ,2019-05-17,,2020-07-31,550,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
-43807,3:19-cv-00404-wmc                       ,wmc ,2019-05-17,,,555,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
+43807,3:19-cv-00404-wmc                       ,wmc ,2019-05-17,,2023-04-19,555,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
 43808,3:19-cv-00405-bbc                       ,bbc ,2019-05-17,,2021-03-25,550,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
 43810,3:19-cv-00407-jdp                       ,jdp ,2019-05-20,,2019-05-28,550,42:1983pr ,,,y,2019-05-20,Prisoner Petitions
 43811,3:19-cv-00408-jdp                       ,jdp ,2019-05-20,,2019-05-28,550,42:1983pr ,,,y,2019-05-20,Prisoner Petitions
@@ -913,7 +913,6 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 44904,3:19-cv-00973-wmc                       ,wmc ,2019-11-27,,2020-01-22,550,42:1983pr ,,,y,2019-11-27,Prisoner Petitions
 44917,3:19-cv-00978-jdp                       ,jdp ,2019-11-29,,2021-05-25,550,42:1983pr ,,,y,2019-11-29,Prisoner Petitions
 44918,3:19-cv-00979-jdp                       ,jdp ,2019-12-02,,2022-01-12,550,42:1983pr ,,,y,2019-12-02,Prisoner Petitions
-44922,3:19-cv-00980-jdp                       ,jdp ,2019-12-03,,2023-02-09,160,28:1332fd ,2,4,y,2019-12-03,Contract
 44925,3:19-cv-00981-wmc                       ,wmc ,2019-12-03,,2021-09-14,440,28:0451   ,,,y,2019-12-03,Civil Rights
 44933,3:19-cv-00986-wmc                       ,wmc ,2019-12-04,,2020-03-02,530,28:2254   ,,,y,2019-12-04,Habeas Corpus
 44956,3:19-cv-00991-wmc                       ,wmc ,2019-12-04,,2023-02-08,550,42:1983pr ,,,y,2019-12-04,Prisoner Petitions
@@ -1028,7 +1027,6 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 45407,3:20-cv-00182-wmc                       ,wmc ,2020-02-28,,,550,42:1983pr ,,,y,2020-02-28,Prisoner Petitions
 45411,3:20-cv-00184-wmc                       ,wmc ,2020-03-02,,2021-04-23,550,42:1983pr ,,,y,2020-03-02,Prisoner Petitions
 45413,3:20-cv-00185-jdp                       ,jdp ,2020-03-02,,2021-10-08,550,42:1983pr ,,,y,2020-03-02,Prisoner Petitions
-45414,3:20-cv-00187-jdp                       ,jdp ,2020-03-02,2022-09-29,,550,42:1983pr ,,,y,2022-09-29,Prisoner Petitions
 45415,3:20-cv-00188-jdp                       ,jdp ,2020-03-02,,2021-10-15,550,42:1983pr ,,,y,2020-03-02,Prisoner Petitions
 45418,3:20-cv-00157-wmc                       ,wmc ,2020-03-03,,2020-07-29,820,17:0501   ,,,y,2020-03-03,Property Rights
 45420,3:20-cv-00190-jdp                       ,jdp ,2020-03-03,,2020-03-25,550,42:1983pr ,,,y,2020-03-03,Prisoner Petitions
@@ -1290,7 +1288,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 46637,3:20-cv-00892-bbc                       ,bbc ,2020-09-25,,2020-11-23,320,28:1332lb ,1,2,y,2020-09-25,Torts/Personal Injury
 46642,3:20-cv-00896-wmc                       ,wmc ,2020-09-28,,2021-08-06,442,42:2000e  ,2,1,y,2020-09-28,Civil Rights
 46643,3:20-cv-00897-jdp                       ,jdp ,2020-09-28,,2021-11-02,550,42:1983pr ,,,y,2020-09-28,Prisoner Petitions
-46644,3:20-cv-00898-wmc                       ,wmc ,2020-09-28,,,550,42:1983pr ,,,y,2020-09-28,Prisoner Petitions
+46644,3:20-cv-00898-wmc                       ,wmc ,2020-09-28,,2023-05-02,550,42:1983pr ,,,y,2020-09-28,Prisoner Petitions
 46647,3:20-cv-00901-bbc                       ,bbc ,2020-09-29,,2021-01-05,550,42:1983pr ,,,y,2020-09-29,Prisoner Petitions
 46654,3:20-cv-00906-bbc                       ,bbc ,2020-09-30,,2021-10-12,440,42:1983cv ,,,y,2020-09-30,Civil Rights
 46658,3:20-cv-00908-wmc                       ,wmc ,2020-09-30,,2020-11-03,550,42:1983pr ,,,y,2020-09-30,Prisoner Petitions
@@ -1333,7 +1331,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 46833,3:20-cv-00993-jdp                       ,jdp ,2020-10-30,,2021-01-06,550,42:1983pr ,,,y,2020-10-30,Prisoner Petitions
 46842,3:20-cv-00999-wmc                       ,wmc ,2020-11-02,,2022-09-06,710,29:0201fl ,,,y,2020-11-02,Labor
 46843,3:20-cv-01000-jdp                       ,jdp ,2020-11-02,,2021-10-13,550,42:1983pr ,,,y,2020-11-02,Prisoner Petitions
-46844,3:20-cv-01001-wmc                       ,wmc ,2020-11-02,,,375,31:3729   ,,,y,2020-11-02,Personal Property
+46844,3:20-cv-01001-wmc                       ,wmc ,2020-11-02,,2023-04-21,375,31:3729   ,,,y,2020-11-02,Personal Property
 46849,3:20-cv-01004-wmc                       ,wmc ,2020-11-03,,2020-12-02,550,42:1983pr ,,,y,2020-11-03,Prisoner Petitions
 46850,3:20-cv-01005-wmc                       ,wmc ,2020-11-03,,2020-12-02,550,42:1983pr ,,,y,2020-11-03,Prisoner Petitions
 46851,3:20-cv-01006-wmc                       ,wmc ,2020-11-03,,2020-12-02,550,42:1983pr ,,,y,2020-11-03,Prisoner Petitions
@@ -1553,7 +1551,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 47792,3:21-cv-00396-jdp                       ,jdp ,2021-06-16,,2022-10-03,550,42:1983pr ,,,y,2021-06-16,Prisoner Petitions
 47799,3:21-cv-00398-jdp                       ,jdp ,2021-06-17,,2021-11-03,550,42:1983pr ,,,y,2021-06-17,Prisoner Petitions
 47800,3:21-cv-00399-jdp                       ,jdp ,2021-06-17,,2021-10-21,550,42:1983pr ,,,y,2021-06-17,Prisoner Petitions
-47810,3:21-cv-00402-wmc                       ,wmc ,2021-06-21,,,550,42:1983pr ,,,y,2021-06-21,Prisoner Petitions
+47810,3:21-cv-00402-wmc                       ,wmc ,2021-06-21,,2023-04-20,550,42:1983pr ,,,y,2021-06-21,Prisoner Petitions
 47812,3:21-cv-00405-wmc                       ,wmc ,2021-06-22,,,550,42:1983pr ,,,y,2021-06-22,Prisoner Petitions
 47825,3:21-cv-00412-wmc                       ,wmc ,2021-06-23,,,550,42:1983pr ,,,y,2021-06-23,Prisoner Petitions
 47830,3:21-cv-00413-wmc                       ,wmc ,2021-06-24,,2022-08-31,550,42:1983pr ,,,y,2021-06-24,Prisoner Petitions
@@ -1568,7 +1566,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 47881,3:21-cv-00436-jdp                       ,jdp ,2021-07-06,,2021-08-27,550,42:1983pr ,,,y,2021-07-06,Prisoner Petitions
 47884,3:21-cv-00439-wmc                       ,wmc ,2021-07-07,,2022-11-04,550,42:1983pr ,,,y,2021-07-07,Prisoner Petitions
 47888,3:21-cv-00441-bbc                       ,bbc ,2021-07-08,,2021-08-23,530,28:2254   ,,,y,2021-07-08,Habeas Corpus
-47894,3:21-cv-00443-jdp                       ,jdp ,2021-07-09,,,550,42:1983pr ,,,y,2021-07-09,Prisoner Petitions
+47894,3:21-cv-00443-jdp                       ,jdp ,2021-07-09,,2023-05-03,550,42:1983pr ,,,y,2021-07-09,Prisoner Petitions
 47895,3:21-cv-00445-wmc                       ,wmc ,2021-07-12,,2021-11-17,530,28:2241   ,,,y,2021-07-12,Habeas Corpus
 47896,3:21-cv-00446-jdp                       ,jdp ,2021-07-13,,2022-05-06,440,42:1983cv ,,,y,2021-07-13,Civil Rights
 47905,3:21-cv-00448-jdp                       ,jdp ,2021-07-14,,2021-10-21,440,28:1441pr ,,,y,2021-07-14,Civil Rights
@@ -1796,7 +1794,6 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 49010,3:22-cv-00162-wmc                       ,wmc ,2022-03-23,,2022-10-07,530,28:2254   ,,,y,2022-03-23,Habeas Corpus
 49025,3:22-cv-00168-bbc                       ,bbc ,2022-03-28,,2022-08-22,550,42:1983pr ,,,y,2022-03-28,Prisoner Petitions
 49027,3:22-cv-00170-jdp                       ,jdp ,2022-03-28,,,550,42:1983pr ,,,y,2022-03-28,Prisoner Petitions
-49033,3:22-cv-00172-jdp                       ,jdp ,2022-03-28,,,550,42:1983pr ,,,y,2022-03-28,Prisoner Petitions
 49034,3:22-cv-00173-bbc                       ,bbc ,2022-03-28,,2022-05-20,440,42:1983cv ,,,y,2022-03-28,Civil Rights
 49035,3:22-cv-00174-bbc                       ,bbc ,2022-03-28,,2022-04-22,550,42:1983cv ,,,y,2022-03-28,Prisoner Petitions
 49048,3:22-cv-00178-jdp                       ,jdp ,2022-03-30,,,550,42:1983pr ,,,y,2022-03-30,Prisoner Petitions

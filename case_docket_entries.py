@@ -21,7 +21,7 @@ async def main(*target_caseids):
         urls = [f'{api_base_url}/cases/entries/{caseid}' for caseid in target_caseids]
         requests = [get(session, url, params=params, headers=headers) for url in urls]
         dataframes = await asyncio.gather(*requests)
-        with open('dataframes.pkl', 'wb') as f:
+        with open('/Users/jwt/PycharmProjects/cpi_program/data_files/docket_entries.pkl', 'wb') as f:
             pickle.dump(dataframes, f, pickle.HIGHEST_PROTOCOL)
 
 

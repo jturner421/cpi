@@ -2,7 +2,7 @@ import datetime
 from datetime import datetime
 import pytest
 
-from ua_dates import CaseDeadlines, CaseDates, _get_amended_complaints, get_docker_entries_for_case, \
+from case_metrics import CaseDeadlines, CaseDates, _get_amended_complaints, get_docker_entries_for_case, \
     combine_docket_text_into_one_row
 
 
@@ -99,18 +99,24 @@ def test_docket_entries_for_a_case(docket_entries):
 
 
 @pytest.mark.parametrize('caseid, complaint_date, amended_complaint_date, ua_date, ltp_date', [
+    (43802, '2019-05-16', '2023-01-24', '2023-03-03', None),
+    (43516, '2019-03-20', '2022-02-23', '2022-02-23', '2022-03-01'),
+    (43191, '2019-01-11', None, '2019-02-01', '2022-03-29'),
+    (43978, '2019-06-17', '2022-03-04', '2019-07-16', '2022-05-19'),
+    (43530, '2019-03-22', '2020-02-03', '2019-07-09', '2020-05-29'),
+    (41669, '2018-04-20', None, '2018-04-30', '2018-08-20'),
+    (42972, '2018-12-03', '2019-03-04', '2018-12-21', '2019-03-12'),
+    (41154, '2018-01-18', '2018-10-03', '2018-01-23', '2019-06-12'),
+
+    (40288, '2017-07-06', '2020-04-24', '2017-07-14', '2021-07-08'),
+    (41697, '2018-4-25', '2018-06-04', '2018-05-21', '2020-03-11'),
     (47751, '2021-6-03', None, '2021-07-13', '2021-10-06'),
     (47203, '2021-1-28', None, '2021-02-01', '2022-11-04'),
-    (43978, '2019-06-17', '2022-03-04', '2022-03-04', '2022-05-19'),
-    (40288, '2017-07-06', '2020-04-24', '2021-04-15', '2021-07-08'),
-    (43802, '2019-05-16', '2023-01-24', '2023-03-3', None),
     (43516, '2019-03-20', '2022-02-23', '2022-02-23', '2022-03-01'),
     (42990, '2018-12-04', None, '2019-02-04', '2022-01-25'),
     (42348, '2018-08-13', '2022-04-25', '2022-04-25', None),
-    (42972, '2018-12-03', '2019-03-04', '2019-03-04', '2019-03-12'),
     (41091, '2018-01-03', '2018-10-03', '2018-02-23', '2019-04-16'),
     (45034, '2019-12-16', '2022-09-29', '2022-09-29', None),
-    (41669, '2018-04-20', None, '2018-07-27', '2018-08-20'),
 
 ])
 def test_create_dict(create_case, get_case_data, docket_entries, caseid, complaint_date, amended_complaint_date,
@@ -124,7 +130,10 @@ def test_create_dict(create_case, get_case_data, docket_entries, caseid, complai
         assert case_dict['amended_complaint_date'] == None
     else:
         assert case_dict['amended_complaint_date'] == datetime.strptime(amended_complaint_date, '%Y-%m-%d')
-    assert case_dict['ua_date'] == datetime.strptime(ua_date, '%Y-%m-%d')
+    if ua_date is None:
+        assert case_dict['ua_date'] == None
+    else:
+        assert case_dict['ua_date'] == datetime.strptime(ua_date, '%Y-%m-%d')
     if ltp_date is None:
         assert case_dict['ltp_date'] == None
     else:

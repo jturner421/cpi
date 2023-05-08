@@ -27,15 +27,14 @@ async def main(*caseids):
         urls = [f'{api_base_url}/cases/deadlines/{caseid}' for caseid in caseids]
         requests = [get(session, url, params=params, headers=headers) for url in urls]
         dataframes = await asyncio.gather(*requests)
-        with open('dataframes_hearings.pkl', 'wb') as f:
+        with open('data_files/dataframes_hearings.pkl', 'wb') as f:
             pickle.dump(dataframes, f, pickle.HIGHEST_PROTOCOL)
-        with open('dataframes_hearings.pkl', 'rb') as f:
-            dataframes = pickle.load(f)
+
 
 if __name__ == '__main__':
     import time
 
-    df = pd.read_csv('/Users/jwt/PycharmProjects/cpi_program/data_files/civil_cases_2018-2022.csv')
+    df = pd.read_csv('data_files/civil_cases_2018-2022.csv')
     df[['Date Filed', 'Date Terminated', 'DateAgg']] = df[['Date Filed', 'Date Terminated', 'DateAgg']].apply(
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')

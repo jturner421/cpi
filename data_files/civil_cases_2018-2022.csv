@@ -1527,7 +1527,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 43801,3:19-cv-00402-jdp                       ,jdp ,2019-05-16,,2019-07-03,830,35:0271   ,,,n,2019-05-16,Property Rights
 43802,3:19-cv-00401-wmc                       ,wmc ,2019-05-16,2023-01-03,,550,42:1983cv ,,,y,2023-01-03,Prisoner Petitions
 43806,3:19-cv-00403-bbc                       ,bbc ,2019-05-17,,2020-07-31,550,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
-43807,3:19-cv-00404-wmc                       ,wmc ,2019-05-17,,,555,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
+43807,3:19-cv-00404-wmc                       ,wmc ,2019-05-17,,2023-04-19,555,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
 43808,3:19-cv-00405-bbc                       ,bbc ,2019-05-17,,2021-03-25,550,42:1983pr ,,,y,2019-05-17,Prisoner Petitions
 43809,3:19-cv-00406-jdp                       ,jdp ,2019-05-17,,2019-08-30,190,15:2301   ,1,2,n,2019-05-17,Contract
 43810,3:19-cv-00407-jdp                       ,jdp ,2019-05-20,,2019-05-28,550,42:1983pr ,,,y,2019-05-20,Prisoner Petitions
@@ -2116,7 +2116,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 44916,3:19-cv-00977-bbc                       ,bbc ,2019-11-27,,2021-01-15,863,42:0405id ,,,n,2019-11-27,Social Security
 44917,3:19-cv-00978-jdp                       ,jdp ,2019-11-29,,2021-05-25,550,42:1983pr ,,,y,2019-11-29,Prisoner Petitions
 44918,3:19-cv-00979-jdp                       ,jdp ,2019-12-02,,2022-01-12,550,42:1983pr ,,,y,2019-12-02,Prisoner Petitions
-44922,3:19-cv-00980-jdp                       ,jdp ,2019-12-03,,2023-02-09,160,28:1332fd ,2,4,y,2019-12-03,Contract
+44922,3:19-cv-00980-jdp                       ,jdp ,2019-12-03,,2023-02-09,160,28:1332fd ,2,4,n,2019-12-03,Contract
 44925,3:19-cv-00981-wmc                       ,wmc ,2019-12-03,,2021-09-14,440,28:0451   ,,,y,2019-12-03,Civil Rights
 44927,3:19-cv-00983-wmc                       ,wmc ,2019-12-03,,2021-02-10,480,15:1692   ,,,n,2019-12-03,Other Statutes
 44928,3:19-cv-00984-slc                       ,slc ,2019-12-03,,2020-04-15,791,29:1132   ,,,n,2019-12-03,Labor
@@ -2392,7 +2392,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 45411,3:20-cv-00184-wmc                       ,wmc ,2020-03-02,,2021-04-23,550,42:1983pr ,,,y,2020-03-02,Prisoner Petitions
 45412,3:20-cv-00186-jdp                       ,jdp ,2020-03-02,,2020-09-30,190,28:1332oc ,1,5,n,2020-03-02,Contract
 45413,3:20-cv-00185-jdp                       ,jdp ,2020-03-02,,2021-10-08,550,42:1983pr ,,,y,2020-03-02,Prisoner Petitions
-45414,3:20-cv-00187-jdp                       ,jdp ,2020-03-02,2022-09-29,,550,42:1983pr ,,,y,2022-09-29,Prisoner Petitions
+45414,3:20-cv-00187-jdp                       ,jdp ,2020-03-02,2022-09-29,,550,42:1983pr ,,,n,2022-09-29,Prisoner Petitions
 45415,3:20-cv-00188-jdp                       ,jdp ,2020-03-02,,2021-10-15,550,42:1983pr ,,,y,2020-03-02,Prisoner Petitions
 45418,3:20-cv-00157-wmc                       ,wmc ,2020-03-03,,2020-07-29,820,17:0501   ,,,y,2020-03-03,Property Rights
 45419,3:20-cv-00189-wmc                       ,wmc ,2020-03-03,,2020-06-09,820,17:0501   ,,,n,2020-03-03,Property Rights
@@ -2892,7 +2892,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 46238,3:20-cv-00672-jdp                       ,jdp ,2020-07-22,,2021-05-05,864,42:0405id ,,,n,2020-07-22,Social Security
 46239,3:20-cv-00673-jdp                       ,jdp ,2020-07-22,,2021-03-23,864,42:0405id ,,,n,2020-07-22,Social Security
 46242,3:20-cv-00674-wmc                       ,wmc ,2020-07-22,,2021-08-06,446,42:12101  ,,,n,2020-07-22,Civil Rights
-46244,3:20-cv-00676-jdp                       ,jdp ,2020-07-23,,,710,29:0201fl ,,,n,2020-07-23,Labor
+46244,3:20-cv-00676-jdp                       ,jdp ,2020-07-23,,2023-04-14,710,29:0201fl ,,,n,2020-07-23,Labor
 46245,3:20-cv-00677-wmc                       ,wmc ,2020-07-24,,2021-08-03,864,42:0405id ,,,n,2020-07-24,Social Security
 46251,3:20-cv-00678-wmc                       ,wmc ,2020-07-24,,2021-02-10,864,42:0405id ,,,n,2020-07-24,Social Security
 46253,3:20-cv-00679-wmc                       ,wmc ,2020-07-24,,2021-07-27,550,42:1983pr ,,,y,2020-07-24,Prisoner Petitions
@@ -3118,7 +3118,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 46642,3:20-cv-00896-wmc                       ,wmc ,2020-09-28,,2021-08-06,442,42:2000e  ,2,1,y,2020-09-28,Civil Rights
 46641,3:20-cv-00895-wmc                       ,wmc ,2020-09-28,,2021-03-30,365,28:1332pl ,2,5,n,2020-09-28,Torts/Personal Injury
 46643,3:20-cv-00897-jdp                       ,jdp ,2020-09-28,,2021-11-02,550,42:1983pr ,,,y,2020-09-28,Prisoner Petitions
-46644,3:20-cv-00898-wmc                       ,wmc ,2020-09-28,,,550,42:1983pr ,,,y,2020-09-28,Prisoner Petitions
+46644,3:20-cv-00898-wmc                       ,wmc ,2020-09-28,,2023-05-02,550,42:1983pr ,,,y,2020-09-28,Prisoner Petitions
 46645,3:20-cv-00899-jdp                       ,jdp ,2020-09-29,,2021-01-13,791,29:1132   ,,,n,2020-09-29,Labor
 46646,3:20-cv-00900-jdp                       ,jdp ,2020-09-29,,2021-02-22,830,35:0271   ,,,n,2020-09-29,Property Rights
 46647,3:20-cv-00901-bbc                       ,bbc ,2020-09-29,,2021-01-05,550,42:1983pr ,,,y,2020-09-29,Prisoner Petitions
@@ -3224,7 +3224,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 46837,3:20-cv-00998-wmc                       ,wmc ,2020-10-30,,2020-12-02,480,15:1692   ,,,n,2020-10-30,Other Statutes
 46842,3:20-cv-00999-wmc                       ,wmc ,2020-11-02,,2022-09-06,710,29:0201fl ,,,y,2020-11-02,Labor
 46843,3:20-cv-01000-jdp                       ,jdp ,2020-11-02,,2021-10-13,550,42:1983pr ,,,y,2020-11-02,Prisoner Petitions
-46844,3:20-cv-01001-wmc                       ,wmc ,2020-11-02,,,375,31:3729   ,,,y,2020-11-02,Personal Property
+46844,3:20-cv-01001-wmc                       ,wmc ,2020-11-02,,2023-04-21,375,31:3729   ,,,y,2020-11-02,Personal Property
 46845,3:20-cv-01002-jdp                       ,jdp ,2020-11-02,,,110,28:1332df ,2,4,n,2020-11-02,﻿Contract
 46846,3:20-cv-01003-bbc                       ,bbc ,2020-11-02,,2022-03-01,863,42:0405wc ,,,n,2020-11-02,Social Security
 46849,3:20-cv-01004-wmc                       ,wmc ,2020-11-03,,2020-12-02,550,42:1983pr ,,,y,2020-11-03,Prisoner Petitions
@@ -3464,7 +3464,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 47255,3:21-cv-00098-jdp                       ,jdp ,2021-02-10,,2022-07-25,865,42:0402   ,,,n,2021-02-10,Social Security
 47265,3:21-cv-00099-slc                       ,slc ,2021-02-10,,2022-11-02,440,42:1983cv ,,,n,2021-02-10,Civil Rights
 47266,3:21-cv-00100-wmc                       ,wmc ,2021-02-11,,2021-09-14,550,42:1983pr ,,,y,2021-02-11,Prisoner Petitions
-47267,3:21-cv-00101-jdp                       ,jdp ,2021-02-11,,,791,29:1109   ,,,n,2021-02-11,Labor
+47267,3:21-cv-00101-jdp                       ,jdp ,2021-02-11,,2023-04-17,791,29:1109   ,,,n,2021-02-11,Labor
 47268,3:21-cv-00102-jdp                       ,jdp ,2021-02-11,,2021-03-09,550,42:1983pr ,,,y,2021-02-11,Prisoner Petitions
 47273,3:21-cv-00103-wmc                       ,wmc ,2021-02-12,,2023-03-31,863,42:0405wc ,,,n,2021-02-12,Social Security
 47274,3:21-cv-00104-jdp                       ,jdp ,2021-02-12,,2022-05-31,442,42:1981cv ,,,n,2021-02-12,Civil Rights
@@ -3769,7 +3769,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 47801,3:21-cv-00400-slc                       ,slc ,2021-06-17,,2022-04-05,864,42:0405id ,,,n,2021-06-17,Social Security
 47808,3:21-cv-00401-jdp                       ,jdp ,2021-06-18,,2022-10-06,440,28:1331cv ,,,n,2021-06-18,Civil Rights
 47809,3:21-cv-00403-bbc                       ,bbc ,2021-06-21,,2021-08-18,462,08:1447   ,,,n,2021-06-21,Immigration
-47810,3:21-cv-00402-wmc                       ,wmc ,2021-06-21,,,550,42:1983pr ,,,y,2021-06-21,Prisoner Petitions
+47810,3:21-cv-00402-wmc                       ,wmc ,2021-06-21,,2023-04-20,550,42:1983pr ,,,y,2021-06-21,Prisoner Petitions
 47811,3:21-cv-00404-jdp                       ,jdp ,2021-06-22,,2022-09-23,190,28:1441pr ,4,5,n,2021-06-22,Contract
 47812,3:21-cv-00405-wmc                       ,wmc ,2021-06-22,,,550,42:1983pr ,,,y,2021-06-22,Prisoner Petitions
 47813,3:21-cv-00406-wmc                       ,wmc ,2021-06-22,,2021-10-06,480,15:1692   ,,,n,2021-06-22,Other Statutes
@@ -3804,13 +3804,13 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 47880,3:21-cv-00435-jdp                       ,jdp ,2021-07-06,,2021-07-15,550,42:1983pr ,,,y,2021-07-06,Prisoner Petitions
 47881,3:21-cv-00436-jdp                       ,jdp ,2021-07-06,,2021-08-27,550,42:1983pr ,,,y,2021-07-06,Prisoner Petitions
 47882,3:21-cv-00437-wmc                       ,wmc ,2021-07-06,,2021-10-12,360,28:1441pr ,1,5,n,2021-07-06,Torts/Personal Injury
-47883,3:21-cv-00438-wmc                       ,wmc ,2021-07-06,,,790,28:1332ds ,1,2,n,2021-07-06,Labor
+47883,3:21-cv-00438-wmc                       ,wmc ,2021-07-06,,2023-04-21,790,28:1332ds ,1,2,n,2021-07-06,Labor
 47884,3:21-cv-00439-wmc                       ,wmc ,2021-07-07,,2022-11-04,550,42:1983pr ,,,y,2021-07-07,Prisoner Petitions
 47885,3:21-cv-00440-wmc                       ,wmc ,2021-07-07,,,530,28:2254   ,,,n,2021-07-07,Habeas Corpus
 47888,3:21-cv-00441-bbc                       ,bbc ,2021-07-08,,2021-08-23,530,28:2254   ,,,y,2021-07-08,Habeas Corpus
 47889,3:21-cv-00442-slc                       ,slc ,2021-07-08,,2021-09-08,690,28:1442pr ,,,n,2021-07-08,Forfeiture/Penalty 
 47893,3:21-cv-00444-jdp                       ,jdp ,2021-07-09,,2022-07-05,480,15:1681   ,,,n,2021-07-09,Other Statutes
-47894,3:21-cv-00443-jdp                       ,jdp ,2021-07-09,,,550,42:1983pr ,,,y,2021-07-09,Prisoner Petitions
+47894,3:21-cv-00443-jdp                       ,jdp ,2021-07-09,,2023-05-03,550,42:1983pr ,,,y,2021-07-09,Prisoner Petitions
 47895,3:21-cv-00445-wmc                       ,wmc ,2021-07-12,,2021-11-17,530,28:2241   ,,,y,2021-07-12,Habeas Corpus
 47896,3:21-cv-00446-jdp                       ,jdp ,2021-07-13,,2022-05-06,440,42:1983cv ,,,y,2021-07-13,Civil Rights
 47902,3:21-cv-00447-wmc                       ,wmc ,2021-07-14,,,890,15:2301   ,,,n,2021-07-14,Other Statutes
@@ -3978,7 +3978,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 48233,3:21-cv-00607-wmc                       ,wmc ,2021-09-27,,2021-11-24,485,47:227    ,,,n,2021-09-27,
 48234,3:21-cv-00608-slc                       ,slc ,2021-09-27,,,446,29:1132   ,,,n,2021-09-27,Civil Rights
 48235,3:21-cv-00609-wmc                       ,wmc ,2021-09-27,,2022-12-01,530,28:2254   ,,,y,2021-09-27,Habeas Corpus
-48237,3:21-cv-00611-jdp                       ,jdp ,2021-09-28,,,440,42:1981jb ,,,n,2021-09-28,Civil Rights
+48237,3:21-cv-00611-jdp                       ,jdp ,2021-09-28,,2023-04-26,440,42:1981jb ,,,n,2021-09-28,Civil Rights
 48238,3:21-cv-00612-slc                       ,slc ,2021-09-28,,2021-10-28,480,15:1692   ,,,n,2021-09-28,Other Statutes
 48239,3:21-cv-00613-wmc                       ,wmc ,2021-09-28,,2021-11-23,840,15:1125   ,,,n,2021-09-28,Property Rights
 48240,3:21-cv-00614-jdp                       ,jdp ,2021-09-28,,2022-12-13,190,15:2301   ,,,n,2021-09-28,Contract
@@ -4015,7 +4015,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 48298,3:21-cv-00646-jdp                       ,jdp ,2021-10-14,,2022-01-07,840,15:1114   ,,,n,2021-10-14,Property Rights
 48299,3:21-cv-00647-jdp                       ,jdp ,2021-10-14,,2022-03-08,791,29:1132   ,,,n,2021-10-14,Labor
 48300,3:21-cv-00648-jdp                       ,jdp ,2021-10-14,,2022-06-21,480,15:1681   ,,,n,2021-10-14,Other Statutes
-48301,3:21-cv-00649-jdp                       ,jdp ,2021-10-14,,,863,42:0405wc ,,,n,2021-10-14,Social Security
+48301,3:21-cv-00649-jdp                       ,jdp ,2021-10-14,,2023-04-26,863,42:0405wc ,,,n,2021-10-14,Social Security
 48302,3:21-cv-00650-jdp                       ,jdp ,2021-10-15,2022-12-07,,440,42:1983cv ,,,y,2022-12-07,Civil Rights
 48305,3:21-cv-00652-wmc                       ,wmc ,2021-10-15,,2021-11-15,480,12:1821   ,,,n,2021-10-15,Other Statutes
 48306,3:21-cv-00653-jdp                       ,jdp ,2021-10-15,,2022-10-24,190,28:1332bc ,5,1,n,2021-10-15,Contract
@@ -4147,7 +4147,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 48555,3:21-cv-00777-wmc                       ,wmc ,2021-12-09,,2022-01-10,480,15:1681   ,,,n,2021-12-09,Other Statutes
 48556,3:21-cv-00778-wmc                       ,wmc ,2021-12-09,,,863,42:0405wc ,,,n,2021-12-09,Social Security
 48557,3:21-cv-00779-wmc                       ,wmc ,2021-12-09,,2022-11-04,791,28:1001   ,,,n,2021-12-09,Labor
-48558,3:21-cv-00780-wmc                       ,wmc ,2021-12-09,,,865,42:0402   ,,,n,2021-12-09,Social Security
+48558,3:21-cv-00780-wmc                       ,wmc ,2021-12-09,,2023-04-18,865,42:0402   ,,,n,2021-12-09,Social Security
 48559,3:21-cv-00782-wmc                       ,wmc ,2021-12-10,,2023-04-11,385,28:1332pd ,5,5,n,2021-12-10,Personal Property
 48560,3:21-cv-00783-jdp                       ,jdp ,2021-12-10,,2022-01-11,190,28:1332bc ,1,2,n,2021-12-10,Contract
 48561,3:21-cv-00781-wmc                       ,wmc ,2021-12-10,,2021-12-15,890,42:1983cv ,,,y,2021-12-10,Other Statutes
@@ -4199,10 +4199,10 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 48626,3:22-cv-00005-wmc                       ,wmc ,2022-01-03,,,550,42:1983pr ,,,y,2022-01-03,Prisoner Petitions
 48627,3:22-cv-00006-wmc                       ,wmc ,2022-01-03,,,550,42:1983pr ,,,y,2022-01-03,Prisoner Petitions
 48628,3:22-cv-00007-jdp                       ,jdp ,2022-01-04,,2022-06-03,840,15:1114   ,,,n,2022-01-04,Property Rights
-48629,3:22-cv-00008-slc                       ,slc ,2022-01-04,,,440,42:1983cv ,,,n,2022-01-04,Civil Rights
+48629,3:22-cv-00008-slc                       ,slc ,2022-01-04,,2023-05-04,440,42:1983cv ,,,n,2022-01-04,Civil Rights
 48630,3:22-cv-00009-bbc                       ,bbc ,2022-01-05,,2022-05-18,442,42:1983cv ,,,n,2022-01-05,Civil Rights
 48631,3:22-cv-00010-jdp                       ,jdp ,2022-01-05,,2022-01-07,120,28:1444   ,,,y,2022-01-05,Contract
-48634,3:22-cv-00011-wmc                       ,wmc ,2022-01-05,,,440,42:1983cv ,,,n,2022-01-05,Civil Rights
+48634,3:22-cv-00011-wmc                       ,wmc ,2022-01-05,,2023-05-05,440,42:1983cv ,,,n,2022-01-05,Civil Rights
 48669,3:22-cv-00012-jdp                       ,jdp ,2022-01-07,,2022-05-17,625,21:0881   ,,,n,2022-01-07,Forfeiture/Penalty 
 48670,3:22-cv-00013-jdp                       ,jdp ,2022-01-07,,2022-05-26,110,28:1332bc ,1,5,n,2022-01-07,﻿Contract
 48671,3:22-cv-00015-wmc                       ,wmc ,2022-01-07,,2022-06-30,791,29:1362   ,,,n,2022-01-07,Labor
@@ -4349,10 +4349,10 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 48999,3:22-cv-00153-jdp                       ,jdp ,2022-03-22,,2022-06-15,710,29:0201fl ,,,n,2022-03-22,Labor
 49000,3:22-cv-00154-wmc                       ,wmc ,2022-03-22,,2022-06-08,440,42:1983cv ,,,y,2022-03-22,Civil Rights
 49001,3:22-cv-00155-wmc                       ,wmc ,2022-03-22,,2022-08-17,890,28:2201in ,,,n,2022-03-22,Other Statutes
-49002,3:22-cv-00156-jdp                       ,jdp ,2022-03-22,,,864,42:0405id ,,,n,2022-03-22,Social Security
+49002,3:22-cv-00156-jdp                       ,jdp ,2022-03-22,,2023-04-28,864,42:0405id ,,,n,2022-03-22,Social Security
 49003,3:22-cv-00157-jdp                       ,jdp ,2022-03-22,,2023-03-30,864,42:0405id ,,,n,2022-03-22,Social Security
 49005,3:22-cv-00158-jdp                       ,jdp ,2022-03-23,,2022-10-20,530,28:2241   ,,,y,2022-03-23,Habeas Corpus
-49006,3:22-cv-00159-wmc                       ,wmc ,2022-03-23,,,442,29:0621   ,,,n,2022-03-23,Civil Rights
+49006,3:22-cv-00159-wmc                       ,wmc ,2022-03-23,,2023-04-26,442,29:0621   ,,,n,2022-03-23,Civil Rights
 49007,3:22-cv-00160-wmc                       ,wmc ,2022-03-23,,2022-06-09,480,15:1681   ,,,n,2022-03-23,Other Statutes
 49008,3:22-cv-00163-slc                       ,slc ,2022-03-23,,,865,42:0405id ,,,n,2022-03-23,Social Security
 49009,3:22-cv-00161-wmc                       ,wmc ,2022-03-23,,2022-10-07,530,28:2254   ,,,y,2022-03-23,Habeas Corpus
@@ -4365,7 +4365,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 49026,3:22-cv-00169-wmc                       ,wmc ,2022-03-28,,,360,28:1332pi ,1,2,n,2022-03-28,Torts/Personal Injury
 49027,3:22-cv-00170-jdp                       ,jdp ,2022-03-28,,,550,42:1983pr ,,,y,2022-03-28,Prisoner Petitions
 49028,3:22-cv-00171-wmc                       ,wmc ,2022-03-28,,,360,28:1331   ,,,n,2022-03-28,Torts/Personal Injury
-49033,3:22-cv-00172-jdp                       ,jdp ,2022-03-28,,,550,42:1983pr ,,,y,2022-03-28,Prisoner Petitions
+49033,3:22-cv-00172-jdp                       ,jdp ,2022-03-28,,,550,42:1983pr ,,,n,2022-03-28,Prisoner Petitions
 49034,3:22-cv-00173-bbc                       ,bbc ,2022-03-28,,2022-05-20,440,42:1983cv ,,,y,2022-03-28,Civil Rights
 49035,3:22-cv-00174-bbc                       ,bbc ,2022-03-28,,2022-04-22,550,42:1983cv ,,,y,2022-03-28,Prisoner Petitions
 49038,3:22-cv-00175-jdp                       ,jdp ,2022-03-29,,2022-04-26,480,15:1692   ,,,n,2022-03-29,Other Statutes
@@ -4378,7 +4378,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 49055,3:22-cv-00182-jdp                       ,jdp ,2022-03-31,,2022-06-13,190,28:1332oc ,1,2,n,2022-03-31,Contract
 49056,3:22-cv-00184-wmc                       ,wmc ,2022-04-01,,2022-09-21,360,28:1332ct ,2,5,n,2022-04-01,Torts/Personal Injury
 49057,3:22-cv-00183-wmc                       ,wmc ,2022-04-01,,2022-08-12,440,42:1983cv ,,,y,2022-04-01,Civil Rights
-49058,3:22-cv-00185-jdp                       ,jdp ,2022-04-04,,,870,26:7403   ,,,n,2022-04-04,Federal Tax Suits
+49058,3:22-cv-00185-jdp                       ,jdp ,2022-04-04,,2023-05-02,870,26:7403   ,,,n,2022-04-04,Federal Tax Suits
 49059,3:22-cv-00186-wmc                       ,wmc ,2022-04-04,,2022-08-05,190,28:1332oc ,5,5,n,2022-04-04,Contract
 49060,3:22-cv-00187-jdp                       ,jdp ,2022-04-04,,2022-10-06,440,42:1983cv ,,,y,2022-04-04,Civil Rights
 49061,3:22-cv-00188-wmc                       ,wmc ,2022-04-04,,,710,29:0201fl ,,,n,2022-04-04,Labor
@@ -4420,7 +4420,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 49132,3:22-cv-00224-wmc                       ,wmc ,2022-04-22,,2023-01-27,110,28:1331in ,,,y,2022-04-22,﻿Contract
 49137,3:22-cv-00226-slc                       ,slc ,2022-04-25,,2022-07-27,480,15:1692   ,,,n,2022-04-25,Other Statutes
 49138,3:22-cv-00227-wmc                       ,wmc ,2022-04-25,,2022-07-07,830,35:0271   ,,,n,2022-04-25,Property Rights
-49139,3:22-cv-00228-jdp                       ,jdp ,2022-04-25,,,365,28:1332pl ,2,4,n,2022-04-25,Torts/Personal Injury
+49139,3:22-cv-00228-jdp                       ,jdp ,2022-04-25,,2023-04-28,365,28:1332pl ,2,4,n,2022-04-25,Torts/Personal Injury
 49140,3:22-cv-00229-jdp                       ,jdp ,2022-04-25,,,530,28:2254   ,,,y,2022-04-25,Habeas Corpus
 49143,3:22-cv-00230-wmc                       ,wmc ,2022-04-25,2023-01-23,2023-02-27,550,42:1983pr ,,,y,2023-01-23,Prisoner Petitions
 49144,3:22-cv-00231-wmc                       ,wmc ,2022-04-25,,,550,42:1983pr ,,,y,2022-04-25,Prisoner Petitions
@@ -4428,7 +4428,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 49147,3:22-cv-00233-wmc                       ,wmc ,2022-04-26,,,863,42:0405ww ,,,n,2022-04-26,Social Security
 49148,3:22-cv-00234-jdp                       ,jdp ,2022-04-27,,,880,18:1836a  ,,,n,2022-04-27,
 49151,3:22-cv-00235-jdp                       ,jdp ,2022-04-27,,,190,28:1331   ,,,y,2022-04-27,Contract
-49152,3:22-cv-00236-slc                       ,slc ,2022-04-27,,,710,29:0201fl ,,,n,2022-04-27,Labor
+49152,3:22-cv-00236-slc                       ,slc ,2022-04-27,,2023-05-01,710,29:0201fl ,,,n,2022-04-27,Labor
 49156,3:22-cv-00237-wmc                       ,wmc ,2022-04-28,,,110,28:1446in ,4,5,n,2022-04-28,﻿Contract
 49159,3:22-cv-00238-wmc                       ,wmc ,2022-04-28,,,550,42:1983pr ,,,y,2022-04-28,Prisoner Petitions
 49160,3:22-cv-00239-jdp                       ,jdp ,2022-04-28,,2022-05-03,550,42:1983pr ,,,y,2022-04-28,Prisoner Petitions
@@ -4503,7 +4503,7 @@ Case ID,Case Number,Judge,Date Filed,Date Reopened,Date Terminated,NOS,Cause of 
 49325,3:22-cv-00307-wmc                       ,wmc ,2022-05-31,,2022-10-07,550,42:1983pr ,,,y,2022-05-31,Prisoner Petitions
 49332,3:22-cv-00308-wmc                       ,wmc ,2022-05-31,,2022-08-01,530,28:2241   ,,,n,2022-05-31,Habeas Corpus
 49333,3:22-cv-00309-wmc                       ,wmc ,2022-05-31,,,864,42:0405id ,,,n,2022-05-31,Social Security
-49334,3:22-cv-00310-jdp                       ,jdp ,2022-05-31,,,820,17:0501   ,,,n,2022-05-31,Property Rights
+49334,3:22-cv-00310-jdp                       ,jdp ,2022-05-31,,2023-04-17,820,17:0501   ,,,n,2022-05-31,Property Rights
 40578,3:17-cv-00697-bbc                       ,bbc ,2017-09-11,2018-01-10,2018-02-15,550,42:1983pr ,,,y,2018-01-10,Prisoner Petitions
 38351,3:16-cv-00296-jdp                       ,jdp ,2016-05-05,2018-02-05,2018-05-11,890,28:2201dj ,,,n,2018-02-05,Other Statutes
 37628,3:15-cv-00718-wmc                       ,wmc ,2015-11-09,2018-02-26,2020-08-31,530,28:2254   ,,,y,2018-02-26,Habeas Corpus

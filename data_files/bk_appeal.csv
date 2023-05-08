@@ -1,6 +1,6 @@
-de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,de_date_filed,de_date_enter,de_who_entered,initials,name,pr_type,pr_crttype
-46486,10,cmp                      ,1,appeal                   ,bkntc   ,11,2020-09-01,2020-09-01T08:11:35,12573,lak ,Lynn Kamke,crt,clk
-46487,18,cmp                      ,1,appeal                   ,bkntc   ,19,2020-09-01,2020-09-01T08:27:46,12573,lak ,Lynn Kamke,crt,clk
-42630,4,cmp                      ,1,appeal                   ,bkntc   ,5,2018-10-04,2018-10-04T14:32:52,12573,lak ,Lynn Kamke,crt,clk
-44186,6,cmp                      ,1,appeal                   ,bkntc   ,7,2019-07-25,2019-07-25T14:45:20,12573,lak ,Lynn Kamke,crt,clk
-44186,21,cmp                      ,3,appeal                   ,bkntc   ,22,2019-08-05,2019-08-05T09:42:13,661013,nln ,Nicole Nelson,crt,clk
+de_caseid,de_seqno,de_type,de_document_num,dp_type,dp_sub_type,dp_seqno,dp_deseqno_ptr,dp_dpseqno_ptr,dp_partno,dp_action_type,dp_dispositive,de_date_filed,de_date_enter,de_who_entered,initials,name,pr_type,pr_crttype
+46486,10,cmp                      ,1,appeal                   ,bkntc   ,11,10,,1,,n,2020-09-01,2020-09-01T08:11:35,12573,lak ,Lynn Kamke,crt,clk
+46487,18,cmp                      ,1,appeal                   ,bkntc   ,19,18,,1,,n,2020-09-01,2020-09-01T08:27:46,12573,lak ,Lynn Kamke,crt,clk
+42630,4,cmp                      ,1,appeal                   ,bkntc   ,5,4,,1,,n,2018-10-04,2018-10-04T14:32:52,12573,lak ,Lynn Kamke,crt,clk
+44186,6,cmp                      ,1,appeal                   ,bkntc   ,7,6,,1,,n,2019-07-25,2019-07-25T14:45:20,12573,lak ,Lynn Kamke,crt,clk
+44186,21,cmp                      ,3,appeal                   ,bkntc   ,22,21,,1,,n,2019-08-05,2019-08-05T09:42:13,661013,nln ,Nicole Nelson,crt,clk

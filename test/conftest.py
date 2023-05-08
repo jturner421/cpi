@@ -4,12 +4,12 @@ import pytest
 import pandas as pd
 import dill
 
-from ua_dates import _get_amended_complaints, _early_dismissal, _get_transfer_date, _get_ua_date, \
+from case_metrics import _get_amended_complaints, _early_dismissal, _get_transfer_date, _get_ua_date, \
     _get_leave_to_proceed, _get_pretrial_conference_date, _get_reopen_date, _get_judgment_date, _get_notice_of_appeal, \
     _get_orders
 from services.dataframe_services import create_dataframe_docket_entries, create_dataframe_deadlines, \
     create_dataframe_hearings
-from ua_dates import CaseDeadlines, CaseDates
+from case_metrics import CaseDeadlines, CaseDates
 
 
 def _create_dataframe(path):

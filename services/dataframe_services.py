@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import List, Dict
 
 import pandas as pd
@@ -103,13 +104,37 @@ def calculate_intervals(df) -> pd.DataFrame:
     :return: dataframe with calculated intervals
 
     """
-    df['CMP To LTP Elapsed'] = df['ltp_date'] - df['complaint_date']
+    df.dropna(subset=['complaint_date'], inplace=True)
     df['CMP To UA Elapsed'] = df['ua_date'] - df['complaint_date']
     df['UA To LTP Elapsed'] = df['ltp_date'] - df['ua_date']
+    df['CMP To LTP Elapsed'] = df['ltp_date'] - df['complaint_date']
     df['LTP to PPTCNF Elapsed'] = df['initial_pretrial_conference_date'] - df['ltp_date']
-    df['PPTCNF to SJ Elapsed'] = df['dispositive_deadline'] - df['initial_pretrial_conference_date']
-    df['SJ to FPTCNF Elapsed'] = df['fptcnf_date'] - df['dispositive_deadline']
+    df['Discovery Elapsed'] = df['dispositive_deadline'] - df['initial_pretrial_conference_date']
+    df['SJ to Disposition Elapsed'] = abs(df['Date Terminated'] - df['dispositive_deadline'])
+    # df['SJ to Trial Elapsed'] = df.apply(lambda x: _calculate_date(x, 'trial_date', 'dispositive_deadline'), axis=1)
+    df['LTP to Termination Elapsed'] = abs(df['Date Terminated'] - df['ltp_date'])
+    df['Total Time Elapsed'] = df['Date Terminated'] - df['Date Filed']
     return df
+
+
+def _calculate_date(row: pd.Series, date_type_1: str, date_type_2: str) -> datetime:
+    """
+    Calculates trial date based on the following rules:
+    1. If trial date is greater than dispositive deadline date, use trial date
+    2. If trial date is less than dispositive deadline date, use dispositive deadline date
+    3. If trial date is null, then do not calculate
+
+    :param row: row of dataframe
+    :return: trial date
+    """
+    if row[date_type_1] is pd.NaT:
+        return None
+    elif row[date_type_1] > row[date_type_2]:
+        return row[date_type_1] - row[date_type_2]
+    elif row[date_type_1] <= row[date_type_2]:
+        return pd.NaT
+    else:
+        return pd.NaT
 
 
 def add_nos_grouping(df: pd.DataFrame, table_name: Table):
