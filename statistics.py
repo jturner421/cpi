@@ -8,6 +8,7 @@ with open('data_files/case_metrics.pkl', 'rb') as f:
 
 df = df.drop(['dispositive_deadline', 'limine_deadline', 'fptcnf_date', 'trial_date'], axis=1)
 closed = df.loc[df["Total Time Elapsed"].notnull()]
+closed_no_ltp = closed.loc[closed["ltp_date"].isnull()]
 closed_aggregate = closed[['Case Number', 'Judge', 'Group', 'CMP To UA Elapsed', 'UA To LTP Elapsed',
                             'CMP To LTP Elapsed', 'LTP to PPTCNF Elapsed', 'Discovery Elapsed',
                             'SJ to Disposition Elapsed', 'LTP to Termination Elapsed', 'Total Time Elapsed']]

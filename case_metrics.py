@@ -187,10 +187,13 @@ class CaseDates:
                         else:
                             self.ltp_date = None
                             continue
-                    else:
+                    elif self.initial_pretrial_conference_date:
                         if row['ltp_date'] <= datetime.strptime(self.initial_pretrial_conference_date, '%Y-%m-%d'):
                             self.ltp_date = row['ltp_date']
                             continue
+                    else:
+                        self.ltp_date = row['ltp_date']
+                        continue
 
             except TypeError:
                 pass
@@ -584,7 +587,7 @@ def _get_leave_to_proceed(case_dates, target):
     ltp = target.loc[target['dp_sub_type'] == 'leave']
     if ltp.empty:
         ltp = target.loc[target['dp_type'] == 'order']
-        matches = ["ORDER on Leave to Proceed", 'granted']
+        matches = ["order on leave to proceed", 'granted']
         ltp_dates = _find_target_dates(ltp, matches, check_all=True)
         # remove duplicates
         ltp_dates = set(ltp_dates)
@@ -675,7 +678,7 @@ def _get_deadlines(target_dline: pd.DataFrame, target_hearing: pd.DataFrame) \
             deadline.fptcnf_date = pd.NaT
 
         try:
-            target= target_hearing['sd_dtset'][target_hearing['sd_type'] == 'jst']
+            target = target_hearing['sd_dtset'][target_hearing['sd_type'] == 'jst']
             target.drop_duplicates(inplace=True)
             target.sort_values(inplace=True)
             deadline.trial_date = target.iloc[-1]
