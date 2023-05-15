@@ -576,6 +576,17 @@ files = [
 ]
 
 [[package]]
+name = "flashtext"
+version = "2.7"
+description = "Extract/Replaces keywords in sentences."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "flashtext-2.7.tar.gz", hash = "sha256:a1be2b93e09d4f0deee4aad72b91a7127b61fb8b8034ca9a9c78ea745d8b05cf"},
+]
+
+[[package]]
 name = "fonttools"
 version = "4.39.3"
 description = "Tools to manipulate font files"
@@ -1903,4 +1914,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8c37e202ecaea3b7dbdfdd0364b2ec1c8441757d9bba0312db6aef44e124df9d"
+content-hash = "4881ef0e1d7b644fead8d70f6b0a7a5fdc3060ae17e876f49f4992bd38905528"
