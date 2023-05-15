@@ -808,17 +808,17 @@ def main():
     del dataframes_entries, dataframes_deadlines, dataframes_hearings
     ua_dates = []
     deadline_dates = []
-    cases = pd.read_csv('data_files/civil_cases_2018-2022.csv')
+    cases = pd.read_csv('data_files/civil_cases_2020-2023.csv')
     # filter dataframe to return cases where IsProse is y
     mask = cases['IsProse'] == 'y'
     cases = cases[mask]
-    cases = cases.loc[cases['Group'] != 'Habeas Corpus']
-    cases = cases.loc[cases['Group'] != 'Bankruptcy']
+    # cases = cases.loc[cases['Group'] != 'Habeas Corpus']
+    # cases = cases.loc[cases['Group'] != 'Bankruptcy']
     cases[['Date Filed', 'Date Terminated', 'DateAgg']] = cases[['Date Filed', 'Date Terminated', 'DateAgg']].apply(
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
     cases = cases.drop(columns=['Diversity Plaintiff', 'Diversity Defendant', 'IsProse'])
-    cases = cases.loc[cases['Date Filed'] >= datetime(2018, 1, 1)]
+    cases = cases.loc[cases['Date Filed'] >= datetime(2020, 1, 1)]
     cases['Case ID'] = cases['Case ID'].astype(int)
     cases.drop_duplicates(keep='first', inplace=True)
 
