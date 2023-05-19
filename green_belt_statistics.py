@@ -3,6 +3,7 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional
+
 from flashtext import KeywordProcessor
 
 import dill
@@ -27,17 +28,17 @@ class CaseDates:
     caseid: int
     case_type: Optional[str] = None
     case_number: Optional[str] = None
+    judge = Optional[str]
     transfer_date: Optional[datetime] = None
     complaint_docnum: str = "0"
     complaint_date: Optional[datetime] = None
     complaint_dismissal_date: Optional[datetime] = None
     ifp_submission_date: Optional[datetime] = None
     ifp_docnum: Optional[int] = None
-    trust_fund_order_submission_date: Optional[datetime] = None
-    trust_fund_receival_date: Optional[datetime] = None
+    order_to_submit_trust_fund_date: Optional[datetime] = None
+    trust_fund_received_date: Optional[datetime] = None
     trust_fund_docnum: Optional[int] = None
-    ifp_order_submission_date: Optional[datetime] = None
-    ifp_ua_date: Optional[datetime] = None
+    ifp_order_issued_date: Optional[datetime] = None
     partial_payment_date: Optional[datetime] = None
     full_fee_paid: Optional[bool] = False
     screening_docnum: str = "0"
@@ -51,17 +52,14 @@ class CaseDates:
     trust_fund_dates: list = field(default_factory=list)
 
     def dict(self):
-        # start tolling time from date transferred to this court
-        # if self.transfer_date:
-        #     self.complaint_date = datetime.strptime(self.transfer_date, date_format)
-        self._calculate_trust_order_date()
+        self._calculate_trust_fund_order_request_date()
         self._calculate_ifp_order_date()
         self._calculate_ua_date()
 
         if self.full_fee_paid:
             try:
-                if self.trust_fund_receival_date > self.ua_date:
-                    self.trust_fund_receival_date = pd.NaT
+                if self.trust_fund_received_date > self.ua_date:
+                    self.trust_fund_received_date = pd.NaT
             except TypeError:
                 pass
             try:
@@ -86,42 +84,62 @@ class CaseDates:
         del _dict['trust_fund_docnum']
         del _dict['trust_fund_dates']
         del _dict['complaint_dismissal_date']
-        del _dict['ifp_ua_date']
         del _dict['screening_ua_date']
         del _dict['ifp_docnum']
-        # del _dict['complaint_docnum']
         return _dict
 
     def _calculate_ifp_order_date(self):
         keyword_processor = KeywordProcessor()
-        keyword_processor.add_keyword('initial partial filing fee')
-        results = [order['ua_date'] for order in self.prose_orders if
-                   len(keyword_processor.extract_keywords(order['dkt_text'])) > 0]
-        if len(results) > 0:
-            self.ifp_order_submission_date = datetime.strptime(results[0], date_format).date()
+        keyword_dict = {'OrderIFP': ["order"],
+                        'IFP': ["ifp request"],
+                        'PFF': ["partial", "filling fee"],
+                        'Assessed': ["assessed"]}
+        keyword_processor.add_keywords_from_dict(keyword_dict)
+        for order in self.prose_orders:
+            results = keyword_processor.extract_keywords(order['dkt_text'])
+            if len(results) > 0:
+                if all([x in results for x in ['OrderIFP', 'IFP', 'PFF', 'Assessed']]):
+                    self.ifp_order_issued_date = datetime.strptime(order['ua_date'], date_format).date()
 
-    def _calculate_trust_order_date(self):
+    def _calculate_trust_fund_order_request_date(self):
         keyword_processor = KeywordProcessor()
-        keyword_processor.add_keyword('trust fund account')
-        results = [order['ua_date'] for order in self.prose_orders if
-                   len(keyword_processor.extract_keywords(order['dkt_text'])) > 0]
-        if len(results) > 0:
-            self.trust_fund_order_submission_date = datetime.strptime(results[0], date_format).date()
+        keyword_dict = {'OrderTF': ["order", "submit"],
+                        'TF': ["trust fund account statement"],
+                        'FF': ["plaintiff", "filling fee"]}
+        keyword_processor.add_keywords_from_dict(keyword_dict)
+        for order in self.prose_orders:
+            results = keyword_processor.extract_keywords(order['dkt_text'])
+            if len(results) > 0:
+                if all([x in results for x in ['OrderTF', 'TF', 'FF']]):
+                    self.order_to_submit_trust_fund_date = datetime.strptime(order['ua_date'], date_format).date()
+
     def _calculate_ua_date(self):
         # credit: https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python (author:fourtheye)
         self.ua_dates = list(OrderedDict((frozenset(item.items()), item) for item in self.ua_dates).values())
 
-        ua_dates = pd.DataFrame(self.ua_dates)
-        if not ua_dates.empty:
+        # ua_dates = pd.DataFrame(self.ua_dates)
+        if len(self.ua_dates) > 0:
             keyword_processor = KeywordProcessor()
-            keyword_processor.add_keyword('leave to proceed in forma pauperis')
-            ua_dates['ua_date'] = [datetime.strptime(x, date_format) for x in ua_dates['ua_date']]
-
-            ua_dates['ua_date'] = pd.to_datetime(ua_dates['ua_date'])
-            ua_dates.sort_values(by='ua_date', inplace=True)
-            self.ua_date = ua_dates['ua_date'].min()
+            keyword_dict = {'UA': ["motions taken under advisement"],
+                            'LTP': ["leave to proceed"],
+                            'MIFP': ["forma", "pauperis"]}
+            keyword_processor.add_keywords_from_dict(keyword_dict)
+            ua_dates = []
+            for order in self.ua_dates:
+                results = keyword_processor.extract_keywords(order['ua_text'])
+                if len(results) > 0:
+                    if all([x in results for x in ['UA', 'LTP', 'MIFP']]):
+                        ua_dates.append(datetime.strptime(order['ua_date'], date_format).date())
+                        # self.ua_date = datetime.strptime(order['ua_date'], date_format).date()
+            if len(ua_dates) > 0:
+                self.ua_date = min(ua_dates)
         else:
             self.ua_date = None
+
+    def _process_text(self):
+        """
+        Function to process text to find relevant dates and orders
+        """
 
 
 def _find_target_dates(df: pd.DataFrame, keywords: List[str], check_all: bool = False) -> List[tuple]:
@@ -205,7 +223,7 @@ def get_prisoner_trust_fund_statement_date(case_dates: CaseDates, target: pd.Dat
         trust_fund_docnum = f'[{int(trust_fund_docnum)}]'
         trust_fund_date = trust_fund_statement['de_date_filed'].iloc[0]
         case_dates.trust_fund_docnum = trust_fund_docnum
-        case_dates.trust_fund_receival_date = datetime.strptime(trust_fund_date, date_format).date()
+        case_dates.trust_fund_received_date = datetime.strptime(trust_fund_date, date_format).date()
     return case_dates
 
 
@@ -294,8 +312,8 @@ def _get_partial_fee_paid_date(case_dates, target):
     fee = target.loc[target['dp_sub_type'] == 'fee']
     if not fee.empty:
         fee.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
-        case_dates.partial_payment_date = datetime.strptime(fee['de_date_filed'].iloc[-1], date_format).date()
-        if '400' in fee['dt_text'].iloc[-1]:
+        case_dates.partial_payment_date = datetime.strptime(fee['de_date_filed'].iloc[0], date_format).date()
+        if '400' in fee['dt_text'].iloc[0]:
             case_dates.full_fee_paid = True
 
     return case_dates
@@ -308,7 +326,7 @@ def _get_wadren_letter_date(case_dates, target):
     return case_dates
 
 
-def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str, case_number: str) -> pd.DataFrame:
+def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str, case_number: str, judge: str) -> pd.DataFrame:
     """
     Wrapper Function to get case milestone dates for a case. Milestones include:
     Complaint, Screening, Under Advisement, IFP Motion, Dismissal, Reopen, Leave to Proceed, Pretrial Conference,
@@ -321,6 +339,7 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str,
         case_dates = _find_complaint(target)
         case_dates.case_type = case_type
         case_dates.case_number = case_number
+        case_dates.judge = judge
         case_dates = _get_transfer_date(case_dates, target)
         case_dates = _get_ifp_date(case_dates, target)
         case_dates = _get_screening_date(case_dates, target)
@@ -393,8 +412,9 @@ def main():
     for caseid in caseids:
         case_type = cases.loc[cases['Case ID'] == caseid, 'Group'].iloc[0]
         case_number = str.strip(cases.loc[cases['Case ID'] == caseid, 'Case Number'].iloc[0])
+        case_judge = str.strip(cases.loc[cases['Case ID'] == caseid, 'Judge'].iloc[0])
         target = get_docker_entries_for_case(caseid, df_entries)
-        ua_dates.append(get_case_milestone_dates(caseid, target, case_type, case_number))
+        ua_dates.append(get_case_milestone_dates(caseid, target, case_type, case_number, case_judge))
 
     # save objects to disk for later use
     with open('data_files/green_belt_dates.pkl', 'wb') as f:

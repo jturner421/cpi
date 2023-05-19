@@ -24,23 +24,48 @@ def _calculate_total_elapsed_time(complaint_date, transfer_date, ua_date, dismis
     return total_elapsed_time
 
 
+def _check_trust_fund_received_date(trust_fund_received_date, partial_payment_date):
+    if trust_fund_received_date > partial_payment_date:
+        trust_fund_received_date = pd.NaT
+    return trust_fund_received_date
+
+
+def _check_ifp_submission_date(ifp_submission_date, partial_payment_date):
+    if ifp_submission_date > partial_payment_date:
+        ifp_submission_date = pd.NaT
+    return ifp_submission_date
+
+
+def _check_screening_date(screening_date, ua_date):
+    if (ua_date is pd.NaT) & (screening_date is not None):
+        ua_date = screening_date
+    return ua_date
+
+
 df = pd.DataFrame(df)
 
 df['complaint_date'] = pd.to_datetime(df['complaint_date'])
 df['ifp_submission_date'] = pd.to_datetime(df['ifp_submission_date'])
-df['ifp_order_submission_date'] = pd.to_datetime(df['ifp_order_submission_date'])
+df['ifp_order_issued_date'] = pd.to_datetime(df['ifp_order_issued_date'])
 df['partial_payment_date'] = pd.to_datetime(df['partial_payment_date'])
 df['transfer_date'] = pd.to_datetime(df['transfer_date'])
+df['trust_fund_received_date'] = pd.to_datetime(df['trust_fund_received_date'])
 
+# check data conditions
+df['trust_fund_received_date'] = df.apply(lambda x: _check_trust_fund_received_date(x['trust_fund_received_date'],
+                                                                                    x['partial_payment_date']), axis=1)
+df['ifp_submission_date'] = df.apply(lambda x: _check_ifp_submission_date(x['ifp_submission_date'],
+                                                                          x['partial_payment_date']), axis=1)
+df['ua_date'] = df.apply(lambda x: _check_screening_date(x['ua_date'], x['screening_date']), axis=1)
 df['IFP_Submission_Elapsed_Time'] = (df['ifp_submission_date'] - df['complaint_date']).dt.days
 df['IFP_Submission_Elapsed_Time'] = df['IFP_Submission_Elapsed_Time'].astype('Int64')
 df['IFP_Submission_Elapsed_Time'].fillna(0, inplace=True)
 
-df['IFP_Order_Elapsed_Time'] = (df['ifp_order_submission_date'] - df['ifp_submission_date']).dt.days
+df['IFP_Order_Elapsed_Time'] = (df['ifp_order_issued_date'] - df['ifp_submission_date']).dt.days
 df['IFP_Order_Elapsed_Time'] = df['IFP_Order_Elapsed_Time'].astype('Int64')
 df['IFP_Order_Elapsed_Time'].fillna(0, inplace=True)
 
-df['Payment_Elapsed_Time'] = (df['partial_payment_date'] - df['ifp_order_submission_date']).dt.days
+df['Payment_Elapsed_Time'] = (df['partial_payment_date'] - df['ifp_order_issued_date']).dt.days
 df['Payment_Elapsed_Time'] = df['Payment_Elapsed_Time'].astype('Int64')
 df['Payment_Elapsed_Time'].fillna(0, inplace=True)
 
@@ -52,7 +77,6 @@ df['Total_Elapsed_Time'] = df.apply(
 df_not_ua = df[df['Total_Elapsed_Time'].isnull()]
 df_ua = df.loc[df['Total_Elapsed_Time'].notnull()]
 df_ua['Total_Elapsed_Time'] = df_ua['Total_Elapsed_Time'].astype('Int64')
-
 
 # df['Total_Elapsed_Time'].fillna(0, inplace=True)
 
