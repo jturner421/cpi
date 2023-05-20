@@ -47,6 +47,7 @@ class CaseDates:
     ua_date: Optional[datetime] = None
     warden_letter_date: Optional[datetime] = None
     dismissal_date_for_no_trust_fund_statement: Optional[datetime] = None
+    terminated_date: Optional[datetime] = None
     ua_dates: list = field(default_factory=list)
     prose_orders: list = field(default_factory=list)
     trust_fund_dates: list = field(default_factory=list)
@@ -326,7 +327,8 @@ def _get_wadren_letter_date(case_dates, target):
     return case_dates
 
 
-def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str, case_number: str, judge: str) -> pd.DataFrame:
+def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str, case_number: str, judge: str,
+                             terminated_date: datetime) -> pd.DataFrame:
     """
     Wrapper Function to get case milestone dates for a case. Milestones include:
     Complaint, Screening, Under Advisement, IFP Motion, Dismissal, Reopen, Leave to Proceed, Pretrial Conference,
@@ -340,6 +342,7 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str,
         case_dates.case_type = case_type
         case_dates.case_number = case_number
         case_dates.judge = judge
+        case_dates.terminated_date = terminated_date
         case_dates = _get_transfer_date(case_dates, target)
         case_dates = _get_ifp_date(case_dates, target)
         case_dates = _get_screening_date(case_dates, target)
@@ -413,8 +416,9 @@ def main():
         case_type = cases.loc[cases['Case ID'] == caseid, 'Group'].iloc[0]
         case_number = str.strip(cases.loc[cases['Case ID'] == caseid, 'Case Number'].iloc[0])
         case_judge = str.strip(cases.loc[cases['Case ID'] == caseid, 'Judge'].iloc[0])
+        termination_date = cases.loc[cases['Case ID'] == caseid, 'Date Terminated'].iloc[0]
         target = get_docker_entries_for_case(caseid, df_entries)
-        ua_dates.append(get_case_milestone_dates(caseid, target, case_type, case_number, case_judge))
+        ua_dates.append(get_case_milestone_dates(caseid, target, case_type, case_number, case_judge, termination_date))
 
     # save objects to disk for later use
     with open('data_files/green_belt_dates.pkl', 'wb') as f:
