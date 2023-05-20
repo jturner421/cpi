@@ -286,7 +286,8 @@ def _get_ua_dates_for_later_processing(case_dates, target):
             for index, row in ua.iterrows():
                 case_dates.ua_dates.append({'ua_date': row['de_date_filed'], 'ua_text': row['dt_text']})
     else:
-        ua = target.loc[(target['dp_sub_type'] == 'madv') | (target['dp_sub_type'] == 'rel')]
+        ua = target.loc[(target['dp_sub_type'] == 'madv') | (target['dp_sub_type'] == 'rel')
+                        | (target['dp_sub_type'] == 'termddl')]
         if not ua.empty:
             matches = ["screening", 'complaint', 'pauperis', 'habeas', 'reopen',
                        'social security', 'bankruptcy', 'prepayment', '2255']
@@ -440,7 +441,7 @@ def main():
     cases.drop_duplicates(keep='first', inplace=True)
     caseids = cases['Case ID'].tolist()
 
-    caseids = [49770]
+    # caseids = []
 
     # gather information for each case and find the ua dates and deadlines
     for caseid in caseids:
