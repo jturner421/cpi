@@ -128,13 +128,23 @@ class CaseDates:
                         'INELIGIBLE': ["ineligible"],
                         'FIVE': ["$5", "5", "5.00"]}
         keyword_processor.add_keywords_from_dict(keyword_dict)
+        order_for_trust_fund_dates = []
         for order in self.prose_orders:
             results = keyword_processor.extract_keywords(order['dkt_text'])
             if len(results) > 0:
                 if all([x in results for x in ['OrderTF', 'TF', 'FF']]) or \
                         all([x in results for x in ['OrderTF', 'IFP', 'INELIGIBLE']]) or \
                         all([x in results for x in ['OrderTF', 'TF', 'FIVE']]):
-                    self.order_to_submit_trust_fund_date = datetime.strptime(order['ua_date'], date_format).date()
+                    order_for_trust_fund_dates.append(datetime.strptime(order['ua_date'], date_format).date())
+        try:
+            if len(order_for_trust_fund_dates) > 0:
+                if self.trust_fund_received_date:
+                    self.order_to_submit_trust_fund_date = min([x for x in order_for_trust_fund_dates
+                                                                if x < self.trust_fund_received_date])
+                else:
+                    self.order_to_submit_trust_fund_date = min(order_for_trust_fund_dates)
+        except ValueError:
+            self.order_to_submit_trust_fund_date = pd.NaT
 
     def _calculate_ua_date(self):
         # credit: https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python (author:fourtheye)
@@ -163,8 +173,11 @@ class CaseDates:
             if len(ua_dates) > 0:
                 self.ua_date = min(ua_dates)
         else:
-            self.ua_date = None
-            self.never_ua = True
+            if self.partial_payment_date:
+                pass
+            else:
+                self.ua_date = None
+                self.never_ua = True
 
     def _process_text(self):
         """
@@ -204,12 +217,19 @@ def _find_complaint(target: pd.DataFrame) -> CaseDates:
     case = CaseDates(caseid=target['de_caseid'].iloc[0])
     cmp = target.query('dp_type == "motion" and dp_sub_type == "2255" or dp_sub_type=="cmp" or dp_sub_type=="pwrithc" '
                        'or dp_sub_type == "ntcrem" or dp_sub_type == "emerinj" or dp_sub_type == "bkntc" '
-                       'or dp_sub_type == "setagr" ')
+                       'or dp_sub_type == "setagr" or dp_sub_type == "tro"')
     if not cmp.empty:
         cmp.sort_values(by=['de_seqno'], inplace=True)
         case.complaint_docnum = cmp['de_document_num'].iloc[0].astype(int)
         case.complaint_docnum = f'[{int(case.complaint_docnum)}]'
         case.complaint_date = datetime.strptime(cmp['de_date_filed'].min(), date_format).date()
+        case.complaint_text = cmp['dt_text'].iloc[0]
+        # check if fee was paid in non-prisoner case
+        if 'receipt number' in case.complaint_text.lower():
+            case.fee_paid = True
+            case.partial_payment_date = case.complaint_date
+            # although the fee was paid, we set a the ua date to the complaint date to help with future calculations
+            case.ua_date = case.complaint_date
     return case
 
 
@@ -441,7 +461,7 @@ def main():
     cases.drop_duplicates(keep='first', inplace=True)
     caseids = cases['Case ID'].tolist()
 
-    # caseids = []
+    # caseids = [47755]
 
     # gather information for each case and find the ua dates and deadlines
     for caseid in caseids:
