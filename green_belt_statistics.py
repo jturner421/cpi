@@ -5,6 +5,7 @@ from enum import Enum
 from typing import List, Optional
 import re
 
+import numpy as np
 from flashtext import KeywordProcessor
 
 import dill
@@ -147,43 +148,65 @@ class CaseDates:
         except ValueError:
             self.order_to_submit_trust_fund_date = pd.NaT
 
-    def _calculate_ua_date(self):
-        # credit: https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python (author:fourtheye)
-        self.ua_dates = list(OrderedDict((frozenset(item.items()), item) for item in self.ua_dates).values())
-
-        # ua_dates = pd.DataFrame(self.ua_dates)
-        if len(self.ua_dates) > 0:
-            keyword_processor = KeywordProcessor()
-            keyword_dict = {'UA': ["taken under advisement"],
-                            'LTP': ["leave to proceed"],
-                            'MIFP': ["forma", "pauperis"],
-                            'PP': ["paid", "prisoner"],
-                            'SCREENING': ["screening"],
-                            'PETITION': ["petition"],
-                            'WRIT': ["writ"],
-                            'HABEAS': ["habeas", "corpus"]}
-            keyword_processor.add_keywords_from_dict(keyword_dict)
-            ua_dates = []
-            for order in self.ua_dates:
-                results = keyword_processor.extract_keywords(order['ua_text'])
-                if len(results) > 0:
-                    if all([x in results for x in ['UA', 'LTP', 'MIFP']]) \
-                            or all([x in results for x in ['UA', 'PP', 'SCREENING']]) \
-                            or all([x in results for x in ['UA', 'PETITION', 'WRIT', 'HABEAS']]):
-                        ua_dates.append(datetime.strptime(order['ua_date'], date_format).date())
-            if len(ua_dates) > 0:
-                self.ua_date = min(ua_dates)
+    def _find_keywords_in_orders(self, keyword_dict, order):
+        keyword_processor = KeywordProcessor()
+        keyword_processor.add_keywords_from_dict(keyword_dict)
+        if self.case_type == 'Social Security':
+            return keyword_processor.extract_keywords(order['dkt_text'])
         else:
-            if self.partial_payment_date:
-                pass
-            else:
-                self.ua_date = None
-                self.never_ua = True
+            return keyword_processor.extract_keywords(order['ua_text'])
 
-    def _process_text(self):
-        """
-        Function to process text to find relevant dates and orders
-        """
+    def _calculate_ua_date(self):
+        ua_dates = []
+        if self.case_type == 'Social Security':
+            keyword_dict = {'MOTION': ["motion"],
+                            'LTP': ["leave to proceed"],
+                            'IFP': ["in forma"]}
+            for order in self.prose_orders:
+                results = self._find_keywords_in_orders(keyword_dict, order)
+                ua_dates = self._check_for_keyword_match_and_extract_date(results, ua_dates, order)
+        else:
+            # credit: https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python
+            # (author:fourtheye)
+            self.ua_dates = list(OrderedDict((frozenset(item.items()), item) for item in self.ua_dates).values())
+            if len(self.ua_dates) > 0:
+                keyword_dict = {'UA': ["taken under advisement"],
+                                'LTP': ["leave to proceed"],
+                                'MIFP': ["forma", "pauperis", "indigency"],
+                                'PP': ["paid", "prisoner"],
+                                'SCREENING': ["screening"],
+                                'PETITION': ["petition"],
+                                'WRIT': ["writ"],
+                                'HABEAS': ["habeas", "corpus"],
+                                "FF": ["filing", "fee"]}
+                for order in self.ua_dates:
+                    results = self._find_keywords_in_orders(keyword_dict, order)
+                    self._check_for_keyword_match_and_extract_date(results, ua_dates, order)
+
+        if len(ua_dates) > 0:
+            self.ua_date = min(ua_dates)
+        else:
+            self.ua_date = None
+            self.never_ua = True
+
+    def _check_for_keyword_match_and_extract_date(self, results, ua_dates, order):
+        if len(results) > 0:
+            if self.case_type == 'Social Security':
+                if all([x in results for x in ['MOTION', 'LTP', 'IFP']]):
+                    ua_dates.append(datetime.strptime(order['ua_date'], date_format).date())
+            else:
+                if all([x in results for x in ['UA', 'LTP', 'MIFP']]) \
+                        or all([x in results for x in ['UA', 'PP', 'SCREENING']]) \
+                        or all([x in results for x in ['MIFP', 'PETITION', 'FF']]) \
+                        or all([x in results for x in ['UA', 'PETITION', 'WRIT', 'HABEAS']]):
+                    ua_dates.append(datetime.strptime(order['ua_date'], date_format).date())
+        return ua_dates
+
+
+def _process_text(self):
+    """
+    Function to process text to find relevant dates and orders
+    """
 
 
 def _find_target_dates(df: pd.DataFrame, keywords: List[str], check_all: bool = False) -> List[tuple]:
@@ -208,14 +231,13 @@ def _find_target_dates(df: pd.DataFrame, keywords: List[str], check_all: bool = 
     return target_dates
 
 
-def _find_complaint(target: pd.DataFrame) -> CaseDates:
+def _find_complaint(case: CaseDates, target: pd.DataFrame) -> CaseDates:
     """
     Function to find the complaint date for a case.  Utilizes keywords to find initiating documents based on events. If
     multiple events found, the first date is used as the complaint filing date.  Also looks to see if any amended
     complaints were filed
 
     """
-    case = CaseDates(caseid=target['de_caseid'].iloc[0])
     cmp = target.query('dp_type == "motion" and dp_sub_type == "2255" or dp_sub_type=="cmp" or dp_sub_type=="pwrithc" '
                        'or dp_sub_type == "ntcrem" or dp_sub_type == "emerinj" or dp_sub_type == "bkntc" '
                        'or dp_sub_type == "setagr" or dp_sub_type == "tro"')
@@ -226,8 +248,12 @@ def _find_complaint(target: pd.DataFrame) -> CaseDates:
         case.complaint_date = datetime.strptime(cmp['de_date_filed'].min(), date_format).date()
         case.complaint_text = cmp['dt_text'].iloc[0]
         # check if fee was paid with complaint. docket text will contain receipt plus some combination of number or no.
-        regex = r"receipt n[a-zA-Z]"
-        match = re.search(regex, case.complaint_text.lower())
+
+        if case.nature_of_suit == 625:
+            regex = r"united st[a-z]"
+        else:
+            regex = r"receipt n[a-zA-Z]"
+        match = _check_complaint_text(case, regex)
         if match:
             case.full_fee_paid = True
             case.partial_payment_date = case.complaint_date
@@ -235,6 +261,11 @@ def _find_complaint(target: pd.DataFrame) -> CaseDates:
             # time calculations
             case.ua_date = case.complaint_date
     return case
+
+
+def _check_complaint_text(case, regex):
+    match = re.search(regex, case.complaint_text.lower())
+    return match
 
 
 def _get_transfer_date(case: CaseDates, target: pd.DataFrame) -> CaseDates:
@@ -311,7 +342,7 @@ def _get_ua_dates_for_later_processing(case_dates, target):
                 case_dates.ua_dates.append({'ua_date': row['de_date_filed'], 'ua_text': row['dt_text']})
     else:
         ua = target.loc[(target['dp_sub_type'] == 'madv') | (target['dp_sub_type'] == 'rel')
-                        | (target['dp_sub_type'] == 'termddl')]
+                        | (target['dp_sub_type'] == 'termddl') | (target['dp_sub_type'] == 'ssifpgr')]
         if not ua.empty:
             matches = ["screening", 'complaint', 'pauperis', 'habeas', 'reopen',
                        'social security', 'bankruptcy', 'prepayment', '2255']
@@ -368,9 +399,10 @@ def _get_partial_fee_paid_date(case_dates, target):
     if not fee.empty:
         fee.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
         case_dates.partial_payment_date = datetime.strptime(fee['de_date_filed'].iloc[0], date_format).date()
-        if '400' in fee['dt_text'].iloc[0]:
+        search_for = ['400', '402']
+        fee_paid_full = fee['dt_text'].str.contains('|'.join(search_for)).iloc[0]
+        if fee_paid_full:
             case_dates.full_fee_paid = True
-
     return case_dates
 
 
@@ -387,18 +419,18 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str,
     Wrapper Function to get case milestone dates for a case. Milestones include:
     Complaint, Screening, Under Advisement, IFP Motion, Dismissal, Reopen, Leave to Proceed, Pretrial Conference,
     """
-    case_dates = []
     print(Fore.BLUE + f'Getting ua dates for {case_id}...', flush=True)
     try:
-        case_dates.append({'case_id': case_id, 'case_number': case_number})
+        # case_dates.append({'case_id': case_id, 'case_number': case_number})
         # locate complaints
-        case_dates = _find_complaint(target)
+        case_dates = CaseDates(caseid=target['de_caseid'].iloc[0])
         case_dates.case_type = case_type
         case_dates.case_number = case_number
         case_dates.judge = judge
         case_dates.terminated_date = terminated_date
         case_dates.nature_of_suit = nature_of_suit
         case_dates.case_group = case_group
+        case_dates = _find_complaint(case_dates, target)
         case_dates = _get_transfer_date(case_dates, target)
         case_dates = _get_ifp_date(case_dates, target)
         case_dates = _get_screening_date(case_dates, target)
@@ -418,7 +450,11 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str,
 
 
 def _check_for_prose_orders(case_dates, target):
-    orders = target.loc[((target['dp_type'] == 'order') & (target['dp_sub_type'] == 'prose2'))]
+    # different event is used for social security cases
+    if np.isin(case_dates.nature_of_suit, [863, 864]):
+        orders = target.loc[((target['dp_type'] == 'order') & (target['dp_sub_type'] == 'ifp'))]
+    else:
+        orders = target.loc[((target['dp_type'] == 'order') & (target['dp_sub_type'] == 'prose2'))]
     if not orders.empty:
         orders.drop_duplicates(subset=['dp_seqno'], inplace=True)
         orders.sort_values(by=['de_date_filed'], inplace=True, ascending=True)
@@ -465,7 +501,7 @@ def main():
     cases.drop_duplicates(keep='first', inplace=True)
     caseids = cases['Case ID'].tolist()
 
-    # caseids = [46831]
+    # caseids = [45815]
 
     # gather information for each case and find the ua dates and deadlines
     for caseid in caseids:
