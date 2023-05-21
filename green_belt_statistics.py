@@ -3,6 +3,7 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional
+import re
 
 from flashtext import KeywordProcessor
 
@@ -224,11 +225,14 @@ def _find_complaint(target: pd.DataFrame) -> CaseDates:
         case.complaint_docnum = f'[{int(case.complaint_docnum)}]'
         case.complaint_date = datetime.strptime(cmp['de_date_filed'].min(), date_format).date()
         case.complaint_text = cmp['dt_text'].iloc[0]
-        # check if fee was paid in non-prisoner case
-        if 'receipt number' in case.complaint_text.lower():
-            case.fee_paid = True
+        # check if fee was paid with complaint. docket text will contain receipt plus some combination of number or no.
+        regex = r"receipt n[a-zA-Z]"
+        match = re.search(regex, case.complaint_text.lower())
+        if match:
+            case.full_fee_paid = True
             case.partial_payment_date = case.complaint_date
-            # although the fee was paid, we set a the ua date to the complaint date to help with future calculations
+            # although the fee was paid, we set the ua date to the complaint date to help with future elpased
+            # time calculations
             case.ua_date = case.complaint_date
     return case
 
@@ -461,7 +465,7 @@ def main():
     cases.drop_duplicates(keep='first', inplace=True)
     caseids = cases['Case ID'].tolist()
 
-    # caseids = [47755]
+    # caseids = [46831]
 
     # gather information for each case and find the ua dates and deadlines
     for caseid in caseids:
