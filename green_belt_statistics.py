@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional
 import re
+import multiprocessing
 
 import numpy as np
 from flashtext import KeywordProcessor
@@ -413,8 +414,9 @@ def _get_wadren_letter_date(case_dates, target):
     return case_dates
 
 
-def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str, case_number: str, judge: str,
-                             terminated_date: datetime, nature_of_suit: str, case_group: str) -> pd.DataFrame:
+def get_case_milestone_dates(case_id: int, case_type: str, case_number: str, judge: str,
+                             terminated_date: datetime, nature_of_suit: str, case_group: str,
+                             df_entries) -> pd.DataFrame:
     """
     Wrapper Function to get case milestone dates for a case. Milestones include:
     Complaint, Screening, Under Advisement, IFP Motion, Dismissal, Reopen, Leave to Proceed, Pretrial Conference,
@@ -423,6 +425,7 @@ def get_case_milestone_dates(case_id: int, target: pd.DataFrame, case_type: str,
     try:
         # case_dates.append({'case_id': case_id, 'case_number': case_number})
         # locate complaints
+        target = get_docker_entries_for_case(case_id, df_entries)
         case_dates = CaseDates(caseid=target['de_caseid'].iloc[0])
         case_dates.case_type = case_type
         case_dates.case_number = case_number
@@ -479,7 +482,6 @@ def main():
     # get saved docket entries
     with open('data_files/green_belt_docket_entries.pkl', 'rb') as f:
         dataframes_entries = dill.load(f)
-
     df_entries = create_dataframe_docket_entries(dataframes_entries)
     df_entries['dt_text'] = df_entries['dt_text'].str.lower()
 
@@ -490,8 +492,6 @@ def main():
     # filter dataframe to return cases where IsProse is y
     mask = cases['IsProse'] == 'y'
     cases = cases[mask]
-    # cases = cases.loc[cases['Group'] != 'Habeas Corpus']
-    # cases = cases.loc[cases['Group'] != 'Bankruptcy']
     cases[['Date Filed', 'Date Terminated', 'DateAgg']] = cases[['Date Filed', 'Date Terminated', 'DateAgg']].apply(
         pd.to_datetime, yearfirst=True,
         dayfirst=False, errors='coerce')
@@ -500,8 +500,11 @@ def main():
     cases['Case ID'] = cases['Case ID'].astype(int)
     cases.drop_duplicates(keep='first', inplace=True)
     caseids = cases['Case ID'].tolist()
-
     # caseids = [45815]
+
+    # setup multiprocessing
+    processor_count = multiprocessing.cpu_count()
+    pool = multiprocessing.Pool(processes=processor_count)
 
     # gather information for each case and find the ua dates and deadlines
     for caseid in caseids:
@@ -511,18 +514,18 @@ def main():
         termination_date = cases.loc[cases['Case ID'] == caseid, 'Date Terminated'].iloc[0]
         nature_of_suit = cases.loc[cases['Case ID'] == caseid, 'NOS'].iloc[0]
         case_group = cases.loc[cases['Case ID'] == caseid, 'Group'].iloc[0]
-        target = get_docker_entries_for_case(caseid, df_entries)
         if nature_of_suit == 510:
             print(Fore.RED + f'Case {caseid} is a motion to vacate case and will not be processed', flush=True)
         else:
-            ua_dates.append(
-                get_case_milestone_dates(caseid, target, case_type, case_number, case_judge, termination_date,
-                                         nature_of_suit, case_group))
+            pool.apply_async(get_case_milestone_dates, args=(caseid, case_type, case_number, case_judge,
+                                                             termination_date, nature_of_suit, case_group, df_entries),
+                             callback=ua_dates.append)
+    pool.close()
+    pool.join()
+
     # save objects to disk for later use
     with open('data_files/green_belt_dates.pkl', 'wb') as f:
         dill.dump(ua_dates, f)
-
-    # df = calculate_intervals(df)
 
 
 if __name__ == '__main__':
