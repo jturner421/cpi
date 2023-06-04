@@ -19,10 +19,9 @@ def _format_columns(df) -> pd.DataFrame:
     df['cs_date_term'] = pd.to_datetime(df['cs_date_term'], format='%Y-%m-%d')
     df['cs_date_reopen'] = pd.to_datetime(df['cs_date_reopen'], format='%Y-%m-%d')
     df['j5_nature_of_suit'] = df['j5_nature_of_suit'].astype('int')
-    df.columns = ['Case ID', 'Case Number', 'Judge', 'Date Filed', 'Date Reopened',
-                  'Date Terminated',
-                  'NOS',
-                  'Cause of Action', 'Diversity Plaintiff', 'Diversity Defendant', 'IsProse']
+    df.columns = ['Case ID', 'Case Number', 'Case Year', 'Judge', 'Date Filed', 'Date Reopened',
+                  'Reopen Code', 'Date Terminated',
+                  'NOS', 'Cause of Action', 'Diversity Plaintiff', 'Diversity Defendant', 'IsProse']
 
     # Creates new column used for visualizations. For reopened cases, sets the filing date to the reopened date.
     df['DateAgg'] = df.apply(
