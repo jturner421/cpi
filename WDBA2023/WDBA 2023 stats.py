@@ -55,6 +55,34 @@ def identify_year(row):
             return '2023'
 
 
+def identify_year_special(row):
+    if pd.isnull(row['Date Reopened']):
+        if row['Date Filed'] < datetime.date(2021, 4, 1):
+            return 'earlier than 2021'
+        elif row['Date Filed'] > datetime.date(2023, 3, 31):
+            return 'later than 2023'
+        elif datetime.date(2021, 4, 1) <= row['Date Filed'] <= datetime.date(2022, 3, 31):
+            return '2022'
+        elif datetime.date(2022, 4, 1) <= row['Date Filed'] <= datetime.date(2023, 3, 31):
+            return '2023'
+
+    elif row['Date Reopened'] and row['Case Year'] < 21:
+        if row['Date Reopened'] < datetime.date(2021, 4, 1):
+            return ' earlier than 2021'
+        elif datetime.date(2021, 4, 1) <= row['Date Reopened'] <= datetime.date(2022, 3, 31):
+            return '2022'
+        elif datetime.date(2022, 4, 1) <= row['Date Reopened'] <= datetime.date(2023, 3, 31):
+            return '2023'
+    else:
+        if row['Date Filed'] < datetime.date(2021, 4, 1):
+            return 'earlier than 2018'
+        elif row['Date Filed'] > datetime.date(2023, 3, 31):
+            return 'later than 2023'
+        elif datetime.date(2021, 4, 1) <= row['Date Filed'] <= datetime.date(2022, 3, 31):
+            return '2022'
+        elif datetime.date(2022, 4, 1) <= row['Date Filed'] <= datetime.date(2023, 3, 31):
+            return '2023'
+
 def annualized_projection(value, num_months):
     return int(round(value * (12 / num_months), 0))
 
@@ -62,21 +90,26 @@ def annualized_projection(value, num_months):
 def main():
     get_postgres_db_session()
     nos, deadlines = get_reflected_tables()
-    start_date = datetime.date(2018, 7, 1)
-    end_date = datetime.date(2023, 5, 31)
+    start_date = datetime.date(2021, 4, 1)
+    end_date = datetime.date(2023, 3, 31)
+    today = datetime.date.today()
+    output_dir = Path.cwd() / 'WDBA2023' / 'data_files'
+    output_raw_file = output_dir / f'wdba_stats_raw_2022_2023{today:%b-%d-%y}.csv'
+    output_processed_file = output_dir / f'wdba_stats_processed_2022_2023{today:%b-%d-%y}.csv'
     stats = get_civil_cases_by_date(start_date=start_date, end_date=end_date)
-    stats.to_csv(Path('data_files', 'wdba_stats_raw.csv'), index=False)
+    stats.to_csv(output_raw_file, index=False)
     stats = add_nos_grouping(stats, nos)
     # pro se versus civil counts
-    stats['is_prose'] = stats['IsProse'].apply(lambda x: 'pro se' if x == 'y' else 'counseled')
-    stats['statistical_year'] = stats.apply(identify_year, axis=1)
+    stats['is_prose'] = stats['IsProse'].apply(lambda x: 'prose' if x == 'y' else 'counseled')
+    stats['statistical_year'] = stats.apply(identify_year_special, axis=1)
     stats = stats[stats['statistical_year'] != 'earlier than 2018']
     stats.drop(columns=['Case ID', 'Case Year', 'Reopen Code', 'Cause of Action', 'Diversity Plaintiff',
                         'Diversity Defendant', 'DateAgg', ], inplace=True)
-    stats.rename(columns={'Case Number': ' case_number', 'Judge': 'judge', 'Date Filed': 'date_filed',
+    stats.rename(columns={'Case Number': 'case_number', 'Judge': 'judge', 'Date Filed': 'date_filed',
                           'Date Terminated': 'date_terminated', 'Date Reopened': 'date_reopened', 'Group': 'group'},
                  inplace=True)
     # remove whitespace from judge, and group columns in the dataframe
+    stats['case_number'] = stats['case_number'].str.strip()
     stats['judge'] = stats['judge'].str.strip()
     stats['group'] = stats['group'].str.strip()
 
@@ -85,7 +118,7 @@ def main():
     stats.loc[:, 'group'] = stats['group'].astype('category')
 
     # save processed file
-    stats.to_csv(Path('data_files', 'wdba_stats_processed.csv'), index=False)
+    stats.to_csv(output_processed_file, index=False)
 
     # total_cases = stats.groupby(['Case Year']).agg({'Case ID': 'count'})
     # total_cases.reset_index(inplace=True)
