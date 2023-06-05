@@ -57,18 +57,30 @@ def identify_year(row):
 
 def identify_year_special(row):
     if pd.isnull(row['Date Reopened']):
-        if row['Date Filed'] < datetime.date(2021, 4, 1):
-            return 'earlier than 2021'
+        if row['Date Filed'] < datetime.date(2018, 4, 1):
+            return 'earlier than 2018'
         elif row['Date Filed'] > datetime.date(2023, 3, 31):
             return 'later than 2023'
+        elif datetime.date(2018, 4, 1) <= row['Date Filed'] <= datetime.date(2019, 3, 31):
+            return '2019'
+        elif datetime.date(2019, 4, 1) <= row['Date Filed'] <= datetime.date(2020, 3, 31):
+            return '2020'
+        elif datetime.date(2020, 4, 1) <= row['Date Filed'] <= datetime.date(2021, 3, 31):
+            return '2021'
         elif datetime.date(2021, 4, 1) <= row['Date Filed'] <= datetime.date(2022, 3, 31):
             return '2022'
         elif datetime.date(2022, 4, 1) <= row['Date Filed'] <= datetime.date(2023, 3, 31):
             return '2023'
 
-    elif row['Date Reopened'] and row['Case Year'] < 21:
-        if row['Date Reopened'] < datetime.date(2021, 4, 1):
-            return ' earlier than 2021'
+    elif row['Date Reopened'] and row['Case Year'] < 18:
+        if row['Date Reopened'] < datetime.date(2018, 4, 1):
+            return 'earlier than 2018'
+        elif datetime.date(2018, 4, 1) <= row['Date Reopened'] <= datetime.date(2019, 3, 31):
+            return '2019'
+        elif datetime.date(2019, 4, 1) <= row['Date Reopened'] <= datetime.date(2020, 3, 31):
+            return '2020'
+        elif datetime.date(2020, 4, 1) <= row['Date Reopened'] <= datetime.date(2021, 3, 31):
+            return '2021'
         elif datetime.date(2021, 4, 1) <= row['Date Reopened'] <= datetime.date(2022, 3, 31):
             return '2022'
         elif datetime.date(2022, 4, 1) <= row['Date Reopened'] <= datetime.date(2023, 3, 31):
@@ -78,10 +90,17 @@ def identify_year_special(row):
             return 'earlier than 2018'
         elif row['Date Filed'] > datetime.date(2023, 3, 31):
             return 'later than 2023'
+        elif datetime.date(2018, 4, 1) <= row['Date Filed'] <= datetime.date(2019, 3, 31):
+            return '2019'
+        elif datetime.date(2019, 4, 1) <= row['Date Filed'] <= datetime.date(2020, 3, 31):
+            return '2020'
+        elif datetime.date(2020, 4, 1) <= row['Date Filed'] <= datetime.date(2021, 3, 31):
+            return '2021'
         elif datetime.date(2021, 4, 1) <= row['Date Filed'] <= datetime.date(2022, 3, 31):
             return '2022'
         elif datetime.date(2022, 4, 1) <= row['Date Filed'] <= datetime.date(2023, 3, 31):
             return '2023'
+
 
 def annualized_projection(value, num_months):
     return int(round(value * (12 / num_months), 0))
@@ -90,19 +109,21 @@ def annualized_projection(value, num_months):
 def main():
     get_postgres_db_session()
     nos, deadlines = get_reflected_tables()
-    start_date = datetime.date(2021, 4, 1)
+    start_date = datetime.date(2018, 4, 1)
     end_date = datetime.date(2023, 3, 31)
     today = datetime.date.today()
     output_dir = Path.cwd() / 'WDBA2023' / 'data_files'
-    output_raw_file = output_dir / f'wdba_stats_raw_2022_2023{today:%b-%d-%y}.csv'
-    output_processed_file = output_dir / f'wdba_stats_processed_2022_2023{today:%b-%d-%y}.csv'
+    output_raw_file = output_dir / f'wdba_stats_raw_{today:%b-%d-%y}.csv'
+    output_processed_file = output_dir / f'wdba_stats_processed_{today:%b-%d-%y}.csv'
     stats = get_civil_cases_by_date(start_date=start_date, end_date=end_date)
     stats.to_csv(output_raw_file, index=False)
     stats = add_nos_grouping(stats, nos)
     # pro se versus civil counts
     stats['is_prose'] = stats['IsProse'].apply(lambda x: 'prose' if x == 'y' else 'counseled')
+
     stats['statistical_year'] = stats.apply(identify_year_special, axis=1)
     stats = stats[stats['statistical_year'] != 'earlier than 2018']
+    stats = stats[stats['statistical_year'] != 'later than 2023']
     stats.drop(columns=['Case ID', 'Case Year', 'Reopen Code', 'Cause of Action', 'Diversity Plaintiff',
                         'Diversity Defendant', 'DateAgg', ], inplace=True)
     stats.rename(columns={'Case Number': 'case_number', 'Judge': 'judge', 'Date Filed': 'date_filed',
@@ -112,7 +133,7 @@ def main():
     stats['case_number'] = stats['case_number'].str.strip()
     stats['judge'] = stats['judge'].str.strip()
     stats['group'] = stats['group'].str.strip()
-
+    pd.pivot_table(stats, index=['statistical_year'], aggfunc='count', values=['case_number'])
     # change some column types to categories
     stats.loc[:, 'is_prose'] = stats['is_prose'].astype('category')
     stats.loc[:, 'group'] = stats['group'].astype('category')
